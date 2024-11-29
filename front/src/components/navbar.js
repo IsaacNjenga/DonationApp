@@ -1,31 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../assets/css/navbar.css";
 
 function Navbar() {
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          padding: "20px",
-          backgroundColor: "#007BFF",
-          color: "#fff",
-        }}
-      >
-        <Link
-          to="/"
-          style={{ color: "#fff", textDecoration: "none", fontSize: "1.2rem" }}
-        >
-          Home
-        </Link>
-        <Link
-          to="/donate"
-          style={{ color: "#fff", textDecoration: "none", fontSize: "1.2rem" }}
-        >
-          Donate
-        </Link>
-      </div>
+      <nav className="navbar">
+        <div className="navbar-logo">
+          <h2>THE HOPE PROJECT</h2>
+        </div>
+        <ul className="navbar-links">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/more">More</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/cart">Cart</Link>
+          </li>
+        </ul>
+        <button className="donate-button">
+          <Link to="/donate" className="donate-link">
+            Donate
+          </Link>
+        </button>
+      </nav>
     </>
   );
 }

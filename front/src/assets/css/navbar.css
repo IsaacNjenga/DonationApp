@@ -1,0 +1,43 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: #9a9c9e8d;
+    color: white;
+  }
+  
+  .navbar-logo h2 {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+  
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar-links li {
+    display: inline;
+  }
+  
+  .navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+  
+  .donate-button {
+    background: #ff6b6b;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+  }
+  
+  .donate-link {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+  }
+  
