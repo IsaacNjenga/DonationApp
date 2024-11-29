@@ -1,54 +1,274 @@
 .hero-section {
-    text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(to right, #919598bc, #1e5f62d0);
-    color: white;
-  }
-  
-  .hero-title {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-  }
-  
-  .hero-buttons .cta-button {
-    background-color: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    margin: 0 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .cta-button.secondary {
-    background-color: #ffe66d;
-    color: black;
-  }
-  
-  .grid-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin: 50px;
-  }
-  
-  .info-card {
-    background: rgba(255, 255, 255, 0);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .donation-link {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: 600;
-  }
-  
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(to right, #c8cacbbc, #235356d0);
+  background-image: url(../images/homebg.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color: white;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+
+.hero-buttons .cta-button {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  margin: 0 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.cta-button.secondary {
+  background-color: #ffe66d;
+  color: black;
+}
+
+.grid-section,
+.information-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 30px;
+}
+
+.information-section {
+  background-color: rgba(223, 219, 227, 0.812);
+  padding: 25px;
+  border-radius: 12px;
+  color: rgb(67, 65, 65);
+}
+
+.info-card,
+.featured-card {
+  background: rgba(255, 255, 255, 0);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.featured-card {
+  color: rgb(72, 70, 70);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #cccccc40;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: justify;
+}
+
+.donation-link {
+  color: #5288c2;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.icon-picture {
+  width: 15%;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.06);
+  outline: 4px solid rgba(255, 217, 0, 0.476);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon-picture:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.1);
+  outline: 6px solid rgba(255, 223, 0, 0.9); /* More intense outline on hover */
+}
+
+.featured-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.changing-section {
+  display: flex;
+}
+
+.changing-section-image {
+  flex: 1;
+}
+
+.holding-image {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+}
+
+.changing-section-text {
+  flex: 1;
+  color: black;
+  background-color: beige;
+  text-align: justify;
+  padding: 30px;
+  margin: 10px;
+}
+
+.volunteers-section {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.volunteers-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.volunteers-section p {
+  font-size: 1.2rem;
+  color: gray;
+  margin-bottom: 40px;
+}
+
+.volunteers-section .volunteer-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.volunteer-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.volunteer-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.volunteer-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.volunteer-card h3 {
+  font-size: 1.5rem;
+  margin: 15px 0 5px;
+  color: #333;
+}
+
+.volunteer-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.pic2 {
+  width: 100%;
+  max-height: 100%;
+  height: 100vh;
+  object-fit: cover;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.pic2:hover {
+  filter: grayscale();
+  transform: scale(1.05);
+}
+
+.testimonial-section {
+  color: black;
+}
+
+.testimonial-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  height: 65vh;
+}
+
+.testimonial-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+  text-align: center;
+}
+
+.testimonial-card p {
+  text-align: center;
+  line-height: 1.5;
+}
+
+.testimonial-card h3 {
+  padding: 5px;
+}
+
+.testimonial-image {
+  width: 20%;
+  margin: 10px;
+  border-radius: 50%;
+  height: 80px;
+  object-fit: contain;
+  border: 0.5px solid black;
+  border-color: black;
+}
+
+.numbers-bg {
+  position: relative;
+  background-image: url("../images/playingkids.jpg");
+  background-position: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.numbers-section {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.numbers-container {
+  text-align: center;
+  margin: 0 50px;
+}
+
+.numbers-container h1 {
+  color: yellow;
+  font-size: 100px;
+  margin: 0;
+}
+.numbers-container h2 {
+  margin: 0;
+  font-size: 24px;
+  color: white;
+}

@@ -18,13 +18,23 @@ function Footer() {
         }}
       >
         <div>
-          <h3 style={{ color: "#ffd700", fontSize: "1.5rem" }}>About The Hope Project</h3>
+          <h3 style={{ color: "#ffd700", fontSize: "1.5rem" }}>
+            About The Hope Project
+          </h3>
           <p style={{ fontSize: "1rem", lineHeight: "1.6" }}>
-            The Hope Project is dedicated to transforming the lives of vulnerable children by
-            providing essential resources and opportunities. Through education, healthcare, and
-            community support, we aim to create a brighter future for every child we serve.
+            The Hope Project is dedicated to transforming the lives of
+            vulnerable children by providing essential resources and
+            opportunities. Through education, healthcare, and community support,
+            we aim to create a brighter future for every child we serve.
           </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "15px", marginTop: "15px" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "15px",
+              marginTop: "15px",
+            }}
+          >
             <a href="#" style={{ color: "#ffd700", textDecoration: "none" }}>
               Facebook
             </a>
@@ -50,7 +60,7 @@ function Footer() {
           </p>
           <p style={{ marginBottom: "8px" }}>
             <strong>Email:</strong>{" "}
-            <a href="mailto:contact@email.com" style={{ color: "#ffd700", textDecoration: "none" }}>
+            <a href="#" style={{ color: "#ffd700", textDecoration: "none" }}>
               contact@email.com
             </a>
           </p>
@@ -60,7 +70,8 @@ function Footer() {
       <hr style={{ borderColor: "#555", margin: "20px 0" }} />
 
       <p style={{ fontSize: "0.9rem" }}>
-        &copy; {new Date().getFullYear()} - Uplifting Kindness Foundation. All Rights Reserved.
+        &copy; {new Date().getFullYear()} - Uplifting Kindness Foundation. All
+        Rights Reserved.
       </p>
     </footer>
   );
