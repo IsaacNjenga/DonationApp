@@ -9,30 +9,42 @@
 }
 
 .hero-title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 20px;
+  padding: 10px;
+  margin-top: 25vh;
+  font-size: 6rem;
+  font-weight: 600;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 20px;
+  margin: 60px;
   margin-bottom: 40px;
+  background-color: #47444479;
+  border-radius: 15px;
+  filter: blur(20%);
 }
 
 .hero-buttons .cta-button {
-  background-color: #ff6b6b;
-  color: white;
+  background-color: #ffe66d;
+  color: rgb(0, 0, 0);
   border: none;
-  padding: 15px 30px;
+  padding: 20px 35px;
   margin: 0 10px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 15vh;
 }
 
 .cta-button.secondary {
-  background-color: #ffe66d;
-  color: black;
+  background-color: #000000;
+  color: rgb(255, 255, 255);
 }
 
 .grid-section,
@@ -44,7 +56,7 @@
 }
 
 .information-section {
-  background-color: rgba(223, 219, 227, 0.812);
+  background-color: rgba(255, 255, 255, 0.92);
   padding: 25px;
   border-radius: 12px;
   color: rgb(67, 65, 65);
@@ -58,6 +70,37 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.info-card h2,
+.featured-card h2,
+.lives h2,
+.volunteers-section h1,
+.testimonial-section h1 {
+  color: black;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.info-card p,
+.featured-card p,
+.lives p,
+.volunteers-section p,
+.testimonial-section p {
+  color: rgb(83, 81, 81);
+}
+
+.featured-section {
+  padding-bottom: 30px;
+}
+
+.featured-section h1 {
+  color: #000000;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin-top: 13vh;
+}
+
+.featured-section p {
+  color: #444242;
+}
+
 .featured-card {
   color: rgb(72, 70, 70);
   display: flex;
@@ -66,14 +109,20 @@
   border: 1px solid #cccccc40;
   border-radius: 12px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  overflow: auto;
   text-align: justify;
+  height: 100%;
 }
 
 .donation-link {
   color: #5288c2;
   text-decoration: none;
   font-weight: 600;
+}
+
+.donation-link:hover {
+  text-decoration: underline;
+  color: #0a3767;
 }
 
 .icon-picture {
@@ -83,6 +132,7 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.06);
   outline: 4px solid rgba(255, 217, 0, 0.476);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #00000037;
 }
 
 .icon-picture:hover {
@@ -118,8 +168,19 @@
   color: black;
   background-color: beige;
   text-align: justify;
-  padding: 30px;
-  margin: 10px;
+  padding: 25px;
+  margin: 0px;
+}
+
+.changing-section-text h1 {
+  font-size: 60px;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  text-align: left;
+}
+
+.lives {
+  margin-bottom: 10px;
 }
 
 .volunteers-section {
