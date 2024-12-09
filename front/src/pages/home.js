@@ -20,6 +20,7 @@ import childrenInClass from "../assets/images/childrenInClass.jpg";
 import man1 from "../assets/images/man1.jpg";
 import man2 from "../assets/images/man2.jpg";
 import woman1 from "../assets/images/woman1.jpg";
+import Counter from "../components/counter";
 
 function Home() {
   const homeInformation = [
@@ -139,8 +140,22 @@ function Home() {
             lifetime. Your contribution will make a world of difference
           </p>
           <div className="hero-buttons">
-            <button className="cta-button">Donate Now</button>
-            <button className="cta-button secondary">About Us</button>
+            <button className="cta-button">
+              <Link
+                to="/donate"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                Donate Now
+              </Link>
+            </button>
+            <button className="cta-button secondary">
+              <Link
+                to="/about"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                About Us
+              </Link>
+            </button>
           </div>
         </div>
         <div className="information-section">
@@ -240,7 +255,7 @@ function Home() {
             <div className="numbers-section">
               {numbers.map((number) => (
                 <div key={number.id} className="numbers-container">
-                  <h1>{number.number}</h1>
+                  <h1>{<Counter targetNumber={number.number} />}</h1>
                   <h2>{number.name}</h2>
                 </div>
               ))}

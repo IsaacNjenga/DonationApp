@@ -8,6 +8,7 @@ function Donate() {
     name: "",
     amount: "",
     phoneNumber: "",
+    account: "174379",
     bankDetails: { accountNumber: "", bankName: "" },
   });
 
@@ -21,14 +22,15 @@ function Donate() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
 
     // Handle the payment process
     if (paymentMethod === "mpesa") {
       try {
         const response = await axios.post("/mpesa", {
+          name: formData.name,
           amount: formData.amount,
           phoneNumber: formData.phoneNumber,
+          account: formData.account,
         });
         console.log("M-Pesa payment response", response);
         alert(
@@ -36,7 +38,7 @@ function Donate() {
         );
       } catch (error) {
         console.error("Payment failed:", error);
-        alert("Failed to initiate payment. Please try again.");
+        alert("Failed to initiate payment. Please refresh and try again.");
       }
     }
   };
@@ -106,18 +108,36 @@ function Donate() {
           </div>
 
           {paymentMethod === "mpesa" && (
-            <input
-              type="text"
-              name="phoneNumber"
-              placeholder="M-Pesa Phone Number"
-              onChange={handleChange}
-              required
-              style={{
-                padding: "10px",
-                borderRadius: "5px",
-                border: "1px solid #ccc",
-              }}
-            />
+            <>
+              <label>
+                Paybill{" "}
+                <input
+                  type="text"
+                  name="account"
+                  placeholder="Paybill - 174379"
+                  value="174379"
+                  readOnly
+                  style={{
+                    padding: "10px",
+                    borderRadius: "5px",
+                    border: "1px solid #ccc",
+                  }}
+                />
+              </label>
+
+              <input
+                type="text"
+                name="phoneNumber"
+                placeholder="M-Pesa Phone Number"
+                onChange={handleChange}
+                required
+                style={{
+                  padding: "10px",
+                  borderRadius: "5px",
+                  border: "1px solid #ccc",
+                }}
+              />
+            </>
           )}
 
           {paymentMethod === "bank" && (
