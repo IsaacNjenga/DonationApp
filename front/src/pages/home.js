@@ -128,8 +128,9 @@ function Home() {
   return (
     <>
       {" "}
-      <Navbar />
+     
       <div className="hero-section">
+        {" "} <Navbar />
         <div className="div-background">
           <h1 className="hero-title">Bringing Hope, Changing Lives</h1>
           <p className="hero-subtitle">
