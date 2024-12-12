@@ -1,0 +1,56 @@
+.about-bg-image {
+  width: 100%;
+}
+
+.about-text {
+  text-align: center;
+  background-color: antiquewhite;
+  padding: 20px;
+}
+
+.about-text h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.about-text p {
+  width: 100%;
+  color: grey;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.numbers-background {
+  background-color: antiquewhite;
+  margin-bottom: 20px;
+  padding-bottom: 10%;
+}
+
+.about-div2,
+.about-div3 {
+  padding: 20px;
+  width: 50%;
+  margin: 20px;
+}
+
+.about-div2 h1,
+.about-div3 h1 {
+  color: black;
+  font-size: 3rem;
+  font-weight: 600;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.about-div3 {
+  background-color: antiquewhite;
+}
+
+.about-div2 p,
+.about-div3 p {
+  color: grey;
+  text-align: left;
+}
+
+.about-div4 {
+}

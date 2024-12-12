@@ -15,6 +15,7 @@
 .navbar.scrolled {
   background-color: white; /* Change to white when scrolled */
   color: #000000; /* Change text color */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Social Icons */
@@ -97,6 +98,12 @@
 
 .navbar-link:hover {
   color: yellow;
+  text-decoration: underline;
+  transform: scale(1.1);
+}
+
+.navbar.scrolled .navbar-link:hover {
+  color: rgb(205, 205, 42);
   transform: scale(1.1);
 }
 

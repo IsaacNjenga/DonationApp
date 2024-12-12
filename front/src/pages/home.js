@@ -128,9 +128,9 @@ function Home() {
   return (
     <>
       {" "}
-     
       <div className="hero-section">
-        {" "} <Navbar />
+        {" "}
+        <Navbar />
         <div className="div-background">
           <h1 className="hero-title">Bringing Hope, Changing Lives</h1>
           <p className="hero-subtitle">
@@ -256,7 +256,7 @@ function Home() {
             <div className="numbers-section">
               {numbers.map((number) => (
                 <div key={number.id} className="numbers-container">
-                  <h1>{<Counter targetNumber={number.number} />}</h1>
+                  <h1 style={{color:'yellow'}}>{<Counter targetNumber={number.number} />}</h1>
                   <h2>{number.name}</h2>
                 </div>
               ))}
