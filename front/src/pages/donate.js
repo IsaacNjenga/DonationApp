@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../components/navbar";
 import axios from "axios";
-
+import "../assets/css/donate.css";
 function Donate() {
   const [paymentMethod, setPaymentMethod] = useState("mpesa");
   const [formData, setFormData] = useState({
@@ -22,7 +22,6 @@ function Donate() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     // Handle the payment process
     if (paymentMethod === "mpesa") {
       try {
@@ -32,12 +31,32 @@ function Donate() {
           phoneNumber: formData.phoneNumber,
           account: formData.account,
         });
-        console.log("M-Pesa payment response", response);
+        // console.log("M-Pesa payment response", response);
         alert(
           "Donation initiated successfully. Check your phone to complete the payment"
         );
       } catch (error) {
         console.error("Payment failed:", error);
+        alert("Failed to initiate payment. Please refresh and try again.");
+      }
+    } else if (paymentMethod === "bank") {
+      try {
+        axios
+          .post("create-checkout-session", {
+            items: [
+              {
+                name: formData.name,
+                amount: formData.amount,
+              },
+            ],
+          })
+          .then((res) => {
+            console.log(res.data);
+            const url = res.data.url;
+            window.location.href = url;
+          });
+      } catch (error) {
+        console.log(error);
         alert("Failed to initiate payment. Please refresh and try again.");
       }
     }
@@ -49,7 +68,7 @@ function Donate() {
       <div
         style={{
           padding: "50px",
-          backgroundColor: "#f9f9f9",
+          backgroundColor: "whitesmoke",
           borderRadius: "8px",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
           maxWidth: "600px",
@@ -61,6 +80,27 @@ function Donate() {
           onSubmit={handleSubmit}
           style={{ display: "flex", flexDirection: "column", gap: "15px" }}
         >
+          <div style={{ display: "flex", gap: "20px", marginTop: "10px" }}>
+            <label style={{ display: "flex", alignItems: "center" }}>
+              <input
+                type="radio"
+                value="mpesa"
+                checked={paymentMethod === "mpesa"}
+                onChange={() => handlePaymentMethodChange("mpesa")}
+              />
+              <span style={{ marginLeft: "8px" }}>M-Pesa</span>
+            </label>
+            <label style={{ display: "flex", alignItems: "center" }}>
+              <input
+                type="radio"
+                value="bank"
+                checked={paymentMethod === "bank"}
+                onChange={() => handlePaymentMethodChange("bank")}
+              />
+              <span style={{ marginLeft: "8px" }}>Bank Transfer</span>
+            </label>
+          </div>
+
           <input
             type="text"
             name="name"
@@ -85,27 +125,6 @@ function Donate() {
               border: "1px solid #ccc",
             }}
           />
-
-          <div style={{ display: "flex", gap: "20px", marginTop: "10px" }}>
-            <label style={{ display: "flex", alignItems: "center" }}>
-              <input
-                type="radio"
-                value="mpesa"
-                checked={paymentMethod === "mpesa"}
-                onChange={() => handlePaymentMethodChange("mpesa")}
-              />
-              <span style={{ marginLeft: "8px" }}>M-Pesa</span>
-            </label>
-            <label style={{ display: "flex", alignItems: "center" }}>
-              <input
-                type="radio"
-                value="bank"
-                checked={paymentMethod === "bank"}
-                onChange={() => handlePaymentMethodChange("bank")}
-              />
-              <span style={{ marginLeft: "8px" }}>Bank Transfer</span>
-            </label>
-          </div>
 
           {paymentMethod === "mpesa" && (
             <>
@@ -140,34 +159,7 @@ function Donate() {
             </>
           )}
 
-          {paymentMethod === "bank" && (
-            <>
-              <input
-                type="text"
-                name="accountNumber"
-                placeholder="Bank Account Number"
-                onChange={handleChange}
-                required
-                style={{
-                  padding: "10px",
-                  borderRadius: "5px",
-                  border: "1px solid #ccc",
-                }}
-              />
-              <input
-                type="text"
-                name="bankName"
-                placeholder="Bank Name"
-                onChange={handleChange}
-                required
-                style={{
-                  padding: "10px",
-                  borderRadius: "5px",
-                  border: "1px solid #ccc",
-                }}
-              />
-            </>
-          )}
+          {paymentMethod === "bank" && <></>}
 
           <button
             type="submit"

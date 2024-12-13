@@ -1,7 +1,11 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import { Router } from "./routes/routes.js";
+
+console.log("Environment Variables:", process.env.STRIPE_PRIVATE_KEY);
 
 const app = express();
 app.use(bodyParser.json());

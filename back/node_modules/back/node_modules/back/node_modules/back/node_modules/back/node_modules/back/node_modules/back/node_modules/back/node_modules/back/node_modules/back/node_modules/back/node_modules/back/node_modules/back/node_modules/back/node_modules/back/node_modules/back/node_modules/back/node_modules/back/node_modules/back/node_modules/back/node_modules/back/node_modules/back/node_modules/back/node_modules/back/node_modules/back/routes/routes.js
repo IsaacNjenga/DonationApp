@@ -47,7 +47,8 @@ router.post("/callback", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
 //bank endpoint
-router.post("/bank", bankDonate);
+router.post("/create-checkout-session", bankDonate);
 
 export { router as Router };
