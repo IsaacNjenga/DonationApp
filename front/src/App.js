@@ -7,8 +7,8 @@ import About from "./pages/about";
 import Success from "./pages/success";
 import Cancel from "./pages/cancel";
 
-axios.defaults.baseURL = "http://localhost:3001/donate";
-//axios.defaults.baseURL = "https://donation-app-umber.vercel.app/donate";
+//axios.defaults.baseURL = "http://localhost:3001/donate";
+axios.defaults.baseURL = "https://donation-app-umber.vercel.app/donate";
 axios.defaults.withCredentials = true;
 
 const router = createBrowserRouter([
