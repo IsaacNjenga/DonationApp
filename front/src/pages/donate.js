@@ -25,7 +25,7 @@ function Donate() {
     // Handle the payment process
     if (paymentMethod === "mpesa") {
       try {
-        const response = await axios.post("/mpesa", {
+        await axios.post("/mpesa", {
           name: formData.name,
           amount: formData.amount,
           phoneNumber: formData.phoneNumber,

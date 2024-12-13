@@ -12,7 +12,7 @@ if (!stripePrivateKey) {
 const stripe = new Stripe(process.env.STRIPE_PRIVATE_KEY);
 
 const bankDonate = async (req, res) => {
-  console.log(req.body);
+  //console.log(req.body);
   // const { items, name, amount } = req.body;
   // if (!items || !Array.isArray(items)) {
   //   return res.status(400).json({ error: "Invalid items in request body" });

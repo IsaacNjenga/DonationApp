@@ -1,17 +1,29 @@
 import React from "react";
 import Navbar from "../components/navbar";
 import { Link } from "react-router-dom";
+import "../assets/css/cancel.css";
 
 function Cancel() {
   return (
     <>
-      <Navbar />
-      <div>
-        <h1>Cancel</h1>
-        <p>
-          It seems like your donation did not go through. Click{" "}
-          <Link to="/donate">here</Link> to try again{" "}
-        </p>
+      {" "}
+      <div className="container">
+        <div className="navbar-element">
+          <Navbar />
+        </div>
+        <div className="inner-div">
+          <div className="message-container">
+            {" "}
+            <h1 className="title">Donation Cancelled</h1>
+            <p className="message">
+              It seems your donation didn’t go through. Don’t worry, you can try
+              again anytime.
+            </p>
+            <Link to="/donate" className="tryAgainButton">
+              Try Again
+            </Link>
+          </div>
+        </div>
       </div>
     </>
   );

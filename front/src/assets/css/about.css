@@ -1,5 +1,25 @@
+.about-container {
+  text-align: center;
+  padding: 20px 0px;
+  background: url(../images/aboutbg1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.about-content {
+  margin-top: 30%;
+}
+
+.h1-color {
+  color: black;
+}
+
 .about-bg-image {
   width: 100%;
+}
+
+.numbers-container h1 {
+  color: black;
 }
 
 .about-text {
@@ -10,6 +30,7 @@
 
 .about-text h1 {
   font-size: 4rem;
+  color: black;
   font-weight: 600;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
@@ -27,18 +48,30 @@
   padding-bottom: 10%;
 }
 
+.about-div2 {
+  display: flex;
+  text-align: right;
+  justify-content: flex-end; /* Aligns the content to the right side */
+}
+
+.about-div2-text {
+}
+
 .about-div2,
 .about-div3 {
-  padding: 20px;
-  width: 50%;
-  margin: 20px;
+  padding: 15px;
+  margin: 15px;
+}
+
+.about-div3-text,
+.about-div2-text {
+  width: 45%;
 }
 
 .about-div2 h1,
 .about-div3 h1 {
   color: black;
-  font-size: 3rem;
-  font-weight: 600;
+  font-size: 3.2rem;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
@@ -46,11 +79,78 @@
   background-color: antiquewhite;
 }
 
-.about-div2 p,
 .about-div3 p {
-  color: grey;
   text-align: left;
 }
 
+.about-div2 p,
+.about-div3 p {
+  color: rgb(82, 82, 82);
+  width: 100%;
+}
+.about-footer-bg {
+  background-image: linear-gradient(
+      to right,
+      rgba(60, 9, 9, 0.544),
+      rgba(192, 199, 210, 0.364)
+    ),
+    url(../images/aboutbg2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 150px 20px;
+}
 .about-div4 {
+  text-align: left;
+  width: 60%;
+  margin: 10px 20px;
+}
+
+.about-div4 p,
+h1 {
+  color: white;
+}
+
+.about-div4 h1 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 3.5rem;
+}
+
+.about-div4 button {
+  background-color: rgb(218, 218, 10);
+  padding: 20px 30px;
+  color: black;
+  font-size: 1.2rem;
+  border-style: none;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 5px;
+}
+
+.about-div4 button:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  background-color: yellow;
+}
+
+.div4-text {
+  text-align: left;
+  width: 77%;
+  padding-bottom: 18px;
+  word-spacing: 1px;
+}
+
+.call {
+  font-size: 1.6rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: bold;
+}
+
+.about-highlight {
+  color: yellow;
+}
+
+.about-underline {
+  color: rgb(255, 255, 255);
 }
