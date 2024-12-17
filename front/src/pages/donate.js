@@ -6,10 +6,11 @@ function Donate() {
   const [paymentMethod, setPaymentMethod] = useState("mpesa");
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
     amount: "",
     phoneNumber: "",
     account: "174379",
-    bankDetails: { accountNumber: "", bankName: "" },
+    //bankDetails: { accountNumber: "", bankName: "" },
   });
 
   const handleChange = (e) => {
@@ -22,44 +23,56 @@ function Donate() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    await axios
+      .post("initiate-payment", {
+        email: formData.email,
+        amount: formData.amount,
+        phoneNumber: formData.phoneNumber,
+      })
+      .then((res) => {
+        console.log(res);
+        const url = res.data.redirectUrl;
+        window.location.href = url;
+      })
+      .catch((err) => console.log(err));
     // Handle the payment process
-    if (paymentMethod === "mpesa") {
-      try {
-        await axios.post("/mpesa", {
-          name: formData.name,
-          amount: formData.amount,
-          phoneNumber: formData.phoneNumber,
-          account: formData.account,
-        });
-        // console.log("M-Pesa payment response", response);
-        alert(
-          "Donation initiated successfully. Check your phone to complete the payment"
-        );
-      } catch (error) {
-        console.error("Payment failed:", error);
-        alert("Failed to initiate payment. Please refresh and try again.");
-      }
-    } else if (paymentMethod === "bank") {
-      try {
-        axios
-          .post("create-checkout-session", {
-            items: [
-              {
-                name: formData.name,
-                amount: formData.amount,
-              },
-            ],
-          })
-          .then((res) => {
-            console.log(res.data);
-            const url = res.data.url;
-            window.location.href = url;
-          });
-      } catch (error) {
-        console.log(error);
-        alert("Failed to initiate payment. Please refresh and try again.");
-      }
-    }
+    // if (paymentMethod === "mpesa") {
+    //   try {
+    //     await axios.post("/mpesa", {
+    //       name: formData.name,
+    //       amount: formData.amount,
+    //       phoneNumber: formData.phoneNumber,
+    //       account: formData.account,
+    //     });
+    //     // console.log("M-Pesa payment response", response);
+    //     alert(
+    //       "Donation initiated successfully. Check your phone to complete the payment"
+    //     );
+    //   } catch (error) {
+    //     console.error("Payment failed:", error);
+    //     alert("Failed to initiate payment. Please refresh and try again.");
+    //   }
+    // } else if (paymentMethod === "bank") {
+    //   try {
+    //     axios
+    //       .post("create-checkout-session", {
+    //         items: [
+    //           {
+    //             name: formData.name,
+    //             amount: formData.amount,
+    //           },
+    //         ],
+    //       })
+    //       .then((res) => {
+    //         console.log(res.data);
+    //         const url = res.data.url;
+    //         window.location.href = url;
+    //       });
+    //   } catch (error) {
+    //     console.log(error);
+    //     alert("Failed to initiate payment. Please refresh and try again.");
+    //   }
+    // }
   };
 
   return (
@@ -80,7 +93,7 @@ function Donate() {
           onSubmit={handleSubmit}
           style={{ display: "flex", flexDirection: "column", gap: "15px" }}
         >
-          <div style={{ display: "flex", gap: "20px", marginTop: "10px" }}>
+          {/* <div style={{ display: "flex", gap: "20px", marginTop: "10px" }}>
             <label style={{ display: "flex", alignItems: "center" }}>
               <input
                 type="radio"
@@ -99,8 +112,8 @@ function Donate() {
               />
               <span style={{ marginLeft: "8px" }}>Bank Transfer</span>
             </label>
-          </div>
-
+          </div> */}
+          {/* 
           <input
             type="text"
             name="name"
@@ -159,8 +172,43 @@ function Donate() {
             </>
           )}
 
-          {paymentMethod === "bank" && <></>}
-
+          {paymentMethod === "bank" && <></>} */}
+          <label>Email</label>
+          <input
+            type="email"
+            onChange={handleChange}
+            name="email"
+            required
+            style={{
+              padding: "10px",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+            }}
+          />
+          <label>PhoneNumber</label>
+          <input
+            type="number"
+            onChange={handleChange}
+            name="phoneNumber"
+            required
+            style={{
+              padding: "10px",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+            }}
+          />
+          <label>Amount</label>
+          <input
+            type="number"
+            onChange={handleChange}
+            name="amount"
+            required
+            style={{
+              padding: "10px",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+            }}
+          />
           <button
             type="submit"
             style={{

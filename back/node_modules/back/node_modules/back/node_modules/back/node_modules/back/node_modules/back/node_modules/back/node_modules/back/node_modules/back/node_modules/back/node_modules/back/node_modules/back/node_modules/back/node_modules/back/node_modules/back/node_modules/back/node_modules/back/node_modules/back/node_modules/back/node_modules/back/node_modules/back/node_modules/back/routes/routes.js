@@ -3,6 +3,8 @@ import express from "express";
 import { stkpush } from "../controllers/mpesaController.js";
 import { generateToken } from "../middleware/generateToken.js";
 import { bankDonate } from "../controllers/bankController.js";
+import { accessToken } from "../middleware/accessToken.js";
+import { pesapal } from "../controllers/pesapalController.js";
 
 const router = express.Router();
 
@@ -50,5 +52,8 @@ router.post("/callback", async (req, res) => {
 
 //bank endpoint
 router.post("/create-checkout-session", bankDonate);
+
+//pesapal endpoint
+router.post("/initiate-payment", accessToken, pesapal);
 
 export { router as Router };
