@@ -13,7 +13,7 @@ const pesapal = async (req, res) => {
       currency: "USD",
       description: "Test Payment",
       callback_url:
-        " https://8598-105-163-158-133.ngrok-free.app/payment-callback", // Your callback URL
+        "https://donation-app-umber.vercel.app/donate/payment-callback", // Your callback URL
       notification_id: process.env.PESAPAL_IPN_ID, // Leave blank if you're not using IPN
       billing_address: {
         email: email,

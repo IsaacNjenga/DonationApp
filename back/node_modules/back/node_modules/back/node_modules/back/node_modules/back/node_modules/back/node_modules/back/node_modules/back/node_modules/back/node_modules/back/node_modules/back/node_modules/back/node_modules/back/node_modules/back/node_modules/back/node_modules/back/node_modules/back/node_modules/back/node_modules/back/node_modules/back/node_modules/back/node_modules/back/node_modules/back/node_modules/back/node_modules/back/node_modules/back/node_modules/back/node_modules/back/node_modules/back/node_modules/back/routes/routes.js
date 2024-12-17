@@ -51,7 +51,7 @@ router.post("/callback", async (req, res) => {
 });
 
 //bank endpoint
-router.post("/create-checkout-session", bankDonate);
+//router.post("/create-checkout-session", bankDonate);
 
 //pesapal endpoint
 router.post("/initiate-payment", accessToken, pesapal);

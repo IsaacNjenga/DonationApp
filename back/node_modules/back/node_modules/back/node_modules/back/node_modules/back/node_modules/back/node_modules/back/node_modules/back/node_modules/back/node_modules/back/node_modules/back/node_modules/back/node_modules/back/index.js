@@ -13,7 +13,7 @@ const corsOptions = {
   origin: ["http://localhost:3000", "https://donation-app-front.vercel.app"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
-  allowedHeaders: ["Content-Type", "Authorization"],
+  allowedHeaders: ["Content-Type", "Authorization", "Accept"],
   optionsSuccessStatus: 200,
 };
 

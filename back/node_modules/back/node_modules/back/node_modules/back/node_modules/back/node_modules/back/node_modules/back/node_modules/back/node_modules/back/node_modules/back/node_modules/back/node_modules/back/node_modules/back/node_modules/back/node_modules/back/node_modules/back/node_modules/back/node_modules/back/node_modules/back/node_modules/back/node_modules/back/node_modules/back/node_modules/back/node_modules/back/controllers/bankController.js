@@ -6,7 +6,7 @@ const stripePrivateKey = process.env.STRIPE_PRIVATE_KEY;
 
 if (!stripePrivateKey) {
   throw new Error(
-    "Stripe secret key is not defined in the environment variables"
+    "Stripe private key is not defined in the environment variables"
   );
 }
 const stripe = new Stripe(process.env.STRIPE_PRIVATE_KEY);
