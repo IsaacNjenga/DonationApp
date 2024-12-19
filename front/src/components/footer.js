@@ -1,5 +1,10 @@
 import React from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSquareXTwitter,
+  faInstagram,
+  faFacebook,
+} from "@fortawesome/free-brands-svg-icons";
 function Footer() {
   return (
     <footer
@@ -36,13 +41,13 @@ function Footer() {
             }}
           >
             <a href="#" style={{ color: "#ffd700", textDecoration: "none" }}>
-              Facebook
+              <FontAwesomeIcon icon={faFacebook} className="icon" />
             </a>
             <a href="#" style={{ color: "#ffd700", textDecoration: "none" }}>
-              X
+              <FontAwesomeIcon icon={faSquareXTwitter} className="icon" />
             </a>
             <a href="#" style={{ color: "#ffd700", textDecoration: "none" }}>
-              Insta
+              <FontAwesomeIcon icon={faInstagram} className="icon" />{" "}
             </a>
           </div>
         </div>

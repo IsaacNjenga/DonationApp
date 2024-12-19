@@ -9,6 +9,7 @@ import peopleIcon from "../assets/icons/people.png";
 import projectIcon from "../assets/icons/project.png";
 import missionIcon from "../assets/icons/mission.png";
 import donationIcon from "../assets/icons/donation.png";
+import { Link } from "react-router-dom";
 
 function About() {
   const topNumbers = [
@@ -23,7 +24,13 @@ function About() {
         <div className="navbar-element">
           <Navbar />
         </div>{" "}
-        <h1 style={{ color: "white" }}>About</h1>
+        <h1 style={{ color: "white", marginBottom: "25px" }}>About</h1>{" "}
+        <h4 style={{ color: "white" }}>
+          <Link to="/" className="home-link">
+            HOME
+          </Link>{" "}
+          &gt; CONTACT
+        </h4>
         <div className="about-content">
           {/* <img src={Aboutbg} alt="_" className="about-bg-image" /> */}
           <div className="about-background"></div>

@@ -64,6 +64,16 @@ function Navbar() {
               Cart
             </Link>
           </li>
+          <li>
+            <Link to="/contact" className="navbar-link">
+              Contact
+            </Link>
+          </li>
+          <li>
+            <Link to="/volunteer" className="navbar-link">
+              Volunteer
+            </Link>
+          </li>
         </ul>
         <button className="donate-button">
           <Link to="/donate" className="donate-link">

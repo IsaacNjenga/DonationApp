@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .hero-section {
   text-align: center;
   padding: 20px 20px;
@@ -177,6 +181,7 @@
   font-weight: bold;
   font-family: "Times New Roman", Times, serif;
   text-align: left;
+  color: #000000;
 }
 
 .lives {
@@ -318,16 +323,21 @@
   align-items: center;
 }
 
-.numbers-container {
+.home-numbers-container {
   text-align: center;
   margin: 0 50px;
 }
 
-.numbers-container h1 {
+.home-numbers-container h1 {
   font-size: 100px;
   margin: 0;
+  color: yellow;
 }
-.numbers-container h2 {
+
+#numbers {
+  color: yellow;
+}
+.home-numbers-container h2 {
   margin: 0;
   font-size: 24px;
   color: white;

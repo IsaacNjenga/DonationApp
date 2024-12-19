@@ -57,7 +57,7 @@
 }
 
 .navbar-logo .highlight {
-  color: yellow;
+  color: #f7b500;
   transition: color 0.3s ease;
 }
 
@@ -66,7 +66,7 @@
 }
 
 .navbar.scrolled .navbar-logo .highlight {
-  color: yellow; /* Highlight color adjustment */
+  color: #f7b500; /* Highlight color adjustment */
 }
 
 /* Navigation Links */
@@ -97,7 +97,7 @@
 }
 
 .navbar-link:hover {
-  color: yellow;
+  color: #f7b500;
   text-decoration: underline;
   transform: scale(1.1);
 }
@@ -109,8 +109,8 @@
 
 /* Donate Button */
 .donate-button {
-  background: yellow;
-  color: #f43636;
+  background: #f7b500;
+  color: #000000;
   border: none;
   border-radius: 8px;
   padding: 10px 20px;
@@ -124,7 +124,7 @@
 }
 
 .donate-button:hover {
-  background-color: #f8d200;
+  background-color: #f7b500;
   transform: scale(1.1);
 }
 

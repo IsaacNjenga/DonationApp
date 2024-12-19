@@ -54,9 +54,6 @@
   justify-content: flex-end; /* Aligns the content to the right side */
 }
 
-.about-div2-text {
-}
-
 .about-div2,
 .about-div3 {
   padding: 15px;
@@ -153,4 +150,28 @@ h1 {
 
 .about-underline {
   color: rgb(255, 255, 255);
+}
+.numbers-container {
+  text-align: center;
+  margin: 0 50px;
+}
+
+.numbers-container h1 {
+  font-size: 100px;
+  margin: 0;
+  color: black;
+}
+.numbers-container h2 {
+  margin: 0;
+  font-size: 24px;
+  color: white;
+}
+
+.home-link {
+  color: yellow;
+  text-decoration: none;
+}
+.home-link:hover {
+  color: rgb(196, 216, 7);
+  text-decoration: underline;
 }

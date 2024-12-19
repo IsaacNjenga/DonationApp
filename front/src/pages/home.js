@@ -125,6 +125,7 @@ function Home() {
     { id: 3, number: 987, name: "Projects" },
     { id: 4, number: 320, name: "Missions" },
   ];
+
   return (
     <>
       {" "}
@@ -163,7 +164,12 @@ function Home() {
           {homeInformation.map((information) => (
             <div key={information.id} className="info-card">
               <div>
-                <img src={information.icon} alt="_" className="icon-picture" />
+                <img
+                  src={information.icon}
+                  alt="_"
+                  className="icon-picture"
+                  loading="lazy"
+                />
                 <h2>{information.title}</h2>
                 <p>{information.body}</p>
                 <Link to="/donation" className="donation-link">
@@ -182,7 +188,12 @@ function Home() {
             {featuredCases.map((cases) => (
               <div key={cases.id} className="featured-card">
                 <div>
-                  <img src={cases.image} alt="_" className="featured-image" />
+                  <img
+                    src={cases.image}
+                    alt="_"
+                    className="featured-image"
+                    loading="lazy"
+                  />
                   <h2>{cases.title}</h2>
                   <p>{cases.body}</p>
                 </div>
@@ -192,7 +203,12 @@ function Home() {
         </div>
         <div className="changing-section">
           <div className="changing-section-image">
-            <img src={holdingChild} alt="_" className="holding-image" />
+            <img
+              src={holdingChild}
+              alt="_"
+              className="holding-image"
+              loading="lazy"
+            />
           </div>
           <div className="changing-section-text">
             <h1>How you're changing children's lives</h1>
@@ -224,6 +240,7 @@ function Home() {
                   src={volunteer.image}
                   alt="_"
                   className="volunteer-image"
+                  loading="lazy"
                 />
                 <h3>{volunteer.name}</h3>
                 <p>{volunteer.title}</p>
@@ -232,7 +249,7 @@ function Home() {
           </div>
         </div>
         <div>
-          <img src={childrenInClass} alt="_" className="pic2" />
+          <img src={childrenInClass} alt="_" className="pic2" loading="lazy" />
         </div>
         <div className="testimonial-section">
           <h1>Testimonials</h1>
@@ -245,6 +262,7 @@ function Home() {
                   src={testimonial.image}
                   alt="_"
                   className="testimonial-image"
+                  loading="lazy"
                 />
                 <h3>{testimonial.name}</h3>
               </div>
@@ -255,8 +273,10 @@ function Home() {
           <div className="overlay">
             <div className="numbers-section">
               {numbers.map((number) => (
-                <div key={number.id} className="numbers-container">
-                  <h1 style={{color:'yellow'}}>{<Counter targetNumber={number.number} />}</h1>
+                <div key={number.id} className="home-numbers-container">
+                  <h1 id="numbers">
+                    {<Counter targetNumber={number.number} />}
+                  </h1>
                   <h2>{number.name}</h2>
                 </div>
               ))}
