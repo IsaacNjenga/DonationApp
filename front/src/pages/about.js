@@ -2,8 +2,6 @@ import React from "react";
 import Navbar from "../components/navbar";
 import Counter from "../components/counter";
 import Footer from "../components/footer";
-import Aboutbg from "../assets/images/aboutbg1.jpg";
-import Aboutbg2 from "../assets/images/aboutbg2.jpg";
 import "../assets/css/about.css";
 import peopleIcon from "../assets/icons/people.png";
 import projectIcon from "../assets/icons/project.png";
@@ -29,7 +27,7 @@ function About() {
           <Link to="/" className="home-link">
             HOME
           </Link>{" "}
-          &gt; CONTACT
+          &gt; ABOUT
         </h4>
         <div className="about-content">
           {/* <img src={Aboutbg} alt="_" className="about-bg-image" /> */}
