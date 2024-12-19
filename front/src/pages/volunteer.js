@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/navbar";
-import image from "../assets/images/michael.jpg";
+import image from "../assets/images/eunice.jpg";
 import { Link } from "react-router-dom";
 import "../assets/css/volunteer.css";
 import Footer from "../components/footer";
@@ -135,3 +135,4 @@ function Volunteer() {
 }
 
 export default Volunteer;
+// 'Yeseva One', Sans-Serif

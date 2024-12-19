@@ -252,19 +252,19 @@ html {
   transition: filter 0.3s ease, transform 0.3s ease;
 }
 .pic2:hover {
-  filter: grayscale();
-  transform: scale(1.05);
+  filter: grayscale(30%);
+  transform: scale(1.01);
 }
 
 .testimonial-section {
   color: black;
+  margin-bottom: 30px;
 }
 
 .testimonial-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  height: 65vh;
+  gap: 30px;
 }
 
 .testimonial-card {
@@ -285,19 +285,18 @@ html {
   padding: 5px;
 }
 
-.testimonial-image {
-  width: 20%;
-  margin: 10px;
-  border-radius: 50%;
-  height: 80px;
-  object-fit: contain;
-  border: 0.5px solid black;
-  border-color: black;
+.testimonial-profile-image {
+  width: 200px; /* Explicitly set width */
+  height: 200px; /* Match height to width for a perfect circle */
+  margin: 10px auto; /* Center the image horizontally within its container */
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: contain; /* Ensures the image fills the circular area */
+  border: 1px solid rgb(255, 255, 255);
 }
 
 .numbers-bg {
   position: relative;
-  background-image: url("../images/playingkids.jpg");
+  background-image: url("../images/pic2.jpg");
   background-position: 100%;
   background-repeat: no-repeat;
   background-size: cover;

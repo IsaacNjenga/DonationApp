@@ -1,0 +1,41 @@
+.icon-wrapper {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ffd900;
+  color: #222;
+  margin-right: 10px;
+}
+
+.social-icon {
+  font-size: 1.8rem;
+}
+
+.about-footer {
+  margin-right: 10px;
+  border-right: 1px solid #555;
+}
+
+.contact-info-footer {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack items vertically */
+}
+
+.contact-item {
+  display: flex; /* Use flexbox for each contact item */
+  align-items: center; /* Center items vertically */
+  margin-bottom: 10px; /* Space between items */
+}
+
+.icon-wrapper {
+  margin-right: 10px; /* Space between icon and text */
+}
+
+.main-footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 10px;
+}

@@ -5,6 +5,13 @@ import {
   faInstagram,
   faFacebook,
 } from "@fortawesome/free-brands-svg-icons";
+import {
+  faAt,
+  faLocationDot,
+  faMobile,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
+import "../assets/css/footer.css";
 function Footer() {
   return (
     <footer
@@ -15,14 +22,9 @@ function Footer() {
         textAlign: "center",
       }}
     >
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: "20px",
-        }}
-      >
-        <div>
+      <div className="main-footer">
+        {/* About Section */}
+        <div className="about-footer">
           <h3 style={{ color: "#ffd700", fontSize: "1.5rem" }}>
             About The Hope Project
           </h3>
@@ -41,35 +43,58 @@ function Footer() {
             }}
           >
             <a href="#" style={{ color: "#ffd700", textDecoration: "none" }}>
-              <FontAwesomeIcon icon={faFacebook} className="icon" />
+              <FontAwesomeIcon icon={faFacebook} className="social-icon" />
             </a>
             <a href="#" style={{ color: "#ffd700", textDecoration: "none" }}>
-              <FontAwesomeIcon icon={faSquareXTwitter} className="icon" />
+              <FontAwesomeIcon
+                icon={faSquareXTwitter}
+                className="social-icon"
+              />
             </a>
             <a href="#" style={{ color: "#ffd700", textDecoration: "none" }}>
-              <FontAwesomeIcon icon={faInstagram} className="icon" />{" "}
+              <FontAwesomeIcon icon={faInstagram} className="social-icon" />
             </a>
           </div>
         </div>
 
+        {/* Contact Info Section */}
         <div>
-          <h3 style={{ color: "#ffd700", fontSize: "1.5rem" }}>Contact Info</h3>
-          <p style={{ marginBottom: "8px" }}>
-            <strong>Address:</strong> 00100, Nairobi, Kenya
-          </p>
-          <p style={{ marginBottom: "8px" }}>
-            <strong>Phone:</strong> +2547-4385-4495
-          </p>
-          <p style={{ marginBottom: "8px" }}>
-            <strong>Mobile:</strong> +2547-2373-6651
-          </p>
-          <p style={{ marginBottom: "8px" }}>
-            <strong>Email:</strong>{" "}
-            <a href="#" style={{ color: "#ffd700", textDecoration: "none" }}>
-              contact@email.com
-            </a>
-          </p>
-        </div>
+  <h3 style={{ color: "#ffd700", fontSize: "1.5rem" }}>Contact Info</h3>
+  <div className="contact-info-footer">
+    <div className="contact-item">
+      <span className="icon-wrapper">
+        <FontAwesomeIcon icon={faLocationDot} />
+      </span>
+      <p>00100, Nairobi, Kenya</p>
+    </div>
+
+    <div className="contact-item">
+      <span className="icon-wrapper">
+        <FontAwesomeIcon icon={faPhone} />
+      </span>
+      <p>+2547-4385-4495</p>
+    </div>
+
+    <div className="contact-item">
+      <span className="icon-wrapper">
+        <FontAwesomeIcon icon={faMobile} />
+      </span>
+      <p>+2547-2373-6651</p>
+    </div>
+
+    <div className="contact-item">
+      <span className="icon-wrapper">
+        <FontAwesomeIcon icon={faAt} />
+      </span>
+      <a
+        href="mailto:janekimani630@gmail.com"
+        style={{ color: "white", textDecoration: "none" }}
+      >
+        janekimani630@gmail.com
+      </a>
+    </div>
+  </div>
+</div>
       </div>
 
       <hr style={{ borderColor: "#555", margin: "20px 0" }} />

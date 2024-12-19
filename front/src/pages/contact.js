@@ -1,5 +1,6 @@
 import {
   faClock,
+  faEnvelope,
   faLocationDot,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
@@ -36,6 +37,20 @@ function Contact() {
       title: "Phone",
       info: "1-555-123-4567",
       info2: "1-800-123-4567",
+    },
+    {
+      id: 4,
+      icon: <FontAwesomeIcon icon={faEnvelope} />,
+      title: "Email",
+      info: (
+        <a
+          href="mailto:janekimani630@gmail.com"
+          style={{ color: "#ffd700", textDecoration: "none" }}
+        >
+          janekimani630@gmail.com
+        </a>
+      ),
+      info2: "",
     },
   ];
 

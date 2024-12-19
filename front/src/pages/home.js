@@ -12,11 +12,11 @@ import foodImage from "../assets/images/food.jpg";
 import educationImage from "../assets/images/education.jpg";
 import waterImage from "../assets/images/water.jpg";
 import holdingChild from "../assets/images/holdingChild.jpg";
-import jane from "../assets/images/jane.jpg";
-import eunice from "../assets/images/eunice.jpg";
+import jane from "../assets/images/ceo.jpg";
+import eunice from "../assets/images/manager.jpg";
 import michael from "../assets/images/michael.jpg";
 import stacy from "../assets/images/stacy.jpg";
-import childrenInClass from "../assets/images/childrenInClass.jpg";
+import childrenInClass from "../assets/images/pic.jpg";
 import man1 from "../assets/images/man1.jpg";
 import man2 from "../assets/images/man2.jpg";
 import woman1 from "../assets/images/woman1.jpg";
@@ -251,24 +251,27 @@ function Home() {
         <div>
           <img src={childrenInClass} alt="_" className="pic2" loading="lazy" />
         </div>
+
         <div className="testimonial-section">
           <h1>Testimonials</h1>
           <p style={{ color: "gray" }}>Support key initiatives that matter.</p>
           <div className="testimonial-container">
             {testimonials.map((testimonial) => (
               <div key={testimonial.id} className="testimonial-card">
-                <p>"{testimonial.body}"</p>
                 <img
                   src={testimonial.image}
                   alt="_"
-                  className="testimonial-image"
+                  className="testimonial-profile-image"
                   loading="lazy"
                 />
+                <p>"{testimonial.body}"</p>
+
                 <h3>{testimonial.name}</h3>
               </div>
             ))}
           </div>
         </div>
+
         <div className="numbers-bg">
           <div className="overlay">
             <div className="numbers-section">
