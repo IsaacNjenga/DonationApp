@@ -93,8 +93,8 @@ function Home() {
 
   const volunteers = [
     { id: 1, name: "Jane N. Kimani", title: "Founder & CEO", image: jane },
-    { id: 2, name: "Eunice W. Muthoni", title: "Founder & CEO", image: eunice },
-    { id: 3, name: "Michael Odero", title: "Manager", image: michael },
+    { id: 2, name: "Eunice W. Muthoni", title: "Manager", image: eunice },
+    { id: 3, name: "Michael Odero", title: "Technical Support", image: michael },
     { id: 4, name: "Stacy Henderson", title: "Support Staff", image: stacy },
   ];
 
