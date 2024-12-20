@@ -33,6 +33,13 @@ function Navbar() {
         <FontAwesomeIcon icon={faSquareXTwitter} className="icon" />
         <FontAwesomeIcon icon={faInstagram} className="icon" />
       </div>
+      <div className="navbar-links">
+        <li>
+          <Link to="/login" className="navbar-link">
+            Admin
+          </Link>
+        </li>
+      </div>
 
       {/* Logo */}
       <div className="navbar-logo">

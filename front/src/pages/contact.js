@@ -11,9 +11,15 @@ import "../assets/css/contact.css";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import { toast } from "react-hot-toast";
+import axios from "axios";
 
 function Contact() {
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
   const contactInfo = [
     {
@@ -57,10 +63,30 @@ function Contact() {
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(values);
-    toast.success("Feedback submitted!");
+    try {
+      await axios.post("create-feedback", values).then((res) => {
+        if (res.data.success) {
+          toast.success("Feedback submitted!", {
+            position: "top-right",
+            autoClose: 3000,
+          });
+          setValues({
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+          });
+        }
+      });
+    } catch (error) {
+      toast.error("Submission failed. Try refreshing the page", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+      console.log("Error", error);
+    }
   };
   return (
     <>
@@ -108,12 +134,24 @@ function Contact() {
             <label>
               Full Name <span className="required">*</span>
             </label>
-            <input type="text" onChange={handleChange} name="name" required />
+            <input
+              type="text"
+              onChange={handleChange}
+              name="name"
+              value={values.name}
+              required
+            />
 
             <label>
               Email Address <span className="required">*</span>
             </label>
-            <input type="email" onChange={handleChange} name="email" required />
+            <input
+              type="email"
+              onChange={handleChange}
+              name="email"
+              required
+              value={values.email}
+            />
 
             <label>
               Subject <span className="required">*</span>
@@ -122,6 +160,7 @@ function Contact() {
               type="text"
               onChange={handleChange}
               name="subject"
+              value={values.subject}
               required
             />
 
@@ -131,6 +170,7 @@ function Contact() {
             <textarea
               onChange={handleChange}
               name="message"
+              value={values.message}
               required
             ></textarea>
 

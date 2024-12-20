@@ -5,8 +5,29 @@ import { generateToken } from "../middleware/generateToken.js";
 import { bankDonate } from "../controllers/bankController.js";
 import { accessToken } from "../middleware/accessToken.js";
 import { pesapal } from "../controllers/pesapalController.js";
+import {
+  createFeedback,
+  deleteFeedback,
+  fetchFeedback,
+  fetchFeedbacks,
+  updateFeedback,
+} from "../controllers/feedbackController.js";
+import { VerifyUser } from "../middleware/verify.js";
+import { Auth, Login, Register } from "../controllers/userController.js";
 
 const router = express.Router();
+
+//user endpoints
+router.post("/register", Register);
+router.post("/login", Login);
+router.get("/verify", VerifyUser, Auth);
+
+//feedback endpoints
+router.post("/create-feedback", createFeedback);
+router.get("/fetch-feedback", fetchFeedbacks);
+router.get("/fetch-feedback/:id", fetchFeedback);
+router.put("/update-feedback/:id", updateFeedback);
+router.delete("/delete-feedback/:id", deleteFeedback);
 
 //mpesa endpoint
 router.post("/mpesa", generateToken, stkpush);
