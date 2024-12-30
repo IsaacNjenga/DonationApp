@@ -12,6 +12,8 @@ import { Toaster } from "react-hot-toast";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import Dashboard from "./pages/dashboard";
+import Cart from "./pages/cart";
+import Logout from "./components/logout";
 
 export const UserContext = createContext(null);
 
@@ -30,6 +32,8 @@ const router = createBrowserRouter([
   { path: "/success", element: <Success /> },
   { path: "/contact", element: <Contact /> },
   { path: "/volunteer", element: <Volunteer /> },
+  { path: "/cart", element: <Cart /> },
+  { path: "/logout", element: <Logout /> },
 ]);
 function App() {
   const [user, setUser] = useState();

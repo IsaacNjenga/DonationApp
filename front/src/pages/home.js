@@ -94,7 +94,12 @@ function Home() {
   const volunteers = [
     { id: 1, name: "Jane N. Kimani", title: "Founder & CEO", image: jane },
     { id: 2, name: "Eunice W. Muthoni", title: "Manager", image: eunice },
-    { id: 3, name: "Michael Odero", title: "Technical Support", image: michael },
+    {
+      id: 3,
+      name: "Michael Odero",
+      title: "Technical Support",
+      image: michael,
+    },
     { id: 4, name: "Stacy Henderson", title: "Support Staff", image: stacy },
   ];
 
@@ -172,7 +177,7 @@ function Home() {
                 />
                 <h2>{information.title}</h2>
                 <p>{information.body}</p>
-                <Link to="/donation" className="donation-link">
+                <Link to="/donate" className="donation-link">
                   Make a donation
                 </Link>
               </div>{" "}
@@ -221,8 +226,23 @@ function Home() {
               ))}
             </div>
             <div className="hero-buttons">
-              <button className="cta-button">Donate Now</button>
-              <button className="cta-button secondary">Learn More</button>
+              <button className="cta-button">
+                <Link
+                  to="/donate"
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  Donate Now
+                </Link>
+              </button>
+              <button className="cta-button secondary">
+                {" "}
+                <Link
+                  to="/donate"
+                  style={{ textDecoration: "none", color: "white" }}
+                >
+                  Learn More
+                </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -251,7 +271,6 @@ function Home() {
         <div>
           <img src={childrenInClass} alt="_" className="pic2" loading="lazy" />
         </div>
-
         <div className="testimonial-section">
           <h1>Testimonials</h1>
           <p style={{ color: "gray" }}>Support key initiatives that matter.</p>
@@ -271,7 +290,6 @@ function Home() {
             ))}
           </div>
         </div>
-
         <div className="numbers-bg">
           <div className="overlay">
             <div className="numbers-section">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,9 +7,11 @@ import {
   faInstagram,
   faFacebook,
 } from "@fortawesome/free-brands-svg-icons";
+import { UserContext } from "../App";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const { user } = useContext(UserContext);
 
   const handleScroll = () => {
     if (window.scrollY > 0) {
@@ -56,11 +58,11 @@ function Navbar() {
               Home
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/more" className="navbar-link">
               More
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/about" className="navbar-link">
               About
@@ -81,6 +83,13 @@ function Navbar() {
               Volunteer
             </Link>
           </li>
+          {user ? (
+            <li>
+              <Link to="/logout" className="navbar-link">
+                Logout
+              </Link>
+            </li>
+          ) : null}
         </ul>
         <button className="donate-button">
           <Link to="/donate" className="donate-link">

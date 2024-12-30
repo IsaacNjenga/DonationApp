@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Navbar from "../components/navbar";
 import Loader from "../components/loader.js";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../App";
 import axios from "axios";
 import { toast } from "react-hot-toast";
@@ -99,6 +99,18 @@ function Login() {
                     {error.msg}
                   </p>
                 ))}
+            </div>
+            <div>
+              Don't have an account?{" "}
+              <Link
+                to="/register"
+                style={{
+                  textDecoration: "none",
+                  color: "#eeb00e",
+                }}
+              >
+                Sign up
+              </Link>
             </div>
             <button type="submit" className="login-form-button">
               Login

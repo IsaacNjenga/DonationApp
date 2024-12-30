@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Loader from "../components/loader";
@@ -85,6 +85,18 @@ function Register() {
                     {error.msg}
                   </p>
                 ))}
+            </div>{" "}
+            <div>
+              Already have an account?{" "}
+              <Link
+                to="/login"
+                style={{
+                  textDecoration: "none",
+                  color: "#eeb00e",
+                }}
+              >
+                Sign in
+              </Link>
             </div>
             <button type="submit" className="signup-form-button">
               Sign Up
