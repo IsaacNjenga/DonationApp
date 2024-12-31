@@ -341,3 +341,92 @@ html {
   font-size: 24px;
   color: white;
 }
+
+/* General small screen adjustments */
+@media screen and (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem; /* Smaller font for small screens */
+    margin-top: 15vh;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin: 20px;
+    padding: 10px;
+  }
+
+  .hero-buttons .cta-button {
+    padding: 10px 20px;
+    margin: 5px;
+  }
+
+  .info-card {
+    flex-direction: column; /* Stack cards vertically */
+    padding: 15px;
+  }
+
+  .icon-picture {
+    width: 50px; /* Smaller icons */
+    height: auto;
+  }
+
+  .grid-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add spacing between stacked cards */
+  }
+
+  .changing-section {
+    flex-direction: column; /* Stack the image and text */
+    text-align: center;
+  }
+
+  .changing-section-image img {
+    width: 90%; /* Reduce image size */
+    margin: 0 auto;
+  }
+
+  .testimonial-container {
+    flex-direction: column; /* Stack testimonials vertically */
+    gap: 20px;
+  }
+
+  .volunteer-card-container {
+    flex-direction: column; /* Stack volunteer cards */
+    gap: 20px;
+  }
+
+  .volunteer-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin: 0 auto;
+  }
+
+  .numbers-section {
+    flex-direction: column; /* Stack the numbers */
+    gap: 10px;
+  }
+
+  /* Flex adjustments */
+  .grid-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .info-card {
+    flex: 1 1 calc(100% - 20px); /* Full width on small screens */
+    margin: 10px 0;
+  }
+
+  /* Adjust featured cases layout */
+  .featured-card {
+    flex: 1 1 calc(100% - 20px); /* Stacked on small screens */
+    margin: 10px 0;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
