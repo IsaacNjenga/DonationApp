@@ -1,29 +1,33 @@
 import React, { useState } from "react";
 import Navbar from "../components/navbar";
 import image from "../assets/images/eunice.jpg";
+import image2 from "../assets/images/michael.jpg";
+import image3 from "../assets/images/man2.jpg";
+import image4 from "../assets/images/man1.jpg";
+import image5 from "../assets/images/jane.jpg";
 import { Link } from "react-router-dom";
 import "../assets/css/volunteer.css";
 import Footer from "../components/footer";
 function Volunteer() {
   const [openFaq, setOpenFaq] = useState(null);
   const volunteers = [
-    { id: 1, image: image, name: "Nick Paterson", task: "Support Staff" },
-    { id: 2, image: image, name: "Stacy Henderson", task: "Support Staff" },
-    { id: 3, image: image, name: "Michael Clark", task: "Support Staff" },
+    { id: 1, image: image4, name: "Nick Paterson", task: "Support Staff" },
+    { id: 2, image: image5, name: "Stacy Henderson", task: "Support Staff" },
+    { id: 3, image: image2, name: "Michael Clark", task: "Support Staff" },
     { id: 4, image: image, name: "Alicia Anderson", task: "Support Staff" },
     { id: 5, image: image, name: "Annabel Flow", task: "Support Staff" },
-    { id: 6, image: image, name: "Sintra Casper", task: "Support Staff" },
-    { id: 7, image: image, name: "Peter Amborson", task: "Support Staff" },
-    { id: 8, image: image, name: "Dean Solist", task: "Support Staff" },
-    { id: 9, image: image, name: "Orman Starski", task: "Support Staff" },
-    { id: 10, image: image, name: "Alen Craig", task: "Support Staff" },
+    { id: 6, image: image5, name: "Sintra Casper", task: "Support Staff" },
+    { id: 7, image: image3, name: "Peter Amborson", task: "Support Staff" },
+    { id: 8, image: image2, name: "Dean Solist", task: "Support Staff" },
+    { id: 9, image: image3, name: "Orman Starski", task: "Support Staff" },
+    { id: 10, image: image4, name: "Alen Craig", task: "Support Staff" },
     {
       id: 11,
-      image: image,
+      image: image5,
       name: "Patricia Olmart",
       task: "Support Staff",
     },
-    { id: 12, image: image, name: "Sean Nickson", task: "Support Staff" },
+    { id: 12, image: image3, name: "Sean Nickson", task: "Support Staff" },
   ];
 
   const faqs = [
@@ -79,7 +83,7 @@ function Volunteer() {
           <div className="volunteer-content">
             <div className="volunteer-header">
               {" "}
-              <h1 style={{ color: "white", marginBottom: "25px" }}>
+              <h1 style={{ color: "white", marginTop: "85px" }}>
                 Volunteer
               </h1>{" "}
               <h4 style={{ color: "white" }}>

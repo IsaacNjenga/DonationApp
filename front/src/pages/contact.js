@@ -97,7 +97,7 @@ function Contact() {
           </div>
           <div className="contact-content">
             <div className="contact-header">
-              <h1>Contact</h1>
+              <h1 style={{ color: "white", marginTop: "85px" }}>Contact</h1>
               <h4>
                 <Link to="/" className="home-link">
                   HOME

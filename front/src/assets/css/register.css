@@ -87,6 +87,6 @@
     width: 100%;
     z-index: 10;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
-    backdrop-filter: blur(5px);
+    /* backdrop-filter: blur(5px); */
   }
   

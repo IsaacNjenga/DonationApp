@@ -4,18 +4,18 @@
 }
 
 .volunteer-bg-image {
-  background: url(../images/aboutbg2.jpg) no-repeat center center/cover;
+  background: url(../images/food.jpg) no-repeat center center/cover;
   padding-top: 0;
   margin-top: 0;
   padding-bottom: 80px;
 }
 .volunteer-content {
   padding: 40px;
-  margin-bottom: 60px;
+  margin-bottom: 65px;
 }
 .volunteer-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 65px;
 }
 .volunteer-header .home-link {
   color: yellow;
@@ -30,29 +30,50 @@
   color: rgb(196, 216, 7);
   text-decoration: underline;
 }
+
 .volunteer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
-  background-color: #64676a36;
-  margin: 10px;
+  gap: 25px;
+  background-color: #ffffff00;
+  margin: 7px;
 }
 
 .volunteer-page-card {
   background: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 0px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.volunteer-page-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.volunteer-page-card h3 {
+  font-size: 1.7rem;
+  margin: -95px 0 5px;
+  padding: 0;
+  color: #333;
 }
 
 .v-image {
-  width: 70%;
-  margin-bottom: 10px;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  clip-path: inset(0 0 25% 0);
 }
 
 .faq-section {
   margin: 40px 0;
+}
+.faq-section h1 {
+  color: rgb(0, 0, 0);
 }
 
 .faq-item {
@@ -79,4 +100,3 @@
   font-weight: bold;
   color: #007bff;
 }
-

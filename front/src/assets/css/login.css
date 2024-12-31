@@ -54,6 +54,7 @@
 }
 
 .login-form-input:focus {
+  
   outline: none;
   border-color: #eeb00e;
   box-shadow: 0 0 8px rgba(238, 176, 14, 0.4);
@@ -87,5 +88,5 @@
   width: 100%;
   z-index: 10;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
-  backdrop-filter: blur(5px);
+  /* backdrop-filter: blur(1px); */
 }

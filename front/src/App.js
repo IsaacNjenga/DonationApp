@@ -14,6 +14,7 @@ import Register from "./pages/register";
 import Dashboard from "./pages/dashboard";
 import Cart from "./pages/cart";
 import Logout from "./components/logout";
+import VolunteerForm from "./pages/volunteerForm";
 
 export const UserContext = createContext(null);
 
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
   { path: "/contact", element: <Contact /> },
   { path: "/volunteer", element: <Volunteer /> },
   { path: "/cart", element: <Cart /> },
+  { path: "/volunteer-form", element: <VolunteerForm /> },
   { path: "/logout", element: <Logout /> },
 ]);
 function App() {

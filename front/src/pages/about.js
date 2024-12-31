@@ -7,22 +7,28 @@ import peopleIcon from "../assets/icons/people.png";
 import projectIcon from "../assets/icons/project.png";
 import missionIcon from "../assets/icons/mission.png";
 import donationIcon from "../assets/icons/donation.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function About() {
+  const navigate = useNavigate();
   const topNumbers = [
     { id: 1, icon: peopleIcon, number: 580, name: "Volunteers" },
     { id: 2, icon: donationIcon, number: 980, name: "Donations" },
     { id: 3, icon: projectIcon, number: 987, name: "Projects" },
     { id: 4, icon: missionIcon, number: 320, name: "Missions" },
   ];
+
+  const toVolunteer = () => {
+    navigate("/volunteer");
+  };
+
   return (
     <>
       <div className="about-container">
         <div className="navbar-element">
           <Navbar />
         </div>{" "}
-        <h1 style={{ color: "white", marginBottom: "25px" }}>About</h1>{" "}
+        <h1 style={{ color: "white", marginTop: "118px" }}>About</h1>{" "}
         <h4 style={{ color: "white" }}>
           <Link to="/" className="home-link">
             HOME
@@ -131,7 +137,7 @@ function About() {
                 transform dreams into reality and make the world a better place
                 for those who need it most.
               </p>
-              <button>Apply Now</button>
+              <button onClick={toVolunteer}>Apply Now</button>
             </div>
           </div>
         </div>
