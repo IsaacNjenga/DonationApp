@@ -11,7 +11,10 @@ import {
   faPersonShelter,
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-hot-toast";
+import Loader from "../components/loader";
 function Donate() {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,6 +28,7 @@ function Donate() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     await axios
       .post("initiate-payment", {
         email: formData.email,
@@ -32,15 +36,21 @@ function Donate() {
         phoneNumber: formData.phoneNumber,
       })
       .then((res) => {
-        console.log(res);
+        setLoading(false);
+        //console.log(res);
         const url = res.data.redirectUrl;
         window.location.href = url;
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setLoading(false);
+        console.log(err);
+        toast.error("Donation failed, kindly refresh and try again");
+      });
   };
 
   return (
     <>
+      {loading && <Loader />}
       <div className="donation-container">
         <div className="donation-bg-image">
           {" "}
@@ -49,7 +59,7 @@ function Donate() {
           </div>
           <div className="donation-content">
             <div className="donation-header">
-              <h1 style={{ color: "white", marginBottom: "25px" }}>Donate</h1>
+              <h1 style={{ color: "white", marginTop: "155px" }}>Donate</h1>
               <h4 style={{ color: "white" }}>
                 <Link to="/" className="home-link">
                   HOME

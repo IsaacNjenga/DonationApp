@@ -62,6 +62,14 @@ function Navbar() {
       {/* Navigation Links */}
       <div className={`links ${menuOpen ? "active" : ""}`}>
         <ul className="navbar-links">
+          {" "}
+          {user ? (
+            <li>
+              <Link to="/dashboard" className="navbar-link">
+                Dashboard
+              </Link>
+            </li>
+          ) : null}
           <li>
             <Link to="/" className="navbar-link">
               Home

@@ -38,10 +38,10 @@ router.delete("/delete-feedback/:id", deleteFeedback);
 
 //volunteer endpoints
 router.post("/create-volunteer", createVolunteer);
-router.get("/fetch-volunteer", fetchVolunteers);
-router.get("/fetch-volunteer/:id", fetchVolunteer);
+router.get("/fetch-volunteer", VerifyUser, fetchVolunteers);
+router.get("/fetch-volunteer/:id", VerifyUser, fetchVolunteer);
 router.put("/update-volunteer/:id", updateVolunteer);
-router.delete("/delete-volunteer/:id", deleteVolunteer);
+router.delete("/delete-volunteer/:id", VerifyUser, deleteVolunteer);
 
 //mpesa endpoint
 router.post("/mpesa", generateToken, stkpush);

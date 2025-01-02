@@ -93,6 +93,7 @@ function VolunteerForm() {
         }
       });
     } catch (error) {
+      setLoading(false);
       console.log(error);
       toast.error("Submission failed, try again", {
         position: "top-right",
