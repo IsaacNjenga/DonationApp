@@ -1,0 +1,129 @@
+.volunteer-form {
+  width: 80%;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #4caf50;
+}
+
+.form-section {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  height: 100px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Modal Overlay */
+.form-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #5d460881; /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it appears above other content */
+  overflow: auto;
+}
+
+/* Modal Content */
+.form-modal-content {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  position: flex;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.4s ease;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+/* Close Button */
+.close-modal-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 34px;
+  cursor: pointer;
+  color: #ead4d4; /* Color for the close button */
+}
+
+/* Modal Body */
+.form-modal-body {
+  margin-top: 20px;
+}
+
+/* Form Body */
+.form-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Paragraph Styling */
+.form-body p {
+  margin: 8px 0; /* Space between paragraphs */
+  line-height: 1.5; /* Improve readability */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .form-modal-content {
+    width: 95%; /* Adjust width for smaller screens */
+  }
+}
+
+.form-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.form-modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.form-modal-content::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+.form-modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}

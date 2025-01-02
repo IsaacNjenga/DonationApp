@@ -5,11 +5,12 @@ import image2 from "../assets/images/michael.jpg";
 import image3 from "../assets/images/man2.jpg";
 import image4 from "../assets/images/man1.jpg";
 import image5 from "../assets/images/jane.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../assets/css/volunteer.css";
 import Footer from "../components/footer";
 function Volunteer() {
   const [openFaq, setOpenFaq] = useState(null);
+  const navigate = useNavigate();
   const volunteers = [
     { id: 1, image: image4, name: "Nick Paterson", task: "Support Staff" },
     { id: 2, image: image5, name: "Stacy Henderson", task: "Support Staff" },
@@ -34,8 +35,14 @@ function Volunteer() {
     {
       id: 1,
       question: "How to be a volunteer?",
-      answer:
-        "To become a volunteer, you can start by filling out our online application form. After that, you will be contacted for an interview to discuss your interests and availability.",
+      answer: (
+        <>
+          To become a volunteer, you can start by filling out our online{" "}
+          <Link to="/volunteer-form">application form</Link>. After that, you
+          will be contacted for an interview to discuss your interests and
+          availability.
+        </>
+      ),
     },
     {
       id: 2,
@@ -72,6 +79,10 @@ function Volunteer() {
   const toggleFaq = (id) => {
     setOpenFaq(openFaq === id ? null : id);
   };
+
+  const toVolunteer = () => {
+    navigate("/volunteer-form");
+  };
   return (
     <>
       <div className="volunteer-container">
@@ -97,6 +108,8 @@ function Volunteer() {
         </div>
 
         <div className="volunteers-section">
+          <p>Apply to become a volunteer now</p>
+          <button onClick={toVolunteer}>Apply Now</button>
           <h1>Our Volunteers</h1>
           <p>Get to know our team</p>
           <div className="volunteer-grid">

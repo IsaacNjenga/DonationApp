@@ -14,6 +14,13 @@ import {
 } from "../controllers/feedbackController.js";
 import { VerifyUser } from "../middleware/verify.js";
 import { Auth, Login, Register } from "../controllers/userController.js";
+import {
+  createVolunteer,
+  deleteVolunteer,
+  fetchVolunteer,
+  fetchVolunteers,
+  updateVolunteer,
+} from "../controllers/volunteerController.js";
 
 const router = express.Router();
 
@@ -28,6 +35,13 @@ router.get("/fetch-feedback", fetchFeedbacks);
 router.get("/fetch-feedback/:id", fetchFeedback);
 router.put("/update-feedback/:id", updateFeedback);
 router.delete("/delete-feedback/:id", deleteFeedback);
+
+//volunteer endpoints
+router.post("/create-volunteer", createVolunteer);
+router.get("/fetch-volunteer", fetchVolunteers);
+router.get("/fetch-volunteer/:id", fetchVolunteer);
+router.put("/update-volunteer/:id", updateVolunteer);
+router.delete("/delete-volunteer/:id", deleteVolunteer);
 
 //mpesa endpoint
 router.post("/mpesa", generateToken, stkpush);
