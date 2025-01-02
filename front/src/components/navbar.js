@@ -11,6 +11,7 @@ import { UserContext } from "../App";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const { user } = useContext(UserContext);
 
   const handleScroll = () => {
@@ -27,6 +28,11 @@ function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       {/* Social Icons */}
@@ -35,24 +41,15 @@ function Navbar() {
         <FontAwesomeIcon icon={faSquareXTwitter} className="icon" />
         <FontAwesomeIcon icon={faInstagram} className="icon" />
       </div>
-      <div className="navbar-links">
-        {user ? (
-          <>
-            <li>
-              <Link to="/dashboard" className="navbar-link">
-                Dashboard
-              </Link>
-            </li>
-          </>
-        ) : (
-          <>
-            <li>
-              <Link to="/login" className="navbar-link">
-                Admin
-              </Link>
-            </li>
-          </>
-        )}
+
+      {/* Hamburger Menu */}
+      <div
+        className={`hamburger ${menuOpen ? "active" : ""}`}
+        onClick={toggleMenu}
+      >
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
 
       {/* Logo */}
@@ -63,18 +60,13 @@ function Navbar() {
       </div>
 
       {/* Navigation Links */}
-      <div className="links">
+      <div className={`links ${menuOpen ? "active" : ""}`}>
         <ul className="navbar-links">
           <li>
             <Link to="/" className="navbar-link">
               Home
             </Link>
           </li>
-          {/* <li>
-            <Link to="/more" className="navbar-link">
-              More
-            </Link>
-          </li> */}
           <li>
             <Link to="/about" className="navbar-link">
               About
@@ -101,7 +93,13 @@ function Navbar() {
                 Logout
               </Link>
             </li>
-          ) : null}
+          ) : (
+            <li>
+              <Link to="/login" className="navbar-link">
+                Admin
+              </Link>
+            </li>
+          )}
         </ul>
         <button className="donate-button">
           <Link to="/donate" className="donate-link">
