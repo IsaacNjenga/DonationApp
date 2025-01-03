@@ -10,38 +10,39 @@
   top: 0;
   z-index: 1000;
   transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 10px;
 }
 
 .navbar.scrolled {
-  background-color: white; /* Change to white when scrolled */
-  color: #000000; /* Change text color */
+  background-color: white;
+  color: #000000;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Social Icons */
 .icons-div {
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
 .icon {
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   border-radius: 50%;
   border: 1px solid white;
-  padding: 8px;
+  padding: 6px;
   transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease,
     border-color 0.3s ease;
 }
 
 .navbar.scrolled .icon {
-  border-color: #595656; /* Change border color on scroll */
-  color: #595656; /* Change icon color */
+  border-color: #595656;
+  color: #595656;
 }
 
 .icon:hover {
   background-color: white;
   color: #f43636;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 /* Centered Logo */
@@ -51,8 +52,8 @@
 }
 
 .navbar-logo h1 {
-  font-size: 1.3rem;
-  margin: 0;
+  font-size: 1.55rem;
+  margin: 8px;
   transition: color 0.3s ease;
 }
 
@@ -62,11 +63,11 @@
 }
 
 .navbar.scrolled .navbar-logo h1 {
-  color: #000000; /* Adjust logo color when scrolled */
+  color: #000000;
 }
 
 .navbar.scrolled .navbar-logo .highlight {
-  color: #f7b500; /* Highlight color adjustment */
+  color: #f7b500;
 }
 
 /* Navigation Links */
@@ -75,7 +76,6 @@
   align-items: center;
   gap: 20px;
 }
-
 .navbar-links {
   list-style: none;
   display: flex;
@@ -87,13 +87,13 @@
 .navbar-link {
   color: white;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.15rem;
   padding: 5px 10px;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .navbar.scrolled .navbar-link {
-  color: #595656; /* Adjust link color when scrolled */
+  color: #595656;
 }
 
 .navbar-link:hover {
@@ -113,14 +113,14 @@
   color: #000000;
   border: none;
   border-radius: 8px;
-  padding: 10px 20px;
+  padding: 15px 25px;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .navbar.scrolled .donate-button {
-  background: #f43636; /* Adjust button background */
-  color: white; /* Adjust button text color */
+  background: #f43636;
+  color: white;
 }
 
 .donate-button:hover {
@@ -134,33 +134,6 @@
   color: inherit;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    gap: 15px;
-    padding: 10px 20px;
-  }
-
-  .navbar-logo h1 {
-    font-size: 1.5rem;
-  }
-
-  .navbar-links {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .donate-button {
-    margin-top: 10px;
-  }
-
-  .icon {
-    font-size: 1.2rem; /* Adjust icon size for smaller screens */
-  }
-}
-
-
 /* Hamburger Menu */
 .hamburger {
   display: none;
@@ -170,7 +143,7 @@
   width: 30px;
   height: 30px;
   cursor: pointer;
-  z-index: 1100; /* Above navbar */
+  z-index: 1100;
 }
 
 .hamburger div {
@@ -181,16 +154,12 @@
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.hamburger.active div:nth-child(1) {
-  transform: rotate(45deg) translateY(10px);
-}
-
-.hamburger.active div:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active div:nth-child(3) {
-  transform: rotate(-45deg) translateY(-10px);
+/* Top Row: Logo and Hamburger */
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 /* Responsive Design */
@@ -198,28 +167,54 @@
   .navbar {
     flex-direction: column;
     padding: 10px 20px;
+    background-color: #b5a5a56f;
   }
 
-  .navbar-links,
-  .links {
-    display: none;
-    flex-direction: column;
+  .top-row {
     width: 100%;
-    text-align: center;
-    gap: 10px;
   }
 
-  .navbar-links.active,
-  .links.active {
-    display: flex;
+  .navbar-logo {
+    flex: 1;
+    text-align: left;
+  }
+
+  .navbar-logo h1 {
+    font-size: 1.2rem;
   }
 
   .hamburger {
     display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .navbar-links,
+  .donate-button,
+  .icons-div {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar-link {
+    display: none;
+  }
+
+  .links.active .navbar-links {
+    display: flex;
+  }
+
+  .links.active .navbar-link {
+    display: flex;
+  }
+
+  .icons-div {
+    margin-top: 20px;
+    gap: 15px;
   }
 
   .donate-button {
-    margin-top: 10px;
-    align-self: center;
+    margin-top: 15px;
   }
 }

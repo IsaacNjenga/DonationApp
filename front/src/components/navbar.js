@@ -35,34 +35,26 @@ function Navbar() {
 
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-      {/* Social Icons */}
-      <div className="icons-div">
-        <FontAwesomeIcon icon={faFacebook} className="icon" />
-        <FontAwesomeIcon icon={faSquareXTwitter} className="icon" />
-        <FontAwesomeIcon icon={faInstagram} className="icon" />
-      </div>
-
-      {/* Hamburger Menu */}
-      <div
-        className={`hamburger ${menuOpen ? "active" : ""}`}
-        onClick={toggleMenu}
-      >
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-
-      {/* Logo */}
-      <div className="navbar-logo">
-        <h1>
-          THE <span className="highlight">HOPE</span> PROJECT
-        </h1>
+      {/* Top Row: Logo and Hamburger */}
+      <div className="top-row">
+        <div className="navbar-logo">
+          <h1>
+            THE <span className="highlight">HOPE</span> PROJECT
+          </h1>
+        </div>
+        <div
+          className={`hamburger ${menuOpen ? "active" : ""}`}
+          onClick={toggleMenu}
+        >
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
 
       {/* Navigation Links */}
       <div className={`links ${menuOpen ? "active" : ""}`}>
         <ul className="navbar-links">
-          {" "}
           {user ? (
             <li>
               <Link to="/dashboard" className="navbar-link">
@@ -78,11 +70,6 @@ function Navbar() {
           <li>
             <Link to="/about" className="navbar-link">
               About
-            </Link>
-          </li>
-          <li>
-            <Link to="/cart" className="navbar-link">
-              Cart
             </Link>
           </li>
           <li>
@@ -114,6 +101,12 @@ function Navbar() {
             Donate
           </Link>
         </button>
+        {/* Social Icons */}
+        <div className="icons-div">
+          <FontAwesomeIcon icon={faFacebook} className="icon" />
+          <FontAwesomeIcon icon={faSquareXTwitter} className="icon" />
+          <FontAwesomeIcon icon={faInstagram} className="icon" />
+        </div>
       </div>
     </nav>
   );

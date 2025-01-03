@@ -34,14 +34,14 @@ function VolunteersList() {
   return (
     <>
       {loading && <Loader />}
-      <div className="volunteer-container">
+      <div className="volunteer-list-container">
         <h2>Volunteers</h2>
         {volunteers.map((v, index) => (
-          <div key={v._id} className="volunteer-card">
-            <div className="volunteer-header">
+          <div key={v._id} className="volunteer-list-card">
+            <div className="volunteer-list-header">
               <h3>Volunteer #{index + 1}</h3>
             </div>
-            <div className="volunteer-details">
+            <div className="volunteer-list-details">
               <div className="detail-item">
                 <strong>First Name:</strong> <span>{v.firstname}</span>
               </div>
