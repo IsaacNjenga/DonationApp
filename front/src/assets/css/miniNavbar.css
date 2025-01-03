@@ -1,0 +1,112 @@
+.mini-navbar {
+  position: sticky;
+  top: 130px;
+  left: 0;
+  height: 60vh;
+  width: 105px; /* Adjust based on preference */
+  background-color: #333; /* Adjust the background color */
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0 10px 10px 0; /* Rounded right edge */
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mini-navbar-toggle-btn:hover {
+  background-color: #444;
+}
+
+.mini-navbar.hidden {
+  transform: translateX(-100%);
+}
+
+.mini-navbar.visible {
+  transform: translateX(0);
+}
+
+.mini-navbar.scrolled {
+  transform: translateX(-100%); /* Moves it out of view */
+  opacity: 0; /* Makes it invisible */
+  pointer-events: none; /* Prevents interaction */
+}
+
+.mini-navbar.scrolled:hover {
+  transform: translateX(0); /* Bring it back into view */
+  opacity: 1; /* Fully visible */
+  pointer-events: auto; /* Restores interaction */
+}
+
+.mini-navbar-toggle-btn {
+  position: fixed;
+  top: 86px;
+  left: 20px;
+  z-index: 1100;
+  background-color: #3333337e;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mini-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.mini-navbar-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.mini-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 5px;
+  width: 100%;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.mini-link:hover {
+  background-color: #444;
+  border-radius: 10px;
+  transform: scale(1.05);
+}
+
+.mini-navbar-icon {
+  font-size: 2rem;
+  border-radius: 50%;
+  border: 2px solid white;
+  padding: 10px;
+  background-color: #555; /* Icon background */
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.mini-navbar-link {
+  font-size: 0.85rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}

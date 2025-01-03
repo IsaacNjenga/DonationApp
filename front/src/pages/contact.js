@@ -28,8 +28,8 @@ function Contact() {
       id: 1,
       icon: <FontAwesomeIcon icon={faLocationDot} />,
       title: "Physical Address",
-      info: "304 North Cardinal St.",
-      info2: "Dorchester Center, MA 02124",
+      info: "00100, Nairobi, Kenya.",
+      info2: "",
     },
     {
       id: 2,
@@ -43,8 +43,8 @@ function Contact() {
       id: 3,
       icon: <FontAwesomeIcon icon={faPhone} />,
       title: "Phone",
-      info: "1-555-123-4567",
-      info2: "1-800-123-4567",
+      info: "+254-743-854495",
+      info2: "+254-723-736651",
     },
     {
       id: 4,
@@ -94,7 +94,8 @@ function Contact() {
     }
   };
   return (
-    <>{loading && <Loader/>}
+    <>
+      {loading && <Loader />}
       <div className="contact-container">
         <div className="contact-image">
           <div className="navbar-element">

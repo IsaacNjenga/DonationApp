@@ -72,14 +72,14 @@ function Footer() {
       <span className="icon-wrapper">
         <FontAwesomeIcon icon={faPhone} />
       </span>
-      <p>+2547-4385-4495</p>
+      <p>+254-743-854495</p>
     </div>
 
     <div className="contact-item">
       <span className="icon-wrapper">
         <FontAwesomeIcon icon={faMobile} />
       </span>
-      <p>+2547-2373-6651</p>
+      <p>+254-723-736651</p>
     </div>
 
     <div className="contact-item">
