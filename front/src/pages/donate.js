@@ -97,11 +97,11 @@ function Donate() {
           </div>
         </div>
 
-        <div className="donation-form">
+        <div >
           <h1 style={{ fontSize: "2rem", color: "#333" }}>Donate here</h1>
           <form
             onSubmit={handleSubmit}
-            style={{ display: "flex", flexDirection: "column", gap: "15px" }}
+            style={{ display: "flex", flexDirection: "column", gap: "15px" }} className="donation-form"
           >
             <label>Email</label>
             <input
@@ -133,7 +133,7 @@ function Donate() {
             </button>
           </form>
         </div>
-
+{/* 
         <div className="testimonials">
           <h2>Donor Stories</h2>
           <div className="testimonials-grid">
@@ -151,7 +151,7 @@ function Donate() {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <Footer />
       </div>

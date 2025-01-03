@@ -56,10 +56,10 @@ function About() {
                     src={number.icon}
                     alt="_"
                     style={{
-                      width: "60px",
-                      margin: "10px",
+                      width: "75px",
+                      margin: "3px",
                       objectFit: "contain",
-                      border: "1px solid grey",
+                      border: "1px solid #eeb00e",
                       borderRadius: "50%",
                     }}
                   />

@@ -38,7 +38,7 @@
   justify-content: center; /* Horizontally center the icon */
   align-items: center; /* Vertically center the icon */
   width: 5.5rem; /* Adjust size to make border proportional */
-  height: 5.5rem; 
+  height: 5.5rem;
 }
 
 .impact-icons {
@@ -47,19 +47,19 @@
   align-items: center; /* Center items vertically */
   height: 100%; /* Set a height if needed */
   flex-direction: row;
-  margin: 10px;
-  padding: 10px;
+  margin: 4px;
+  padding: 8px;
 }
 
-.icon-card{
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.392);
-  border-radius: 5px;
+.icon-card {
+  box-shadow: 0 4px 6px #ffcd0789;
+  border-radius: 8px;
   background-color: #f9f9f9;
   width: 90%;
   margin-bottom: 20px;
 }
 
-.icon-card{
+.icon-card {
   text-align: center;
   padding: 10px;
   margin: 20px;
@@ -78,28 +78,28 @@
   margin: 25px auto;
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.392); /* Subtle shadow */
-  max-width: 550px;
-  width: 90%; /* Responsive width */
+  max-width: 500px;
+  width: 100%; /* Responsive width */
   text-align: center;
 }
 
 .donation-form h1 {
-  font-size: 2rem;
+  font-size: 2.3rem;
   margin-bottom: 20px;
   color: #444; /* Neutral, readable color */
 }
 
 .donation-form label {
-  font-size: 1rem;
+  font-size: 1.4rem;
   color: #555;
   text-align: left;
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .donation-form input {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -108,16 +108,16 @@
 }
 
 .donation-form input:focus {
-  border-color: #007bff; /* Highlighted border */
-  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3); /* Soft glow */
+  border-color: #ffcc07; /* Highlighted border */
+  box-shadow: 0 0 4px rgba(179, 255, 0, 0.3); /* Soft glow */
   outline: none;
 }
 
 .donation-submit-button {
-  background-color: #007bff; /* Blue primary color */
+  background-color: #ffcc07; /* Blue primary color */
   color: white;
-  padding: 12px 20px;
-  font-size: 2rem;
+  padding: 14px 28px;
+  font-size: 2.2rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -139,7 +139,6 @@
   -webkit-appearance: none;
   margin: 0;
 }
-
 
 @media (max-width: 768px) {
   .donation-form {

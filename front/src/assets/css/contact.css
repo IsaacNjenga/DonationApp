@@ -127,8 +127,8 @@
 .contact-form {
   display: block;
   background: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 25px;
+  border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
 }
@@ -138,21 +138,27 @@
   font-weight: bold;
   margin-bottom: 5px;
   display: block;
-  color: grey;
+  color: rgb(73, 72, 72);
 }
 
 .contact-form input,
 .contact-form textarea {
-  width: 100%;
+  width: 95%;
   padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: 1.1rem;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+  outline: none;
+  border-color: #eeb00e;
+  box-shadow: 0 0 8px rgba(238, 176, 14, 0.4);
 }
 
 .contact-form textarea {
-  height: 100px;
+  height: 105px;
   resize: none;
 }
 

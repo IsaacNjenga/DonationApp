@@ -52,8 +52,8 @@
 }
 
 .navbar-logo h1 {
-  font-size: 1.55rem;
-  margin: 8px;
+  font-size: 1.65rem;
+  margin: 6px;
   transition: color 0.3s ease;
 }
 
@@ -64,6 +64,8 @@
 
 .navbar.scrolled .navbar-logo h1 {
   color: #000000;
+  font-size: 1.2rem;
+  margin: 5px;
 }
 
 .navbar.scrolled .navbar-logo .highlight {
