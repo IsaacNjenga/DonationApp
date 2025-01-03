@@ -12,8 +12,10 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import Loader from "../components/loader";
 
 function Contact() {
+  const [loading, setLoading] = useState(false);
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -65,9 +67,11 @@ function Contact() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       await axios.post("create-feedback", values).then((res) => {
         if (res.data.success) {
+          setLoading(false);
           toast.success("Feedback submitted!", {
             position: "top-right",
             autoClose: 3000,
@@ -81,6 +85,7 @@ function Contact() {
         }
       });
     } catch (error) {
+      setLoading(false);
       toast.error("Submission failed. Try refreshing the page", {
         position: "top-right",
         autoClose: 3000,
@@ -89,7 +94,7 @@ function Contact() {
     }
   };
   return (
-    <>
+    <>{loading && <Loader/>}
       <div className="contact-container">
         <div className="contact-image">
           <div className="navbar-element">
