@@ -185,19 +185,10 @@
     width: auto; /* Adjust to container size */
     margin: 10px auto; /* Center align */
   }
-}
 
-@media (max-width: 480px) {
-  .donation-form {
-    padding: 20px;
-  }
-
-  .donation-form h1 {
-    font-size: 1.5rem;
-  }
-
-  .donation-submit-button {
-    font-size: 0.9rem;
-    padding: 10px 15px;
+  .donation-container {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
   }
 }
