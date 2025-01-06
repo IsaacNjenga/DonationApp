@@ -50,19 +50,26 @@ function App() {
   const [isOnline, setIsOnline] = useState(false);
 
   useEffect(() => {
-    axios
-      .get("verify", {
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-      })
-      .then((res) => {
-        if (res.data.success) {
-          setUser(res.data.user);
-          setIsOnline(true);
-        }
-      })
-      .catch((err) => {
-        console.log("Error during user verification:", err);
-      });
+    const token = localStorage.getItem("token");
+
+    // Only verify if the token exists
+    if (token) {
+      axios
+        .get("verify", {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((res) => {
+          if (res.data.success) {
+            setUser(res.data.user);
+            setIsOnline(true);
+          }
+        })
+        .catch((err) => {
+          console.log("Error during user verification:", err);
+        });
+    } else {
+      console.log("No token found. Skipping verification.");
+    }
   }, []);
 
   return (

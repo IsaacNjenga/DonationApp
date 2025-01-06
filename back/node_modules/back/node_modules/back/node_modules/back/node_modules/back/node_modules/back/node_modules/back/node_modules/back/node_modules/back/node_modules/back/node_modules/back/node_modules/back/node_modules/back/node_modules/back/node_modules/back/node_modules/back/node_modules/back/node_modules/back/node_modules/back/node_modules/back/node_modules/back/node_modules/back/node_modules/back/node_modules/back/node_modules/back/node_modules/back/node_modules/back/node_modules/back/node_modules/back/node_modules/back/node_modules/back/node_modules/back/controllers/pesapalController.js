@@ -4,9 +4,10 @@ dotenv.config();
 
 const pesapal = async (req, res) => {
   const { amount, email, phoneNumber } = req.body;
-  //console.log(req.body);
+  
   try {
     const token = req.token;
+    
     const orderDetails = {
       id: `order-${Date.now()}`, // Unique order ID
       amount: amount, // Amount in KES or other supported currencies
