@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 function VolunteerForm() {
   const [loading, setLoading] = useState(false);
-  const [volunteerForm, setVolunteerForm] = useState(false);
+  const [volunteerForm, setVolunteerForm] = useState(true);
   const [values, setValues] = useState({
     firstname: "",
     lastname: "",
@@ -246,7 +246,8 @@ function VolunteerForm() {
                     />
                     <label htmlFor={time.toLowerCase()}>{time}</label>
                   </div>
-                ))}<br/>
+                ))}
+                <br />
                 <label>c). Total hours available per week</label>
                 <input
                   type="number"
@@ -290,7 +291,10 @@ function VolunteerForm() {
                   onChange={handleChange}
                   value={values.priorExperience}
                 />
-                <label>Do you have any relevant skills or certifications (e.g., first aid, teaching, counselling):</label>
+                <label>
+                  Do you have any relevant skills or certifications (e.g., first
+                  aid, teaching, counselling):
+                </label>
                 <textarea
                   name="skillsOrCertification"
                   placeholder="List your skills or certifications"
@@ -343,74 +347,63 @@ function VolunteerForm() {
             </form>
 
             {volunteerForm && (
-              <div className="form-modal-overlay" onClick={closeFormModal}>
-                <div
-                  className="form-modal-content"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  {" "}
-                  <button className="close-modal-btn" onClick={closeFormModal}>
-                    &times;
-                  </button>
-                  <div className="form-modal-body">
-                    <div className="form-body">
-                      <p>First Name</p>
-                      <p>{values.firstname}</p>
-                      <p>Last Name</p>
-                      <p>{values.lastname}</p>
-                      <p>Date of Birth</p>
-                      <p>{values.dob}</p>
-                      <p>Address</p>
-                      <p>{values.address}</p>
-                      <p>City</p>
-                      <p>{values.city}</p>
-                      <p>Phone Number</p>
-                      <p>{values.phone}</p>
-                      <p>Email</p>
-                      <p>{values.email}</p>
-                      <p>Days available to volunteer</p>
-                      {values.daysOfVolunteer.map((d) => (
-                        <p>{d}</p>
-                      ))}
-                      <p>Time available</p>
-                      {values.timesOfVolunteer.map((t) => (
-                        <p>{t}</p>
-                      ))}
-                      <p>Hours per week</p>
-                      <p>{values.hoursPerWeek}</p>
-                      <p>Background</p>
-                      <p>{values.priorVoluntary}</p>
-                      <p>Prior Experience</p>
-                      <p>{values.priorExperience}</p>
-                      <p>Skills & Certification</p>
-                      <p>{values.skillsOrCertification}</p>
-                      <p>Motivation</p>
-                      <p>{values.why}</p>
-                      <p>Expectations</p>
-                      <p>{values.expectations}</p>
-                      <p>Reference</p> <p>Name</p>
-                      <p>{values.referenceName}</p>
-                      <p>Email</p>
-                      <p>{values.referenceEmail}</p>
-                      <p>Relationship</p>
-                      <p>{values.referenceRelationship}</p>
-                      <p>Phone Number</p>
-                      <p>{values.referencePhoneNumber}</p>
-                      <p>Willingness for background check</p>
-                      <p>{values.backgroundCheck}</p>
-                      <div>
-                        <button onClick={handleSubmit}>
-                          Submit application
-                        </button>
-                        <button onClick={closeFormModal}>
-                          Edit application
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
+  <div className="form-modal-overlay" onClick={closeFormModal}>
+    <div
+      className="form-modal-content"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <button className="close-modal-btn" onClick={closeFormModal}>
+        &times;
+      </button>
+      <div className="form-modal-body">
+        <h2 className="modal-title">Review Your Application</h2>
+        <div className="form-modal-section">
+          <h3>Personal Information</h3>
+          <p><strong>First Name:</strong> {values.firstname}</p>
+          <p><strong>Last Name:</strong> {values.lastname}</p>
+          <p><strong>Date of Birth:</strong> {values.dob}</p>
+          <p><strong>Address:</strong> {values.address}</p>
+          <p><strong>City:</strong> {values.city}</p>
+          <p><strong>Phone Number:</strong> {values.phone}</p>
+          <p><strong>Email:</strong> {values.email}</p>
+        </div>
+        <div className="form-modal-section">
+          <h3>Availability</h3>
+          <p><strong>Days Available:</strong> {values.daysOfVolunteer.join(', ')}</p>
+          <p><strong>Preferred Times:</strong> {values.timesOfVolunteer.join(', ')}</p>
+          <p><strong>Total Hours Per Week:</strong> {values.hoursPerWeek}</p>
+        </div>
+        <div className="form-modal-section">
+          <h3>Background</h3>
+          <p><strong>Volunteered Before:</strong> {values.priorVoluntary}</p>
+          <p><strong>Previous Experience:</strong> {values.priorExperience}</p>
+          <p><strong>Skills & Certification:</strong> {values.skillsOrCertification}</p>
+        </div>
+        <div className="form-modal-section">
+          <h3>Motivation</h3>
+          <p><strong>Reason for Volunteering:</strong> {values.why}</p>
+          <p><strong>What You Hope to Achieve:</strong> {values.expectations}</p>
+        </div>
+        <div className="form-modal-section">
+          <h3>References</h3>
+          <p><strong>Name:</strong> {values.referenceName}</p>
+          <p><strong>Email:</strong> {values.referenceEmail}</p>
+          <p><strong>Relationship:</strong> {values.referenceRelationship}</p>
+          <p><strong>Phone Number:</strong> {values.referencePhoneNumber}</p>
+        </div>
+        <div className="form-modal-section">
+          <h3>Background Check</h3>
+          <p><strong>Willing to Undergo Background Check:</strong> {values.backgroundCheck}</p>
+        </div>
+        <div className="form-modal-actions">
+          <button onClick={handleSubmit} className="volunteer-modal-submit-btn">Submit Application</button>
+          <button onClick={closeFormModal} className="volunteer-modal-edit-btn">Edit Application</button>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
           </div>
         </div>
       </div>
