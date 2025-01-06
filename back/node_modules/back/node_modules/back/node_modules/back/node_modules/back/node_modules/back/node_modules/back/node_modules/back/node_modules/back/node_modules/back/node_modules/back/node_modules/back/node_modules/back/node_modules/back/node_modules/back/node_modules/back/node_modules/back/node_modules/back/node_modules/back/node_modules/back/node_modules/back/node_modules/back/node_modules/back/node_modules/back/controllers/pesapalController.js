@@ -2,20 +2,29 @@ import axios from "axios";
 import dotenv from "dotenv";
 dotenv.config();
 
-const pesapal = async (req, res) => {
+const submitOrder = async (req, res) => {
   const { amount, email, phoneNumber } = req.body;
-  
+  console.log("body", req.body);
   try {
     const token = req.token;
-    
+    console.log("token:", token);
+
+    if (!amount || amount <= 0) {
+      return res.status(400).json({
+        error: "Invalid amount. Please provide an amount greater than 0.",
+      });
+    }
+
+    const formattedAmount = parseFloat(amount).toFixed(2);
+
     const orderDetails = {
       id: `order-${Date.now()}`, // Unique order ID
-      amount: amount, // Amount in KES or other supported currencies
+      amount: formattedAmount, // Amount in KES or other supported currencies
       currency: "USD",
       description: "Test Payment",
       callback_url:
         "https://donation-app-umber.vercel.app/donate/payment-callback", // Your callback URL
-      notification_id: process.env.PESAPAL_IPN_ID, // Leave blank if you're not using IPN
+      notification_id: process.env.PESAPAL_IPN_ID, // Optional for IPN
       billing_address: {
         email: email,
         phone_number: phoneNumber,
@@ -23,6 +32,7 @@ const pesapal = async (req, res) => {
         last_name: "User",
       },
     };
+    console.log("Order Details:", orderDetails);
 
     const response = await axios.post(
       `https://cybqa.pesapal.com/pesapalv3/api/Transactions/SubmitOrderRequest`,
@@ -34,12 +44,45 @@ const pesapal = async (req, res) => {
         },
       }
     );
-    res.status(200).json({ redirectUrl: response.data.redirect_url });
-    //console.log(response.data.redirect_url);
+
+    const { redirect_url, order_tracking_id } = response.data;
+    console.log("trackingId:", response.data.order_tracking_id);
+
+    res.status(200).json({
+      redirectUrl: redirect_url,
+      orderTrackingId: order_tracking_id,
+    });
   } catch (error) {
-    console.error("Error initiating payment:", error);
+    console.error(
+      "Error initiating payment:",
+      error.response?.data || error.message
+    );
+
     res.status(500).send("Failed to initiate payment");
   }
 };
 
-export { pesapal };
+const transactionStatus = async (req, res) => {
+  const { orderTrackingId } = req.query; // Get orderTrackingId from query parameters
+  const token = req.token;
+
+  try {
+    const response = await axios.get(
+      `https://cybqa.pesapal.com/pesapalv3/api/Transactions/GetTransactionStatus?orderTrackingId=${orderTrackingId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    res.status(200).json(response.data);
+  } catch (error) {
+    console.error("Error fetching transaction status:", error);
+    res.status(500).send("Failed to fetch transaction status");
+  }
+};
+
+export { submitOrder, transactionStatus };

@@ -2,9 +2,12 @@ import express from "express";
 
 import { stkpush } from "../controllers/mpesaController.js";
 import { generateToken } from "../middleware/generateToken.js";
-import { bankDonate } from "../controllers/bankController.js";
+//import { bankDonate } from "../controllers/bankController.js";
 import { accessToken } from "../middleware/accessToken.js";
-import { pesapal } from "../controllers/pesapalController.js";
+import {
+  submitOrder,
+  transactionStatus,
+} from "../controllers/pesapalController.js";
 import {
   createFeedback,
   deleteFeedback,
@@ -89,6 +92,7 @@ router.post("/callback", async (req, res) => {
 //router.post("/create-checkout-session", bankDonate);
 
 //pesapal endpoint
-router.post("/initiate-payment", accessToken, pesapal);
+router.post("/initiate-payment", accessToken, submitOrder);
+router.get("/transaction-status", accessToken, transactionStatus);
 
 export { router as Router };

@@ -41,9 +41,13 @@ function Donate() {
       .then((res) => {
         setDisabled(false);
         setLoading(false);
-        //console.log(res);
-        const url = res.data.redirectUrl;
+        console.log("Full Response:", res);
+        console.log("Response Data:", res.data);
+
+        const { redirectUrl, orderTrackingId } = res.data;
+        const url = redirectUrl;
         window.location.href = url;
+        transStatus(orderTrackingId);
       })
       .catch((err) => {
         setDisabled(false);
@@ -51,6 +55,14 @@ function Donate() {
         console.log(err);
         toast.error("Donation failed, kindly refresh and try again");
       });
+  };
+
+  const transStatus = async (orderTrackingId) => {
+    const response = await axios.get(
+      `transaction-status?orderTrackingId=${orderTrackingId}`
+    );
+    const transactionData = response.data;
+    console.log("Transaction Data", transactionData);
   };
 
   return (
@@ -121,7 +133,18 @@ function Donate() {
                 border: "1px solid #ccc",
               }}
             />
-
+            <label>Phone Number</label>
+            <input
+              type="tel"
+              onChange={handleChange}
+              name="phoneNumber"
+              required
+              style={{
+                padding: "10px",
+                borderRadius: "5px",
+                border: "1px solid #ccc",
+              }}
+            />
             <label>Amount (in $)</label>
             <input
               type="number"
