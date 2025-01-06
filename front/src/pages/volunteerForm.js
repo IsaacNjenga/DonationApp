@@ -190,7 +190,7 @@ function VolunteerForm() {
                 />
                 <label>Phone Number *</label>
                 <input
-                  type="tel"
+                  type="text"
                   name="phone"
                   onChange={handleChange}
                   value={values.phone}
@@ -323,7 +323,7 @@ function VolunteerForm() {
                 />
                 <label>Phone Number *</label>
                 <input
-                  type="tel"
+                  type="text"
                   name="referencePhoneNumber"
                   onChange={handleChange}
                   value={values.referencePhoneNumber}
