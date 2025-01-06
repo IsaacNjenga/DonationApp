@@ -13,7 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-hot-toast";
 import Loader from "../components/loader";
-import { set } from "date-fns";
+
 function Donate() {
   const [loading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);

@@ -134,6 +134,11 @@
   transform: scale(1); /* Reset pop effect */
 }
 
+.donation-submit-button:disabled {
+  background-color: #ccc; /* Greyed-out color */
+  cursor: not-allowed; /* Show a "not allowed" cursor */
+}
+
 .donation-form input[type="number"]::-webkit-inner-spin-button,
 .donation-form input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
