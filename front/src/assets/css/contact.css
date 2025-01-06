@@ -151,7 +151,8 @@
   font-size: 1.1rem;
 }
 
-.contact-form input:focus, .contact-form textarea:focus {
+.contact-form input:focus,
+.contact-form textarea:focus {
   outline: none;
   border-color: #eeb00e;
   box-shadow: 0 0 8px rgba(238, 176, 14, 0.4);
@@ -180,4 +181,20 @@
 .contact-button:hover {
   background: #f7b500;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .contact-cards {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    justify-content: flex-end;
+  }
+
+  .contact-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
 }

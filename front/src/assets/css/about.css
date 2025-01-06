@@ -175,3 +175,49 @@ h1 {
   color: rgb(196, 216, 7);
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  .about-text h1,
+  .about-div2 h1,
+  .about-div3 h1 {
+    font-size: 2rem;
+  }
+
+  .about-div2,
+  .about-div3 {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .about-div2-text,
+  .about-div3-text {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .numbers-container img {
+    width: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-text h1,
+  .about-div2 h1,
+  .about-div3 h1 {
+    font-size: 1.8rem;
+  }
+
+  .about-div4 h1 {
+    font-size: 1.6rem;
+  }
+
+  .about-div4 p {
+    font-size: 0.9rem;
+  }
+
+  .about-div4 button {
+    padding: 15px 20px;
+    font-size: 1rem;
+  }
+}

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../assets/css/navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,6 +10,7 @@ import {
 import { UserContext } from "../App";
 
 function Navbar() {
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { user } = useContext(UserContext);
@@ -33,11 +34,14 @@ function Navbar() {
     setMenuOpen(!menuOpen);
   };
 
+  const toHome = () => {
+    navigate("/");
+  };
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       {/* Top Row: Logo and Hamburger */}
       <div className="top-row">
-        <div className="navbar-logo">
+        <div className="navbar-logo" onClick={toHome}>
           <h1>
             THE <span className="highlight">HOPE</span> PROJECT
           </h1>
