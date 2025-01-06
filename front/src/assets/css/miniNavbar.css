@@ -18,6 +18,11 @@
   background-color: #444;
 }
 
+.mininavbar-link {
+  text-decoration: none;
+  color: white;
+}
+
 .mini-navbar.hidden {
   transform: translateX(-100%);
 }
@@ -91,7 +96,11 @@
 .mini-link:hover {
   background-color: #444;
   border-radius: 10px;
-  transform: scale(1.05);
+  transform: scale(1.01);
+}
+
+.mini-navbar-icon:hover {
+  color: #f7b500;
 }
 
 .mini-navbar-icon {

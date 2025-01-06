@@ -9,6 +9,7 @@ import {
   faPeopleRoof,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 function MiniNavbar() {
   const [isVisible, setIsVisible] = useState(true);
@@ -45,30 +46,40 @@ function MiniNavbar() {
               <FontAwesomeIcon
                 icon={faCircleDollarToSlot}
                 className="mini-navbar-icon"
-              />
-              <li className="mini-navbar-link">Donors</li>
+              />{" "}
+              <Link to="/donors" className="mininavbar-link">
+                <li className="mini-navbar-link">Donors</li>
+              </Link>
             </div>
             <div className="mini-link">
-              <FontAwesomeIcon
-                icon={faEarthAfrica}
-                className="mini-navbar-icon"
-              />
-              <li className="mini-navbar-link">Campaigns</li>
+              {" "}
+              <Link to="/campaigns" className="mininavbar-link">
+                <FontAwesomeIcon
+                  icon={faEarthAfrica}
+                  className="mini-navbar-icon"
+                />
+                <li className="mini-navbar-link">Campaigns</li>{" "}
+              </Link>
             </div>
 
             <div className="mini-link">
-              <FontAwesomeIcon
-                icon={faChartLine}
-                className="mini-navbar-icon"
-              />
-              <li className="mini-navbar-link">Reports</li>
+              {" "}
+              <Link to="/reports" className="mininavbar-link">
+                <FontAwesomeIcon
+                  icon={faChartLine}
+                  className="mini-navbar-icon"
+                />
+                <li className="mini-navbar-link">Reports</li>
+              </Link>
             </div>
             <div className="mini-link">
-              <FontAwesomeIcon
-                icon={faPeopleRoof}
-                className="mini-navbar-icon"
-              />
-              <li className="mini-navbar-link">Management </li>
+              <Link to="/management" className="mininavbar-link">
+                <FontAwesomeIcon
+                  icon={faPeopleRoof}
+                  className="mini-navbar-icon"
+                />
+                <li className="mini-navbar-link">Management</li>
+              </Link>
             </div>
           </ul>
         </div>
