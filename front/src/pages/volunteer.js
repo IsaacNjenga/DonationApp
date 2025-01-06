@@ -109,7 +109,9 @@ function Volunteer() {
 
         <div className="volunteers-section">
           <p>Apply to become a volunteer now</p>
-          <button onClick={toVolunteer}>Apply Now</button>
+          <button onClick={toVolunteer} className="apply-volunteer-btn">
+            Apply Now
+          </button>
           <h1>Our Volunteers</h1>
           <p>Get to know our team</p>
           <div className="volunteer-grid">

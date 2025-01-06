@@ -38,7 +38,20 @@
   background-color: #ffffff00;
   margin: 7px;
 }
+.apply-volunteer-btn {
+  padding: 15px 14px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  border-width: 0px;
+  background-color: #ebb914;
+  box-shadow: 0 0 10px black;
+}
 
+.apply-volunteer-btn:hover {
+  color: rgb(20, 15, 15);
+  background-color: yellow;
+  box-shadow: 0 0 15px green;
+}
 .volunteer-page-card {
   background: #fff;
   padding: 0px;
