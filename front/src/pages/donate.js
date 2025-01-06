@@ -13,8 +13,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-hot-toast";
 import Loader from "../components/loader";
+import { set } from "date-fns";
 function Donate() {
   const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,6 +30,7 @@ function Donate() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setDisabled(true);
     setLoading(true);
     await axios
       .post("initiate-payment", {
@@ -36,12 +39,14 @@ function Donate() {
         phoneNumber: formData.phoneNumber,
       })
       .then((res) => {
+        setDisabled(false);
         setLoading(false);
         //console.log(res);
         const url = res.data.redirectUrl;
         window.location.href = url;
       })
       .catch((err) => {
+        setDisabled(false);
         setLoading(false);
         console.log(err);
         toast.error("Donation failed, kindly refresh and try again");
@@ -97,11 +102,12 @@ function Donate() {
           </div>
         </div>
 
-        <div >
+        <div>
           <h1 style={{ fontSize: "2rem", color: "#333" }}>Donate here</h1>
           <form
             onSubmit={handleSubmit}
-            style={{ display: "flex", flexDirection: "column", gap: "15px" }} className="donation-form"
+            style={{ display: "flex", flexDirection: "column", gap: "15px" }}
+            className="donation-form"
           >
             <label>Email</label>
             <input
@@ -128,12 +134,16 @@ function Donate() {
                 border: "1px solid #ccc",
               }}
             />
-            <button type="submit" className="donation-submit-button">
+            <button
+              type="submit"
+              className="donation-submit-button"
+              disabled={disabled}
+            >
               Donate <FontAwesomeIcon icon={faHandHoldingHeart} />
             </button>
           </form>
         </div>
-{/* 
+        {/* 
         <div className="testimonials">
           <h2>Donor Stories</h2>
           <div className="testimonials-grid">
