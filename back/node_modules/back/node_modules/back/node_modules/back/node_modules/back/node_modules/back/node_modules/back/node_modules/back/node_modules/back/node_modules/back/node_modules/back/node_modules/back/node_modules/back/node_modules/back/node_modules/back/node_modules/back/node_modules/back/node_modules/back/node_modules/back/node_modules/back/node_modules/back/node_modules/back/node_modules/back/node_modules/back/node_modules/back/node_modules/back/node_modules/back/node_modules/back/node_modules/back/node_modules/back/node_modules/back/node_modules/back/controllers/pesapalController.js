@@ -4,10 +4,10 @@ dotenv.config();
 
 const submitOrder = async (req, res) => {
   const { amount, email, phoneNumber } = req.body;
-  console.log("body", req.body);
+  // console.log("body", req.body);
   try {
     const token = req.token;
-    console.log("token:", token);
+    //console.log("token:", token);
 
     if (!amount || amount <= 0) {
       return res.status(400).json({
@@ -22,8 +22,8 @@ const submitOrder = async (req, res) => {
       amount: formattedAmount, // Amount in KES or other supported currencies
       currency: "USD",
       description: "Test Payment",
-      callback_url:
-        "https://donation-app-umber.vercel.app/donate/payment-callback", // Your callback URL
+      callback_url: "https://donation-app-front.vercel.app/success", // Your callback URL
+      cancellation_url: "https://donation-app-front.vercel.app/cancel",
       notification_id: process.env.PESAPAL_IPN_ID, // Optional for IPN
       billing_address: {
         email: email,
@@ -32,7 +32,7 @@ const submitOrder = async (req, res) => {
         last_name: "User",
       },
     };
-    console.log("Order Details:", orderDetails);
+    // console.log("Order Details:", orderDetails);
 
     const response = await axios.post(
       `https://cybqa.pesapal.com/pesapalv3/api/Transactions/SubmitOrderRequest`,
@@ -46,7 +46,7 @@ const submitOrder = async (req, res) => {
     );
 
     const { redirect_url, order_tracking_id } = response.data;
-    console.log("trackingId:", response.data.order_tracking_id);
+    //  console.log("full response:", response.data);
 
     res.status(200).json({
       redirectUrl: redirect_url,
@@ -65,7 +65,7 @@ const submitOrder = async (req, res) => {
 const transactionStatus = async (req, res) => {
   const { orderTrackingId } = req.query; // Get orderTrackingId from query parameters
   const token = req.token;
-
+  //console.log(orderTrackingId);
   try {
     const response = await axios.get(
       `https://cybqa.pesapal.com/pesapalv3/api/Transactions/GetTransactionStatus?orderTrackingId=${orderTrackingId}`,
@@ -79,6 +79,7 @@ const transactionStatus = async (req, res) => {
     );
 
     res.status(200).json(response.data);
+    console.log(response.data);
   } catch (error) {
     console.error("Error fetching transaction status:", error);
     res.status(500).send("Failed to fetch transaction status");

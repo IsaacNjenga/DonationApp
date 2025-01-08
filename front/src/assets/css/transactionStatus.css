@@ -1,0 +1,99 @@
+.transaction-status-page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.transaction-status-bg-image {
+  position: relative;
+  background: linear-gradient(rgba(91, 90, 90, 0.274), rgba(53, 155, 83, 0.6)),
+    url("../images/success3.jpg") no-repeat center center/cover;
+
+  z-index: 1;
+}
+
+.transaction-navbar-element {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.098); /* Semi-transparent background */
+  backdrop-filter: blur(2px); /* Modern glass effect */
+}
+
+.transaction-status-page-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: white;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.transaction-status-header h2 {
+  margin-top: 150px;
+  color: aliceblue;
+}
+
+.transaction-status-tagline {
+  font-size: 2rem;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.transaction-status-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -40px;
+  z-index: 2;
+}
+
+.transaction-status-content {
+  max-width: 680px;
+  width: 100%;
+  margin-bottom: 50px;
+  padding: 25px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.transaction-status-unavailable-content {
+  max-width: 670px;
+  width: 100%;
+  margin-top: 60px;
+  margin-bottom: 190px;
+  padding: 25px;
+  border-radius: 15px;
+  background-color: rgba(195, 56, 56, 0.777);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.transaction-status-content h2 {
+  color: #4caf50;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 8px;
+  text-align: center;
+}
+
+.transaction-status-details {
+  line-height: 1.8;
+  color: #333;
+}
+.transaction-status-unavailable {
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Roboto, sans-serif";
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

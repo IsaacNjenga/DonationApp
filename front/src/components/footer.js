@@ -20,6 +20,7 @@ function Footer() {
         color: "#fff",
         padding: "40px 20px",
         textAlign: "center",
+        //marginTop: "10px",
       }}
     >
       <div className="main-footer">
@@ -59,42 +60,42 @@ function Footer() {
 
         {/* Contact Info Section */}
         <div>
-  <h3 style={{ color: "#ffd700", fontSize: "1.5rem" }}>Contact Info</h3>
-  <div className="contact-info-footer">
-    <div className="contact-item">
-      <span className="icon-wrapper">
-        <FontAwesomeIcon icon={faLocationDot} />
-      </span>
-      <p>00100, Nairobi, Kenya</p>
-    </div>
+          <h3 style={{ color: "#ffd700", fontSize: "1.5rem" }}>Contact Info</h3>
+          <div className="contact-info-footer">
+            <div className="contact-item">
+              <span className="icon-wrapper">
+                <FontAwesomeIcon icon={faLocationDot} />
+              </span>
+              <p>00100, Nairobi, Kenya</p>
+            </div>
 
-    <div className="contact-item">
-      <span className="icon-wrapper">
-        <FontAwesomeIcon icon={faPhone} />
-      </span>
-      <p>+254-743-854495</p>
-    </div>
+            <div className="contact-item">
+              <span className="icon-wrapper">
+                <FontAwesomeIcon icon={faPhone} />
+              </span>
+              <p>+254-743-854495</p>
+            </div>
 
-    <div className="contact-item">
-      <span className="icon-wrapper">
-        <FontAwesomeIcon icon={faMobile} />
-      </span>
-      <p>+254-723-736651</p>
-    </div>
+            <div className="contact-item">
+              <span className="icon-wrapper">
+                <FontAwesomeIcon icon={faMobile} />
+              </span>
+              <p>+254-723-736651</p>
+            </div>
 
-    <div className="contact-item">
-      <span className="icon-wrapper">
-        <FontAwesomeIcon icon={faAt} />
-      </span>
-      <a
-        href="mailto:janekimani630@gmail.com"
-        style={{ color: "white", textDecoration: "none" }}
-      >
-        janekimani630@gmail.com
-      </a>
-    </div>
-  </div>
-</div>
+            <div className="contact-item">
+              <span className="icon-wrapper">
+                <FontAwesomeIcon icon={faAt} />
+              </span>
+              <a
+                href="mailto:janekimani630@gmail.com"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                janekimani630@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
 
       <hr style={{ borderColor: "#555", margin: "20px 0" }} />

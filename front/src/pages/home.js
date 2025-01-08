@@ -295,9 +295,9 @@ function Home() {
             <div className="numbers-section">
               {numbers.map((number) => (
                 <div key={number.id} className="home-numbers-container">
-                  <h1 id="numbers">
+                  <div id="numbers">
                     {<Counter targetNumber={number.number} />}
-                  </h1>
+                  </div>
                   <h2>{number.name}</h2>
                 </div>
               ))}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/navbar";
 import axios from "axios";
 import "../assets/css/donate.css";
@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-hot-toast";
 import Loader from "../components/loader";
+import TransactionStatus from "./transactionStatus";
 
 function Donate() {
   const [loading, setLoading] = useState(false);
@@ -45,9 +46,8 @@ function Donate() {
         console.log("Response Data:", res.data);
 
         const { redirectUrl, orderTrackingId } = res.data;
-        const url = redirectUrl;
-        window.location.href = url;
-        transStatus(orderTrackingId);
+        localStorage.setItem("orderTrackingId", orderTrackingId); // Store orderTrackingId
+        window.location.href = redirectUrl;
       })
       .catch((err) => {
         setDisabled(false);
@@ -57,13 +57,7 @@ function Donate() {
       });
   };
 
-  const transStatus = async (orderTrackingId) => {
-    const response = await axios.get(
-      `transaction-status?orderTrackingId=${orderTrackingId}`
-    );
-    const transactionData = response.data;
-    console.log("Transaction Data", transactionData);
-  };
+ 
 
   return (
     <>
@@ -165,6 +159,12 @@ function Donate() {
               Donate <FontAwesomeIcon icon={faHandHoldingHeart} />
             </button>
           </form>
+          {/* <button
+            onClick={() => transStatus("709d5aa2-f1c7-4a80-9f60-dc4e683bd648")}
+          >
+            transStatus
+          </button> */}
+         
         </div>
         {/* 
         <div className="testimonials">

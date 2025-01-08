@@ -86,6 +86,7 @@ function Navbar() {
               Volunteer
             </Link>
           </li>
+         
           {user ? (
             <li>
               <Link to="/logout" className="navbar-link">

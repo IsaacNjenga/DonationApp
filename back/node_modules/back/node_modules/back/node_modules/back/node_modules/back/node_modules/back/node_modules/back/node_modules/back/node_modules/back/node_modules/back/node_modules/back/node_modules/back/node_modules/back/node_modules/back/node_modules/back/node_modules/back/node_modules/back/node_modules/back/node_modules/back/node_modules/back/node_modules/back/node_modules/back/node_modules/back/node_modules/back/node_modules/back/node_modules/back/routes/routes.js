@@ -3,11 +3,14 @@ import express from "express";
 import { stkpush } from "../controllers/mpesaController.js";
 import { generateToken } from "../middleware/generateToken.js";
 //import { bankDonate } from "../controllers/bankController.js";
+
 import { accessToken } from "../middleware/accessToken.js";
+
 import {
   submitOrder,
   transactionStatus,
 } from "../controllers/pesapalController.js";
+
 import {
   createFeedback,
   deleteFeedback,
@@ -15,7 +18,9 @@ import {
   fetchFeedbacks,
   updateFeedback,
 } from "../controllers/feedbackController.js";
+
 import { VerifyUser } from "../middleware/verify.js";
+
 import { Auth, Login, Register } from "../controllers/userController.js";
 import {
   createVolunteer,
@@ -24,6 +29,12 @@ import {
   fetchVolunteers,
   updateVolunteer,
 } from "../controllers/volunteerController.js";
+
+import {
+  createTransactionData,
+  fetchTransactionData,
+  fetchTransactionsData,
+} from "../controllers/transactionDataController.js";
 
 const router = express.Router();
 
@@ -45,6 +56,15 @@ router.get("/fetch-volunteer", VerifyUser, fetchVolunteers);
 router.get("/fetch-volunteer/:id", VerifyUser, fetchVolunteer);
 router.put("/update-volunteer/:id", updateVolunteer);
 router.delete("/delete-volunteer/:id", VerifyUser, deleteVolunteer);
+
+//pesapal endpoints
+router.post("/initiate-payment", accessToken, submitOrder);
+router.get("/transaction-status", accessToken, transactionStatus);
+
+//transactionData endpoints
+router.post("/create-transaction-data", createTransactionData);
+router.get("/fetch-transactions-data", VerifyUser, fetchTransactionsData);
+router.get("/fetch-transaction-data", fetchTransactionData);
 
 //mpesa endpoint
 router.post("/mpesa", generateToken, stkpush);
@@ -90,9 +110,5 @@ router.post("/callback", async (req, res) => {
 
 //bank endpoint
 //router.post("/create-checkout-session", bankDonate);
-
-//pesapal endpoint
-router.post("/initiate-payment", accessToken, submitOrder);
-router.get("/transaction-status", accessToken, transactionStatus);
 
 export { router as Router };

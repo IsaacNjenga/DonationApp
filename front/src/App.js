@@ -19,6 +19,7 @@ import Donors from "./pages/donors";
 import Campaigns from "./pages/campaigns";
 import Report from "./pages/reports";
 import Management from "./pages/management";
+import TransactionStatus from "./pages/transactionStatus";
 
 export const UserContext = createContext(null);
 
@@ -43,6 +44,7 @@ const router = createBrowserRouter([
   { path: "/campaigns", element: <Campaigns /> },
   { path: "/reports", element: <Report /> },
   { path: "/management", element: <Management /> },
+  { path: "/transaction-status", element: <TransactionStatus /> },
   { path: "/logout", element: <Logout /> },
 ]);
 function App() {
