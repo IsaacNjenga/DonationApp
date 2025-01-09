@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.json());
 
 const corsOptions = {
-  origin: ["http://localhost:3000", "https://donation-app-front.vercel.app"],
+  origin: ["http://localhost:3000", "https://donation-app-front.vercel.app","https://www.upliftingkindnessfoundation.com"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization", "Accept"],
