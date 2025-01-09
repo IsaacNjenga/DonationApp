@@ -96,13 +96,6 @@ function Home() {
     },
   ];
 
-  const otherPics = [
-    { id: 1, image: waterImage },
-    { id: 2, image: water1 },
-    { id: 3, image: water2 },
-    { id: 4, image: water3 },
-  ];
-
   const changingLives = [
     {
       id: 1,
@@ -159,6 +152,7 @@ function Home() {
   const toDonate = () => {
     navigate("/donate");
   };
+
   return (
     <>
       <div className="home-container">
@@ -225,22 +219,25 @@ function Home() {
           <div className="grid-section">
             {featuredCases.map((cases) => (
               <div key={cases.id} className="featured-card">
-                {/* <Carousel autoplay>
-                  {cases.image.map((imgSrc, index) => (
-                    <div key={index} className="carousel-slide">
-                      <img
-                        src={imgSrc}
-                        alt={`Slide ${index + 1}`}
-                        className="featured-image"
-                      />
-                    </div>
-                  ))}
-                </Carousel> */}
-                <img
+                {" "}
+                <div className="carousel-slide">
+                  <Carousel autoplay>
+                    {cases.image.map((imgSrc, index) => (
+                      <div key={index}>
+                        <img
+                          src={imgSrc}
+                          alt={`Slide ${index + 1}`}
+                          className="featured-image"
+                        />
+                      </div>
+                    ))}
+                  </Carousel>
+                </div>
+                {/* <img
                   src={cases.image[3]}
                   alt={`cases.image`}
                   className="featured-image"
-                />
+                /> */}
                 <h2>{cases.title}</h2>
                 <p>{cases.body}</p>
               </div>

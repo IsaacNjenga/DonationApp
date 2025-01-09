@@ -153,10 +153,7 @@ html {
 }
 
 .carousel-slide {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  background-color: red;
+  width: 100%;
 }
 
 .featured-image {
@@ -388,6 +385,10 @@ html {
 
 /* General small screen adjustments */
 @media screen and (max-width: 768px) {
+  .carousel-slide {
+    width: 50%;
+  }
+
   .hero-title {
     font-size: 2.5rem; /* Smaller font for small screens */
     margin-top: 15vh;
@@ -470,6 +471,11 @@ html {
     margin: 10px 0;
   }
   img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .featured-image {
     max-width: 100%;
     height: auto;
   }
