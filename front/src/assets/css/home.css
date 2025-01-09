@@ -386,7 +386,7 @@ html {
 /* General small screen adjustments */
 @media screen and (max-width: 768px) {
   .carousel-slide {
-    width: 50%;
+    width: 100%;
   }
 
   .hero-title {
@@ -482,5 +482,52 @@ html {
 
   .numbers-section h1 {
     font-size: 1rem;
+  }
+
+  .featured-section h1 {
+    font-size: 1.5rem; /* Reduce heading size */
+    margin-top: 10vh;
+  }
+
+  .featured-section p {
+    font-size: 0.9rem; /* Smaller subtitle text */
+    margin: 10px 15px;
+  }
+
+  .grid-section {
+    display: flex;
+    flex-direction: column; /* Stack featured cards vertically */
+    gap: 20px; /* Add spacing between stacked cards */
+    justify-content: center;
+  }
+
+  .featured-card {
+    width: 100%; /* Full width on small screens */
+    margin: 0 auto; /* Center align */
+    box-shadow: none; /* Remove box shadow for a cleaner look */
+  }
+
+  .featured-image {
+    width: 100%;
+    height: 150px; /* Maintain aspect ratio */
+    object-fit: cover; /* Adjust to avoid zooming in */
+    border-radius: 8px;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: 250px; /* Maintain proper scaling */
+    object-fit: cover;
+  }
+
+  .featured-card h2 {
+    font-size: 1.2rem; /* Slightly smaller card titles */
+    text-align: center;
+  }
+
+  .featured-card p {
+    font-size: 0.9rem; /* Adjust paragraph text */
+    text-align: center; /* Center-align text for smaller screens */
+    padding: 0 10px; /* Add some padding for better readability */
   }
 }
