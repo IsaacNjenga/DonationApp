@@ -4,7 +4,10 @@ import image from "../assets/images/eunice.jpg";
 import image2 from "../assets/images/michael.jpg";
 import image3 from "../assets/images/man2.jpg";
 import image4 from "../assets/images/man1.jpg";
-import image5 from "../assets/images/jane.jpg";
+import jane from "../assets/images/jane.jpg";
+import image5 from "../assets/images/stacy.jpg";
+import annabel from "../assets/images/woman1.jpg";
+import dean from "../assets/images/woman2.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import "../assets/css/volunteer.css";
 import Footer from "../components/footer";
@@ -16,19 +19,12 @@ function Volunteer() {
     { id: 2, image: image5, name: "Stacy Henderson", task: "Support Staff" },
     { id: 3, image: image2, name: "Michael Clark", task: "Support Staff" },
     { id: 4, image: image, name: "Alicia Anderson", task: "Support Staff" },
-    { id: 5, image: image, name: "Annabel Flow", task: "Support Staff" },
-    { id: 6, image: image5, name: "Sintra Casper", task: "Support Staff" },
+
+    { id: 5, image: annabel, name: "Annabel Flow", task: "Support Staff" },
+    { id: 6, image: jane, name: "Sintra Casper", task: "Support Staff" },
     { id: 7, image: image3, name: "Peter Amborson", task: "Support Staff" },
-    { id: 8, image: image2, name: "Dean Solist", task: "Support Staff" },
-    { id: 9, image: image3, name: "Orman Starski", task: "Support Staff" },
-    { id: 10, image: image4, name: "Alen Craig", task: "Support Staff" },
-    {
-      id: 11,
-      image: image5,
-      name: "Patricia Olmart",
-      task: "Support Staff",
-    },
-    { id: 12, image: image3, name: "Sean Nickson", task: "Support Staff" },
+    { id: 8, image: dean, name: "Dean Solist", task: "Support Staff" },
+   
   ];
 
   const faqs = [

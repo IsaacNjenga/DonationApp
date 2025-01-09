@@ -8,10 +8,19 @@ import educationIcon from "../assets/icons/mortarboard.png";
 import medicalIcon from "../assets/icons/hospital.png";
 import waterDropIcon from "../assets/icons/mineral-water.png";
 import loveCareIcon from "../assets/icons/hands.png";
-import shelterIcon from '../assets/icons/shelter.png'
+import shelterIcon from "../assets/icons/shelter.png";
 import foodImage from "../assets/images/food.jpg";
-import educationImage from "../assets/images/education.jpg";
-import waterImage from "../assets/images/water.jpg";
+import educationImage from "../assets/images/childrenInClass.jpg";
+import inclass1 from "../assets/images/inclass1.jpg";
+import inclass2 from "../assets/images/inclass2.jpg";
+import inclass3 from "../assets/images/inclass3.jpg";
+import food1 from "../assets/images/food1.jpg";
+import food2 from "../assets/images/food2.jpg";
+import food3 from "../assets/images/food3.jpg";
+import water1 from "../assets/images/water1.jpg";
+import water2 from "../assets/images/water2.jpg";
+import water3 from "../assets/images/water3.jpg";
+import waterImage from "../assets/images/cleanwater.jpg";
 import holdingChild from "../assets/images/holdingChild.jpg";
 import jane from "../assets/images/ceo.jpg";
 import eunice from "../assets/images/manager.jpg";
@@ -22,69 +31,76 @@ import man1 from "../assets/images/man1.jpg";
 import man2 from "../assets/images/man2.jpg";
 import woman1 from "../assets/images/woman1.jpg";
 import Counter from "../components/counter";
+import { Carousel } from "antd";
 
 function Home() {
   const navigate = useNavigate();
 
   const homeInformation = [
-  {
-    id: 1,
-    title: "Healthy Food",
-    icon: foodIcon,
-    body: "Every child deserves access to nutritious meals to grow strong and thrive. Your donation helps us provide healthy, nourishing food, giving children the energy and hope they need for a brighter future.",
-  },
-  {
-    id: 2,
-    title: "Education",
-    icon: educationIcon,
-    body: "Education unlocks endless possibilities. With your support, we can provide children with the tools, resources, and opportunities they need to learn, grow, and achieve their dreams.",
-  },
-  {
-    id: 3,
-    title: "Medical Care",
-    icon: medicalIcon,
-    body: "Quality healthcare is a fundamental right. Your contributions help us provide medical care, essential supplies, and a chance for children to live healthy and fulfilling lives.",
-  },
-  {
-    id: 4,
-    title: "Clean Water",
-    icon: waterDropIcon,
-    body: "Safe and clean drinking water is life-changing. Your support ensures access to pure water, promoting better health and brighter futures for children in need.",
-  },
-  {
-    id: 5,
-    title: "Love & Care",
-    icon: loveCareIcon,
-    body: "Your time and compassion can make a world of difference. Become a volunteer and help us bring hope, joy, and brighter futures to children who need it most.",
-  },
-  {
-    id: 6,
-    title: "Shelter & Safety",
-    icon: shelterIcon,
-    body: "A safe and secure environment is every child’s right. Your support helps us provide shelter and protection, ensuring children grow up in a nurturing and stable setting.",
-  },
-];
-
+    {
+      id: 1,
+      title: "Healthy Food",
+      icon: foodIcon,
+      body: "Every child deserves access to nutritious meals to grow strong and thrive. Your donation helps us provide healthy, nourishing food, giving children the energy and hope they need for a brighter future.",
+    },
+    {
+      id: 2,
+      title: "Education",
+      icon: educationIcon,
+      body: "Education unlocks endless possibilities. With your support, we can provide children with the tools, resources, and opportunities they need to learn, grow, and achieve their dreams.",
+    },
+    {
+      id: 3,
+      title: "Medical Care",
+      icon: medicalIcon,
+      body: "Quality healthcare is a fundamental right. Your contributions help us provide medical care, essential supplies, and a chance for children to live healthy and fulfilling lives.",
+    },
+    {
+      id: 4,
+      title: "Clean Water",
+      icon: waterDropIcon,
+      body: "Safe and clean drinking water is life-changing. Your support ensures access to pure water, promoting better health and brighter futures for children in need.",
+    },
+    {
+      id: 5,
+      title: "Love & Care",
+      icon: loveCareIcon,
+      body: "Your time and compassion can make a world of difference. Become a volunteer and help us bring hope, joy, and brighter futures to children who need it most.",
+    },
+    {
+      id: 6,
+      title: "Shelter & Safety",
+      icon: shelterIcon,
+      body: "A safe and secure environment is every child’s right. Your support helps us provide shelter and protection, ensuring children grow up in a nurturing and stable setting.",
+    },
+  ];
 
   const featuredCases = [
     {
       id: 1,
-      image: foodImage,
+      image: [foodImage, food1, food2, food3],
       title: "Feed the Children",
       body: "Join us in providing nourishing meals to children in need. Your support ensures they have the energy and health to learn, grow, and thrive. Together, we can make a difference, one meal at a time.",
     },
     {
       id: 2,
       title: "Education",
-      image: educationImage,
+      image: [educationImage, inclass1, inclass2, inclass3],
       body: "Empower children with the gift of knowledge. Your support helps provide access to quality education, giving them the tools they need to build a brighter future. Together, we can create opportunities that transform lives and communities.",
     },
     {
       id: 3,
       title: "Clean Water",
-      image: waterImage,
+      image: [waterImage, water1, water2, water3],
       body: "Access to clean water is a basic necessity and a foundation for healthy living. Your support helps us provide safe, clean water to children and their communities, reducing illness and creating a better quality of life. Together, we can ensure every child has the water they need to thrive.",
     },
+  ];
+
+  const otherPics = [
+    { id: 1, image: waterImage },
+    { id: 2, image: water1 },
+    { id: 3, image: water2 },
+    { id: 4, image: water3 },
   ];
 
   const changingLives = [
@@ -200,6 +216,7 @@ function Home() {
             </div>
           ))}
         </div>
+
         <div className="featured-section">
           <h1>Featured Causes</h1>
           <p className="section-subtitle">
@@ -208,16 +225,24 @@ function Home() {
           <div className="grid-section">
             {featuredCases.map((cases) => (
               <div key={cases.id} className="featured-card">
-                <div>
-                  <img
-                    src={cases.image}
-                    alt="_"
-                    className="featured-image"
-                    loading="lazy"
-                  />
-                  <h2>{cases.title}</h2>
-                  <p>{cases.body}</p>
-                </div>
+                {/* <Carousel autoplay>
+                  {cases.image.map((imgSrc, index) => (
+                    <div key={index} className="carousel-slide">
+                      <img
+                        src={imgSrc}
+                        alt={`Slide ${index + 1}`}
+                        className="featured-image"
+                      />
+                    </div>
+                  ))}
+                </Carousel> */}
+                <img
+                  src={cases.image[3]}
+                  alt={`cases.image`}
+                  className="featured-image"
+                />
+                <h2>{cases.title}</h2>
+                <p>{cases.body}</p>
               </div>
             ))}
           </div>
