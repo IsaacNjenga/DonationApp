@@ -8,7 +8,8 @@ import projectIcon from "../assets/icons/project.png";
 import missionIcon from "../assets/icons/mission.png";
 import donationIcon from "../assets/icons/donation.png";
 import { Link, useNavigate } from "react-router-dom";
-
+import team from "../assets/icons/strong-team.png";
+import nonprofit from "../assets/icons/nonprofit.png";
 function About() {
   const navigate = useNavigate();
   const topNumbers = [
@@ -72,6 +73,13 @@ function About() {
             </div>
           </div>
           <div className="about-div2">
+            <div className="about-div2-image">
+              <img
+                src={nonprofit}
+                alt="nonprofit.png"
+                className="nonprofit-icon"
+              />
+            </div>
             <div className="about-div2-text">
               <h1>We Are A Non Profit Organization</h1>
               <p>
@@ -118,6 +126,9 @@ function About() {
                 every child has the chance to thrive. Together, we can achieve
                 so much more!
               </p>
+            </div>{" "}
+            <div className="about-div3-image">
+              <img src={team} alt="team.png" className="team-icon" />
             </div>
           </div>
           <div className="about-footer-bg">
