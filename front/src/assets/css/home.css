@@ -2,40 +2,52 @@ html {
   scroll-behavior: smooth;
 }
 
-.hero-section {
+.home-container {
+  position: relative;
   text-align: center;
-  padding: 20px 20px;
-  background: linear-gradient(to right, #c8cacbbc, #235356d0);
-  background-image: url(../images/homebg.jpg);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  color: white;
+}
+
+.home-image {
+  position: relative;
+  background: linear-gradient(rgba(91, 90, 90, 0), rgba(53, 155, 84, 0)),
+    url("../images/homebg.jpg") no-repeat center center/cover;
+  padding-bottom: 40px;
+  z-index: 1;
+}
+
+.home-content {
+  padding: 40px;
+  margin-bottom: 65px;
+}
+
+.home-section {
+  text-align: center;
 }
 
 .hero-title {
   padding: 10px;
-  margin-top: 25vh;
+  margin-top: 45vh;
   font-size: 6rem;
   font-weight: 600;
   font-family: Georgia, "Times New Roman", Times, serif;
   margin-bottom: 10px;
   text-align: center;
+  color: rgb(255, 255, 255);
 }
 
 .hero-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.35rem;
   text-align: center;
-  padding: 20px;
-  margin: 60px;
+  padding: 25px;
+  margin: 50px;
   margin-bottom: 40px;
-  background-color: #47444479;
+  background-color: #47444429;
   border-radius: 15px;
   filter: blur(20%);
 }
 
 .hero-buttons .cta-button {
-  background-color: #ffe66d;
-  color: rgb(0, 0, 0);
+  background-color: #ecb60f;
   border: none;
   padding: 20px 35px;
   margin: 0 10px;
@@ -43,7 +55,26 @@ html {
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 15vh;
+  margin-bottom: 5px;
+}
+
+.cta-button,
+.cta-link {
+  color: rgb(0, 0, 0);
+  animation: fadeIn 1.5s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  background-color: #f43636;
+  transition: transform 0.3s ease;
+  color: white;
+}
+.cta-link:hover {
+  background-color: #f43636;
+  transition: transform 0.3s ease;
+  color: white;
 }
 
 .cta-button.secondary {
@@ -55,13 +86,13 @@ html {
 .information-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  margin: 30px;
+  gap: 10px;
+  margin: 35px;
 }
 
 .information-section {
   background-color: rgba(255, 255, 255, 0.92);
-  padding: 25px;
+  padding: 35px;
   border-radius: 12px;
   color: rgb(67, 65, 65);
 }
@@ -70,8 +101,8 @@ html {
 .featured-card {
   background: rgba(255, 255, 255, 0);
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 1px 6px #ecb60f;
 }
 
 .info-card h2,
@@ -98,11 +129,14 @@ html {
 .featured-section h1 {
   color: #000000;
   font-family: Georgia, "Times New Roman", Times, serif;
-  margin-top: 13vh;
+  margin-top: 10vh;
+  font-size: 2rem;
+  text-align: center;
 }
 
 .featured-section p {
   color: #444242;
+  text-align: center;
 }
 
 .featured-card {
@@ -130,11 +164,11 @@ html {
 }
 
 .icon-picture {
-  width: 15%;
+  width: 20%;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.06);
-  outline: 4px solid rgba(255, 217, 0, 0.476);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0), 0px 2px 4px rgba(0, 0, 0, 0);
+  outline: 4px solid rgba(255, 217, 0, 0.198);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: #00000037;
 }

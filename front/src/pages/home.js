@@ -1,13 +1,14 @@
 import React from "react";
 import Navbar from "../components/navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/footer";
 import "../assets/css/home.css";
 import foodIcon from "../assets/icons/food.png";
-import educationIcon from "../assets/icons/education.png";
+import educationIcon from "../assets/icons/mortarboard.png";
 import medicalIcon from "../assets/icons/hospital.png";
-import waterDropIcon from "../assets/icons/waterdrop.png";
-import loveCareIcon from "../assets/icons/lovecare.png";
+import waterDropIcon from "../assets/icons/mineral-water.png";
+import loveCareIcon from "../assets/icons/hands.png";
+import shelterIcon from '../assets/icons/shelter.png'
 import foodImage from "../assets/images/food.jpg";
 import educationImage from "../assets/images/education.jpg";
 import waterImage from "../assets/images/water.jpg";
@@ -23,39 +24,47 @@ import woman1 from "../assets/images/woman1.jpg";
 import Counter from "../components/counter";
 
 function Home() {
-  const homeInformation = [
-    {
-      id: 1,
-      title: "Healthy Food",
-      icon: foodIcon,
-      body: "Every child deserves nutritious meals to grow strong and thrive. With your donation, you can help us provide healthy, nourishing food to children in our care, giving them the energy and hope they need for a brighter tomorrow.",
-    },
+  const navigate = useNavigate();
 
-    {
-      id: 2,
-      title: "Education",
-      icon: educationIcon,
-      body: "Education is the key to unlocking a brighter future. Your donation helps provide children with the tools, resources, and opportunities they need to learn, grow, and achieve their dreams.",
-    },
-    {
-      id: 3,
-      title: "Medical",
-      icon: medicalIcon,
-      body: "Every child deserves access to quality healthcare. Your support helps provide medical care, essential supplies, and a chance at a healthy, happy life for children in need.",
-    },
-    {
-      id: 4,
-      title: "Clean Water, Brighter Futures",
-      icon: waterDropIcon,
-      body: "Access to safe, pure water changes everything. Your support helps provide clean drinking water, promoting health and happiness for children in need.",
-    },
-    {
-      id: 5,
-      title: "Love & Care",
-      icon: loveCareIcon,
-      body: "Show your love and care by becoming a volunteer. Your time and dedication can make a lasting impact on the lives of children, bringing them hope, joy, and a brighter future.",
-    },
-  ];
+  const homeInformation = [
+  {
+    id: 1,
+    title: "Healthy Food",
+    icon: foodIcon,
+    body: "Every child deserves access to nutritious meals to grow strong and thrive. Your donation helps us provide healthy, nourishing food, giving children the energy and hope they need for a brighter future.",
+  },
+  {
+    id: 2,
+    title: "Education",
+    icon: educationIcon,
+    body: "Education unlocks endless possibilities. With your support, we can provide children with the tools, resources, and opportunities they need to learn, grow, and achieve their dreams.",
+  },
+  {
+    id: 3,
+    title: "Medical Care",
+    icon: medicalIcon,
+    body: "Quality healthcare is a fundamental right. Your contributions help us provide medical care, essential supplies, and a chance for children to live healthy and fulfilling lives.",
+  },
+  {
+    id: 4,
+    title: "Clean Water",
+    icon: waterDropIcon,
+    body: "Safe and clean drinking water is life-changing. Your support ensures access to pure water, promoting better health and brighter futures for children in need.",
+  },
+  {
+    id: 5,
+    title: "Love & Care",
+    icon: loveCareIcon,
+    body: "Your time and compassion can make a world of difference. Become a volunteer and help us bring hope, joy, and brighter futures to children who need it most.",
+  },
+  {
+    id: 6,
+    title: "Shelter & Safety",
+    icon: shelterIcon,
+    body: "A safe and secure environment is every child’s right. Your support helps us provide shelter and protection, ensuring children grow up in a nurturing and stable setting.",
+  },
+];
+
 
   const featuredCases = [
     {
@@ -131,14 +140,25 @@ function Home() {
     { id: 4, number: 320, name: "Missions" },
   ];
 
+  const toDonate = () => {
+    navigate("/donate");
+  };
   return (
     <>
-      {" "}
-      <div className="hero-section">
-        {" "}
-        <Navbar />
-        <div className="div-background">
-          <h1 className="hero-title">Bringing Hope, Changing Lives</h1>
+      <div className="home-container">
+        <div className="home-image">
+          <div className="navbar-element">
+            <Navbar />
+          </div>
+
+          <div className="home-content">
+            <div className="home-header">
+              <h1 className="hero-title">Bringing Hope, Changing Lives</h1>
+            </div>
+          </div>
+        </div>
+
+        <div className="home-section">
           <p className="hero-subtitle">
             Every child deserves love, care, and the chance to thrive. Together,
             we can provide the support they need—nourishing meals, a warm home,
@@ -147,13 +167,8 @@ function Home() {
             lifetime. Your contribution will make a world of difference
           </p>
           <div className="hero-buttons">
-            <button className="cta-button">
-              <Link
-                to="/donate"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                Donate Now
-              </Link>
+            <button className="cta-button" onClick={toDonate}>
+              Donate Now
             </button>
             <button className="cta-button secondary">
               <Link
@@ -165,6 +180,7 @@ function Home() {
             </button>
           </div>
         </div>
+
         <div className="information-section">
           {homeInformation.map((information) => (
             <div key={information.id} className="info-card">
@@ -226,13 +242,8 @@ function Home() {
               ))}
             </div>
             <div className="hero-buttons">
-              <button className="cta-button">
-                <Link
-                  to="/donate"
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  Donate Now
-                </Link>
+              <button className="cta-button" onClick={toDonate}>
+                Donate Now
               </button>
               <button className="cta-button secondary">
                 {" "}

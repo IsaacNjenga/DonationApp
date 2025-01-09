@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Navbar from "../components/navbar";
 import axios from "axios";
 import "../assets/css/donate.css";
@@ -13,7 +13,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-hot-toast";
 import Loader from "../components/loader";
-import TransactionStatus from "./transactionStatus";
 
 function Donate() {
   const [loading, setLoading] = useState(false);
@@ -56,8 +55,6 @@ function Donate() {
         toast.error("Donation failed, kindly refresh and try again");
       });
   };
-
- 
 
   return (
     <>
@@ -164,7 +161,6 @@ function Donate() {
           >
             transStatus
           </button> */}
-         
         </div>
         {/* 
         <div className="testimonials">
