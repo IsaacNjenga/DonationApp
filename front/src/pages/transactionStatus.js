@@ -1,25 +1,26 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import Navbar from "../components/navbar";
 import axios from "axios";
 import Loader from "../components/loader";
 import { format } from "date-fns";
 import "../assets/css/transactionStatus.css";
 import Footer from "../components/footer";
-import { UserContext } from "../App";
+import { useParams } from "react-router-dom";
 
 function TransactionStatus() {
+  const { id } = useParams();
   const [loading, setLoading] = useState(false);
   const [transactionData, setTransactionData] = useState(null);
 
   useEffect(() => {
     const fetchTransactionData = async () => {
       setLoading(true);
-    
+
       //const orderTrackingId = "709d5aa2-f1c7-4a80-9f60-dc4e683bd648";
       try {
         const response = await axios.get(
-          `fetch-transaction-data?orderTrackingId=${orderTrackingId}`
-        ); 
+          `fetch-transaction-data?orderTrackingId=${id}`
+        );
         setTransactionData(response.data.transactionData);
       } catch (error) {
         console.error("Error fetching transaction data:", error);
@@ -28,7 +29,7 @@ function TransactionStatus() {
     };
 
     fetchTransactionData();
-  }, [orderTrackingId]);
+  }, [id]);
 
   return (
     <>
