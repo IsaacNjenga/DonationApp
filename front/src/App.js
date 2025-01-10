@@ -20,6 +20,7 @@ import Campaigns from "./pages/campaigns";
 import Report from "./pages/reports";
 import Management from "./pages/management";
 import TransactionStatus from "./pages/transactionStatus";
+import { TransactionProvider } from "./components/transactionContext";
 
 export const UserContext = createContext(null);
 
@@ -77,8 +78,10 @@ function App() {
   return (
     <>
       <UserContext.Provider value={{ user, setUser, setIsOnline, isOnline }}>
-        <RouterProvider router={router} />
-        <Toaster position="top-right" toastOption={{ duration: 2200 }} />
+        <TransactionProvider>
+          <RouterProvider router={router} />
+          <Toaster position="top-right" toastOption={{ duration: 2200 }} />
+        </TransactionProvider>
       </UserContext.Provider>
     </>
   );

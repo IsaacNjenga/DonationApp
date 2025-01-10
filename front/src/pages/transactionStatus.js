@@ -5,15 +5,19 @@ import Loader from "../components/loader";
 import { format } from "date-fns";
 import "../assets/css/transactionStatus.css";
 import Footer from "../components/footer";
+import { useTransaction } from "../components/transactionContext";
 
 function TransactionStatus() {
   const [loading, setLoading] = useState(false);
   const [transactionData, setTransactionData] = useState(null);
+  const { orderTrackingId } = useTransaction();
+  console.log(orderTrackingId);
 
   useEffect(() => {
     const fetchTransactionData = async () => {
       setLoading(true);
-      const orderTrackingId = localStorage.getItem("orderTrackingId");
+      console.log(orderTrackingId);
+      //const orderTrackingId = localStorage.getItem("orderTrackingId");
       //const orderTrackingId = "709d5aa2-f1c7-4a80-9f60-dc4e683bd648";
       try {
         const response = await axios.get(
@@ -27,7 +31,7 @@ function TransactionStatus() {
     };
 
     fetchTransactionData();
-  }, []);
+  }, [orderTrackingId]);
 
   return (
     <>
@@ -71,7 +75,10 @@ function TransactionStatus() {
                     <p>
                       <strong>Amount:</strong>{" "}
                       <span style={{ color: "#4CAF50", fontWeight: "bold" }}>
-                        {transactionData.amount} KES
+                        {transactionData.amount}{" "}
+                        {transactionData.payment_method === "MpesaKE"
+                          ? "KES"
+                          : "USD"}
                       </span>
                     </p>
                     <p>
@@ -112,6 +119,7 @@ function TransactionStatus() {
                   <div className="transaction-status-details">
                     <p className="transaction-status-unavailable">
                       No transaction data available.
+                      <br /> Reach out to us to get your transaction status.
                     </p>
                   </div>
                 </div>

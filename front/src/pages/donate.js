@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-hot-toast";
 import Loader from "../components/loader";
+import { useTransaction } from "../components/transactionContext";
 
 function Donate() {
   const [loading, setLoading] = useState(false);
@@ -23,6 +24,7 @@ function Donate() {
     amount: "",
     phoneNumber: "",
   });
+  const { setOrderTrackingId } = useTransaction();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -41,11 +43,13 @@ function Donate() {
       .then((res) => {
         setDisabled(false);
         setLoading(false);
-        console.log("Full Response:", res);
-        console.log("Response Data:", res.data);
+        // console.log("Full Response:", res);
+        // console.log("Response Data:", res.data);
 
         const { redirectUrl, orderTrackingId } = res.data;
-        localStorage.setItem("orderTrackingId", orderTrackingId); // Store orderTrackingId
+        setOrderTrackingId(orderTrackingId);
+        //localStorage.setItem("orderTrackingId", orderTrackingId); // Store orderTrackingId
+        console.log(orderTrackingId);
         window.location.href = redirectUrl;
       })
       .catch((err) => {
