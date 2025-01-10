@@ -1,29 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/navbar";
 import "../assets/css/success.css";
-import { Link } from "react-router-dom";
-import { useTransaction } from "../components/transactionContext";
+import { Link, useSearchParams } from "react-router-dom";
 import Loader from "../components/loader";
 
 function Success() {
+  const [searchParams] = useSearchParams();
+  const orderTrackingId = searchParams.get("OrderTrackingId");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  const { orderTrackingId, setOrderTrackingId } = useTransaction();
   console.log("orderTrackingId-success:", orderTrackingId);
 
   useEffect(() => {
     const fetchTransactionStatus = async () => {
-      //const orderTrackingId = localStorage.getItem("orderTrackingId");
-      // const orderTrackingId = "709d5aa2-f1c7-4a80-9f60-dc4e683bd648";
-      console.log(orderTrackingId);
-      if (!orderTrackingId) {
-        setMessage("No order tracking ID found.");
-        // const storedId = localStorage.getItem("orderTrackingId");
-        // if (storedId) setOrderTrackingId(storedId);
-        return;
-      }
-
       setLoading(true);
       try {
         const response = await axios.get(
@@ -50,7 +40,7 @@ function Success() {
     };
 
     fetchTransactionStatus();
-  }, [orderTrackingId, setOrderTrackingId]);
+  }, [orderTrackingId]);
 
   return (
     <>
@@ -66,7 +56,10 @@ function Success() {
             ) : (
               <>
                 <h1 className="success-title">Donation Successful!</h1>
-                <p className="success-message">{message}</p>
+                <p className="success-message">{message}</p>{" "}
+                <p className="success-message">
+                  Order Tracking ID: {orderTrackingId}
+                </p>
                 <p className="success-message">
                   To see your transaction details, click{" "}
                   <Link to="/transaction-status" style={{ color: "#f9bb00" }}>

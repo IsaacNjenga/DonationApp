@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "../components/navbar";
 import axios from "axios";
 import "../assets/css/donate.css";
@@ -13,7 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-hot-toast";
 import Loader from "../components/loader";
-import { useTransaction } from "../components/transactionContext";
+import { UserContext } from "../App";
 
 function Donate() {
   const [loading, setLoading] = useState(false);
@@ -24,7 +24,7 @@ function Donate() {
     amount: "",
     phoneNumber: "",
   });
-  const { setOrderTrackingId } = useTransaction();
+  const { setOrderTrackingId } = useContext(UserContext);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -43,13 +43,10 @@ function Donate() {
       .then((res) => {
         setDisabled(false);
         setLoading(false);
-        // console.log("Full Response:", res);
-        // console.log("Response Data:", res.data);
 
         const { redirectUrl, orderTrackingId } = res.data;
-        setOrderTrackingId(orderTrackingId);
-        //localStorage.setItem("orderTrackingId", orderTrackingId); // Store orderTrackingId
-        console.log(orderTrackingId);
+
+        toast.success("Successful");
         window.location.href = redirectUrl;
       })
       .catch((err) => {

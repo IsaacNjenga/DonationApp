@@ -1,28 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Navbar from "../components/navbar";
 import axios from "axios";
 import Loader from "../components/loader";
 import { format } from "date-fns";
 import "../assets/css/transactionStatus.css";
 import Footer from "../components/footer";
-import { useTransaction } from "../components/transactionContext";
+import { UserContext } from "../App";
 
 function TransactionStatus() {
   const [loading, setLoading] = useState(false);
   const [transactionData, setTransactionData] = useState(null);
-  const { orderTrackingId } = useTransaction();
-  console.log(orderTrackingId);
+  const { orderTrackingId } = useContext(UserContext);
+  console.log("orderTrackingId-trnxstatus:",orderTrackingId);
 
   useEffect(() => {
     const fetchTransactionData = async () => {
       setLoading(true);
-      console.log(orderTrackingId);
-      //const orderTrackingId = localStorage.getItem("orderTrackingId");
+    
       //const orderTrackingId = "709d5aa2-f1c7-4a80-9f60-dc4e683bd648";
       try {
         const response = await axios.get(
           `fetch-transaction-data?orderTrackingId=${orderTrackingId}`
-        ); // Fetch from DB
+        ); 
         setTransactionData(response.data.transactionData);
       } catch (error) {
         console.error("Error fetching transaction data:", error);
@@ -76,7 +75,8 @@ function TransactionStatus() {
                       <strong>Amount:</strong>{" "}
                       <span style={{ color: "#4CAF50", fontWeight: "bold" }}>
                         {transactionData.amount}{" "}
-                        {transactionData.payment_method === "MpesaKE"
+                        {transactionData.payment_method === "MpesaKE" ||
+                        "AirtelKE"
                           ? "KES"
                           : "USD"}
                       </span>

@@ -20,12 +20,11 @@ import Campaigns from "./pages/campaigns";
 import Report from "./pages/reports";
 import Management from "./pages/management";
 import TransactionStatus from "./pages/transactionStatus";
-import { TransactionProvider } from "./components/transactionContext";
 
 export const UserContext = createContext(null);
 
-//axios.defaults.baseURL = "http://localhost:3001/donate";
-axios.defaults.baseURL = "https://donation-app-umber.vercel.app/donate";
+axios.defaults.baseURL = "http://localhost:3001/donate";
+//axios.defaults.baseURL = "https://donation-app-umber.vercel.app/donate";
 axios.defaults.withCredentials = true;
 
 const router = createBrowserRouter([
@@ -51,6 +50,7 @@ const router = createBrowserRouter([
 function App() {
   const [user, setUser] = useState();
   const [isOnline, setIsOnline] = useState(false);
+  const [orderTrackingId, setOrderTrackingId] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -77,11 +77,18 @@ function App() {
 
   return (
     <>
-      <UserContext.Provider value={{ user, setUser, setIsOnline, isOnline }}>
-        <TransactionProvider>
-          <RouterProvider router={router} />
-          <Toaster position="top-right" toastOption={{ duration: 2200 }} />
-        </TransactionProvider>
+      <UserContext.Provider
+        value={{
+          user,
+          setUser,
+          setIsOnline,
+          isOnline,
+          orderTrackingId,
+          setOrderTrackingId,
+        }}
+      >
+        <RouterProvider router={router} />
+        <Toaster position="top-right" toastOption={{ duration: 2200 }} />
       </UserContext.Provider>
     </>
   );
