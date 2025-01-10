@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/navbar";
 import axios from "axios";
 import Loader from "../components/loader";
@@ -15,12 +15,14 @@ function TransactionStatus() {
   useEffect(() => {
     const fetchTransactionData = async () => {
       setLoading(true);
+      console.log(id);
 
       //const orderTrackingId = "709d5aa2-f1c7-4a80-9f60-dc4e683bd648";
       try {
         const response = await axios.get(
           `fetch-transaction-data?orderTrackingId=${id}`
         );
+        console.log(response.data.transactionData);
         setTransactionData(response.data.transactionData);
       } catch (error) {
         console.error("Error fetching transaction data:", error);
@@ -49,7 +51,7 @@ function TransactionStatus() {
           </div>
 
           <div className="transaction-status-container">
-            {transactionData ? (
+            {transactionData && (
               <>
                 <div className="transaction-status-content">
                   <h2>Transaction Details</h2>
@@ -110,7 +112,8 @@ function TransactionStatus() {
                   </div>
                 </div>
               </>
-            ) : (
+            )}{" "}
+            {!transactionData && (
               <div className="transaction-status-container">
                 {" "}
                 <div className="transaction-status-unavailable-content">

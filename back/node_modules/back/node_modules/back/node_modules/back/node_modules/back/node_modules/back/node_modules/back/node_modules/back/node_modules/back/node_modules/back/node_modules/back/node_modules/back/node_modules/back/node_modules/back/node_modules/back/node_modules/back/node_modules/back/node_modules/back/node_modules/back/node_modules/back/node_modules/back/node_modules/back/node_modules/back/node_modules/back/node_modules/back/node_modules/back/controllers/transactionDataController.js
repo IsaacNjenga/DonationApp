@@ -16,6 +16,8 @@ const createTransactionData = async (req, res) => {
     payment_status_code,
     payment_status_description,
   } = req.body;
+  
+  console.log(req.body);
 
   try {
     const orderIdExists = await TransactionDataModel.findOne({

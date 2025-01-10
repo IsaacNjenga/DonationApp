@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/navbar";
 import "../assets/css/success.css";
 import { Link, useSearchParams } from "react-router-dom";
 import Loader from "../components/loader";
+import { toast } from "react-hot-toast";
 
 function Success() {
   const [searchParams] = useSearchParams();
@@ -19,16 +20,20 @@ function Success() {
           `transaction-status?orderTrackingId=${orderTrackingId}`
         );
         const transactionData = response.data;
+        console.log(transactionData);
 
         // Save transaction details to the database
-        const saveRes = await axios.post(
-          "create-transaction-data",
-          transactionData
-        );
-        if (saveRes.data.success) {
-          setMessage("Transaction saved successfully!");
-        } else {
-          setMessage("Failed to save transaction data.");
+        if (transactionData) {
+          const saveRes = await axios.post(
+            "create-transaction-data",
+            transactionData
+          );
+          if (saveRes.data.success) {
+            toast.success("Transaction Saved!");
+            setMessage("Transaction saved successfully!");
+          } else {
+            setMessage("Failed to save transaction data.");
+          }
         }
       } catch (error) {
         console.error("Error fetching transaction status:", error);
