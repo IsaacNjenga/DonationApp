@@ -22,8 +22,8 @@ const submitOrder = async (req, res) => {
       amount: formattedAmount, // Amount in KES or other supported currencies
       currency: "USD",
       description: "Test Payment",
-      callback_url: "https://donation-app-front.vercel.app/success", // Your callback URL
-      cancellation_url: "https://donation-app-front.vercel.app/cancel",
+      callback_url: "https://www.upliftingkindnessfoundation.com/success", 
+      cancellation_url: "https://www.upliftingkindnessfoundation.com/cancel",
       notification_id: process.env.PESAPAL_IPN_ID, // Optional for IPN
       billing_address: {
         email: email,

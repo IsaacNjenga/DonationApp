@@ -10,8 +10,6 @@ import { UserContext } from "../App";
 function TransactionStatus() {
   const [loading, setLoading] = useState(false);
   const [transactionData, setTransactionData] = useState(null);
-  const { orderTrackingId } = useContext(UserContext);
-  console.log("orderTrackingId-trnxstatus:",orderTrackingId);
 
   useEffect(() => {
     const fetchTransactionData = async () => {

@@ -10,7 +10,6 @@ function Success() {
   const orderTrackingId = searchParams.get("OrderTrackingId");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  console.log("orderTrackingId-success:", orderTrackingId);
 
   useEffect(() => {
     const fetchTransactionStatus = async () => {
@@ -20,7 +19,6 @@ function Success() {
           `transaction-status?orderTrackingId=${orderTrackingId}`
         );
         const transactionData = response.data;
-        console.log(response.data);
 
         // Save transaction details to the database
         const saveRes = await axios.post(
@@ -62,7 +60,10 @@ function Success() {
                 </p>
                 <p className="success-message">
                   To see your transaction details, click{" "}
-                  <Link to="/transaction-status" style={{ color: "#f9bb00" }}>
+                  <Link
+                    to={`/transaction-status/${orderTrackingId}`}
+                    style={{ color: "#f9bb00" }}
+                  >
                     here
                   </Link>
                 </p>
