@@ -13,6 +13,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-hot-toast";
 import Loader from "../components/loader";
+import {
+  faCcAmex,
+  faCcMastercard,
+  faCcVisa,
+} from "@fortawesome/free-brands-svg-icons";
+import mpesa from "../assets/icons/mpesa.png";
+import airtel from "../assets/icons/airtel.png";
 
 function Donate() {
   const [loading, setLoading] = useState(false);
@@ -54,6 +61,7 @@ function Donate() {
         toast.error("Donation failed, kindly refresh and try again");
       });
   };
+  // }; faCcVisa faCcAmex faCcMastercard
 
   return (
     <>
@@ -155,6 +163,46 @@ function Donate() {
               Donate <FontAwesomeIcon icon={faHandHoldingHeart} />
             </button>
           </form>
+
+          <div className="payment-container">
+            <p>Accepted methods for donation</p>
+            <div className="payment-div">
+              <img src={mpesa} alt="mpesa_" className="payment-icon mpesa" />{" "}
+              <img src={airtel} alt="airtel" className="payment-icon mpesa" />
+              <FontAwesomeIcon
+                icon={faCcAmex}
+                className="payment-icon"
+                style={{ color: "#006cc9" }}
+              />
+              <FontAwesomeIcon
+                icon={faCcVisa}
+                className="payment-icon"
+                style={{ color: "#181e6b" }}
+              />
+              <FontAwesomeIcon
+                icon={faCcMastercard}
+                className="payment-icon"
+                style={{ color: "#e5001a" }}
+              />
+              <img src={mpesa} alt="mpesa_" className="payment-icon mpesa" />{" "}
+              <img src={airtel} alt="airtel" className="payment-icon mpesa" />
+              <FontAwesomeIcon
+                icon={faCcAmex}
+                className="payment-icon"
+                style={{ color: "#006cc9" }}
+              />
+              <FontAwesomeIcon
+                icon={faCcVisa}
+                className="payment-icon"
+                style={{ color: "#181e6b" }}
+              />
+              <FontAwesomeIcon
+                icon={faCcMastercard}
+                className="payment-icon"
+                style={{ color: "#e5001a" }}
+              />
+            </div>
+          </div>
           {/* <button
             onClick={() => transStatus("709d5aa2-f1c7-4a80-9f60-dc4e683bd648")}
           >

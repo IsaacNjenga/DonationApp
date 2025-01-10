@@ -192,3 +192,71 @@
     padding: 0;
   }
 }
+
+.payment-container {
+  text-align: center;
+  background-color: #f8f9fa00; /* Light background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0); /* Subtle shadow */
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: "Arial", sans-serif;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.payment-container p {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333; /* Neutral text color */
+}
+.payment-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 65px; /* Spacing between icons */
+  animation: scrollIcons 10s linear infinite;
+}
+.payment-div:hover {
+  animation-play-state: paused;
+}
+
+.payment-icon {
+  width: 100px; /* Consistent size for icons */
+  height: 100px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.payment-icon:hover {
+  transform: scale(1.2); /* Enlarge icon on hover */
+}
+
+.payment-icon.mpesa {
+  width: 190px;
+  height: 140px;
+  border-radius: 5px; /* Rounded corners for Mpesa icon */
+  padding: 1px;
+  flex-shrink: 0;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0
+  ); /* Ensure white background for PNG */
+  transition: transform 0.3s ease;
+}
+
+.payment-icon.mpesa:hover {
+  transform: scale(1.2); /* Enlarge icon on hover */
+}
+
+@keyframes scrollIcons {
+  0% {
+    transform: translateX(100%); /* Start icons off-screen to the right */
+  }
+  100% {
+    transform: translateX(-100%); /* Move icons off-screen to the left */
+  }
+}
