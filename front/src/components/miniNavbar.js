@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import "../assets/css/miniNavbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -48,8 +48,8 @@ function MiniNavbar() {
                 icon={faCircleDollarToSlot}
                 className="mini-navbar-icon"
               />{" "}
-              <Link to="/donors" className="mininavbar-link">
-                <li className="mini-navbar-link">Donors</li>
+              <Link to="/donations" className="mininavbar-link">
+                <li className="mini-navbar-link">Donations</li>
               </Link>
             </div>
             <div className="mini-link">

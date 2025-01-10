@@ -15,7 +15,7 @@ import Dashboard from "./pages/dashboard";
 import Cart from "./pages/cart";
 import Logout from "./components/logout";
 import VolunteerForm from "./pages/volunteerForm";
-import Donors from "./pages/donors";
+import Donations from "./pages/donations";
 import Campaigns from "./pages/campaigns";
 import Report from "./pages/reports";
 import Management from "./pages/management";
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
   { path: "/volunteer", element: <Volunteer /> },
   { path: "/cart", element: <Cart /> },
   { path: "/volunteer-form", element: <VolunteerForm /> },
-  { path: "/donors", element: <Donors /> },
+  { path: "/donations", element: <Donations /> },
   { path: "/campaigns", element: <Campaigns /> },
   { path: "/reports", element: <Report /> },
   { path: "/management", element: <Management /> },
