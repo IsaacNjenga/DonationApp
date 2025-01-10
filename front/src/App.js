@@ -23,8 +23,8 @@ import TransactionStatus from "./pages/transactionStatus";
 
 export const UserContext = createContext(null);
 
-axios.defaults.baseURL = "http://localhost:3001/donate";
-//axios.defaults.baseURL = "https://donation-app-umber.vercel.app/donate";
+//axios.defaults.baseURL = "http://localhost:3001/donate";
+axios.defaults.baseURL = "https://donation-app-umber.vercel.app/donate";
 axios.defaults.withCredentials = true;
 
 const router = createBrowserRouter([
