@@ -7,6 +7,7 @@ const transactionDataSchema = new mongoose.Schema(
     call_back_url: { type: String },
     confirmation_code: { type: String },
     created_date: { type: String },
+    currency: { type: String },
     description: { stype: String },
     merchant_reference: { type: String },
     message: { type: String },

@@ -8,7 +8,7 @@ const accessToken = async (req, res, next) => {
 
   try {
     const response = await axios.post(
-      "https://cybqa.pesapal.com/pesapalv3/api/Auth/RequestToken",
+      "https://pay.pesapal.com/v3/api/Auth/RequestToken",
       {
         consumer_key: consumer_key,
         consumer_secret: consumer_secret,

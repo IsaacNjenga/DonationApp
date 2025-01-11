@@ -21,21 +21,21 @@ const submitOrder = async (req, res) => {
       id: `order-${Date.now()}`, // Unique order ID
       amount: formattedAmount, // Amount in KES or other supported currencies
       currency: "USD",
-      description: "Test Payment",
+      description: "Uplifting Kindness Foundation",
       callback_url: "https://www.upliftingkindnessfoundation.com/success",
       cancellation_url: "https://www.upliftingkindnessfoundation.com/cancel",
       notification_id: process.env.PESAPAL_IPN_ID, // Optional for IPN
       billing_address: {
         email: email,
         phone_number: phoneNumber,
-        first_name: "Test",
-        last_name: "User",
+        first_name: "",
+        last_name: "",
       },
     };
-    // console.log("Order Details:", orderDetails);
+    //console.log("Order Details:", orderDetails);
 
     const response = await axios.post(
-      `https://cybqa.pesapal.com/pesapalv3/api/Transactions/SubmitOrderRequest`,
+      `https://pay.pesapal.com/v3/api/Transactions/SubmitOrderRequest`,
       orderDetails,
       {
         headers: {
@@ -46,7 +46,7 @@ const submitOrder = async (req, res) => {
     );
 
     const { redirect_url, order_tracking_id } = response.data;
-    //  console.log("full response:", response.data);
+    //console.log("full response:", response.data);
 
     res.status(200).json({
       redirectUrl: redirect_url,
@@ -66,9 +66,11 @@ const transactionStatus = async (req, res) => {
   const { id } = req.query; // Get orderTrackingId from query parameters
   const token = req.token;
   //console.log(orderTrackingId);
+
+  //Demo-`https://cybqa.pesapal.com/pesapalv3/api/Transactions/GetTransactionStatus?orderTrackingId=${id}`,
   try {
     const response = await axios.get(
-      `https://cybqa.pesapal.com/pesapalv3/api/Transactions/GetTransactionStatus?orderTrackingId=${id}`,
+      `https://pay.pesapal.com/v3/api/Transactions/GetTransactionStatus?orderTrackingId=${id}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
