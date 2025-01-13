@@ -7,16 +7,18 @@ const Redirector = () => {
 
   useEffect(() => {
     if (hostname === "admin.upliftingkindnessfoundation.com") {
-      navigate("/dashboard");
+      navigate("/dashboard", { replace: true }); // Redirect admin to dashboard
     } else if (
       hostname === "www.upliftingkindnessfoundation.com" ||
       hostname === "localhost"
     ) {
-      navigate("/");
+      navigate("/", { replace: true }); // Redirect regular users to homepage
     }
-  }, [hostname, navigate]);
+  }, []);
 
   return null;
 };
 
 export default Redirector;
+/*{replace:true} - Ensures the redirect does not leave a record in the browser's history stack, preventing users from
+navigating back to the redirected page.*/
