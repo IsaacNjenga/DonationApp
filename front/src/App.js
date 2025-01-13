@@ -21,6 +21,7 @@ import Report from "./pages/reports";
 import Management from "./pages/management";
 import TransactionStatus from "./pages/transactionStatus";
 import Redirector from "./components/redirector";
+import ProtectedRoutes from "./components/protectedRoute";
 
 export const UserContext = createContext(null);
 
@@ -69,7 +70,14 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoutes>
+                <Dashboard />
+              </ProtectedRoutes>
+            }
+          />
           <Route path="/about" element={<About />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/cancel" element={<Cancel />} />
@@ -78,11 +86,42 @@ function App() {
           <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/volunteer-form" element={<VolunteerForm />} />
-          <Route path="/donations" element={<Donations />} />
-          <Route path="/campaigns" element={<Campaigns />} />
-          <Route path="/reports" element={<Report />} />
-          <Route path="/management" element={<Management />} />
-          <Route path="/transaction-status/:id" element={<TransactionStatus />} />
+          <Route
+            path="/donations"
+            element={
+              <ProtectedRoutes>
+                <Donations />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/campaigns"
+            element={
+              <ProtectedRoutes>
+                <Campaigns />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/reports"
+            element={
+              <ProtectedRoutes>
+                <Report />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/management"
+            element={
+              <ProtectedRoutes>
+                <Management />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/transaction-status/:id"
+            element={<TransactionStatus />}
+          />
           <Route path="/logout" element={<Logout />} />
         </Routes>
         <Toaster position="top-right" toastOption={{ duration: 2200 }} />
