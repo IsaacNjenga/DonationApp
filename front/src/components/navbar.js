@@ -86,20 +86,14 @@ function Navbar() {
               Volunteer
             </Link>
           </li>
-         
+
           {user ? (
             <li>
               <Link to="/logout" className="navbar-link">
                 Logout
               </Link>
             </li>
-          ) : (
-            <li>
-              <Link to="/login" className="navbar-link">
-                Admin
-              </Link>
-            </li>
-          )}
+          ) : null}
         </ul>
         <button className="donate-button">
           <Link to="/donate" className="donate-link">

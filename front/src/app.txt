@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import axios from "axios";
 import Home from "../src/pages/home";
 import Donate from "../src/pages/donate";
@@ -24,10 +24,30 @@ import Redirector from "./components/redirector";
 
 export const UserContext = createContext(null);
 
-//axios.defaults.baseURL = "http://localhost:3001/donate";
-axios.defaults.baseURL = "https://donation-app-umber.vercel.app/donate";
+axios.defaults.baseURL = "http://localhost:3001/donate";
+//axios.defaults.baseURL = "https://donation-app-umber.vercel.app/donate";
 axios.defaults.withCredentials = true;
 
+const router = createBrowserRouter([
+  { path: "/", element: <Home /> },
+  { path: "/login", element: <Login /> },
+  { path: "/register", element: <Register /> },
+  { path: "/dashboard", element: <Dashboard /> },
+  { path: "/about", element: <About /> },
+  { path: "/donate", element: <Donate /> },
+  { path: "/cancel", element: <Cancel /> },
+  { path: "/success", element: <Success /> },
+  { path: "/contact", element: <Contact /> },
+  { path: "/volunteer", element: <Volunteer /> },
+  { path: "/cart", element: <Cart /> },
+  { path: "/volunteer-form", element: <VolunteerForm /> },
+  { path: "/donations", element: <Donations /> },
+  { path: "/campaigns", element: <Campaigns /> },
+  { path: "/reports", element: <Report /> },
+  { path: "/management", element: <Management /> },
+  { path: "/transaction-status/:id", element: <TransactionStatus /> },
+  { path: "/logout", element: <Logout /> },
+]);
 function App() {
   const [user, setUser] = useState();
   const [isOnline, setIsOnline] = useState(false);
@@ -53,41 +73,22 @@ function App() {
   }, []);
 
   return (
-    <UserContext.Provider
-      value={{
-        user,
-        setUser,
-        setIsOnline,
-        isOnline,
-        orderTrackingId,
-        setOrderTrackingId,
-      }}
-    >
-      <BrowserRouter>
+    <>
+      <UserContext.Provider
+        value={{
+          user,
+          setUser,
+          setIsOnline,
+          isOnline,
+          orderTrackingId,
+          setOrderTrackingId,
+        }}
+      >
+        <RouterProvider router={router} />
         <Redirector />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/donate" element={<Donate />} />
-          <Route path="/cancel" element={<Cancel />} />
-          <Route path="/success" element={<Success />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/volunteer" element={<Volunteer />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/volunteer-form" element={<VolunteerForm />} />
-          <Route path="/donations" element={<Donations />} />
-          <Route path="/campaigns" element={<Campaigns />} />
-          <Route path="/reports" element={<Report />} />
-          <Route path="/management" element={<Management />} />
-          <Route path="/transaction-status/:id" element={<TransactionStatus />} />
-          <Route path="/logout" element={<Logout />} />
-        </Routes>
         <Toaster position="top-right" toastOption={{ duration: 2200 }} />
-      </BrowserRouter>
-    </UserContext.Provider>
+      </UserContext.Provider>
+    </>
   );
 }
 

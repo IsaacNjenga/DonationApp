@@ -11,7 +11,12 @@ const app = express();
 app.use(bodyParser.json());
 
 const corsOptions = {
-  origin: ["http://localhost:3000", "https://donation-app-front.vercel.app","https://www.upliftingkindnessfoundation.com"],
+  origin: [
+    "http://localhost:3000",
+    "https://donation-app-front.vercel.app",
+    "https://www.upliftingkindnessfoundation.com",
+    "https://admin.upliftingkindnessfoundation.com",
+  ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization", "Accept"],
@@ -27,8 +32,8 @@ app.options("*", cors(corsOptions));
 
 app.use((req, res, next) => {
   if (req.method === "OPTIONS") {
-    //res.header("Access-Control-Allow-Origin", req.headers.origin);
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", req.headers.origin);
+    //res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
     res.header("Access-Control-Allow-Credentials", "true");

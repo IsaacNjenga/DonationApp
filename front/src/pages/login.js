@@ -100,7 +100,7 @@ function Login() {
                   </p>
                 ))}
             </div>
-            <div>
+            {/* <div>
               Don't have an account?{" "}
               <Link
                 to="/register"
@@ -111,7 +111,7 @@ function Login() {
               >
                 Sign up
               </Link>
-            </div>
+            </div> */}
             <button type="submit" className="login-form-button">
               Login
             </button>
