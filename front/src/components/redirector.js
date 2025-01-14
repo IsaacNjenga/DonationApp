@@ -6,7 +6,10 @@ const Redirector = () => {
   const hostname = window.location.hostname;
 
   useEffect(() => {
-    if (hostname === "admin.upliftingkindnessfoundation.com") {
+    if (
+      hostname === "admin.upliftingkindnessfoundation.com" ||
+      hostname === "admin.localhost"
+    ) {
       navigate("/dashboard", { replace: true }); // Redirect admin to dashboard
     } else if (
       hostname === "www.upliftingkindnessfoundation.com" ||

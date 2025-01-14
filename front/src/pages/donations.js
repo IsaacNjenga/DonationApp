@@ -13,6 +13,7 @@ import {
   faCcMastercard,
   faCcVisa,
 } from "@fortawesome/free-brands-svg-icons";
+import "../assets/css/donations.css";
 import Counter from "../components/counter";
 
 function Donations() {
@@ -20,6 +21,7 @@ function Donations() {
   const [loading, setLoading] = useState(false);
   const [total, setTotal] = useState(0);
   const [transactionsData, setTransactionsData] = useState([]);
+  const [viewDonationDetails, setViewDonationDetails] = useState(null);
 
   const fetchDonations = useCallback(async () => {
     setLoading(true);
@@ -43,7 +45,33 @@ function Donations() {
     }
   }, [user]);
 
+  const viewDonation = async (orderTrackingId) => {
+    console.log(orderTrackingId);
+    setLoading(true);
+    try {
+      const response = await axios.get(
+        `fetch-transaction-data?orderTrackingId=${orderTrackingId}`,
+        {
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        }
+      );
+      setViewDonationDetails(response.data.transactionData);
+      console.log(response.data.transactionData);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      toast.error("There seems to be an issue");
+      console.log("Error fetching data:", error);
+    }
+  };
+
+  const closeDonationModal = () => {
+    setViewDonationDetails(null);
+  };
+
   const columns = [
+    { name: "Merchant Number", selector: (row) => row.merchant_reference },
+    { name: "Payment Acc/", selector: (row) => row.payment_account },
     {
       name: "Amount",
       selector: (row) => (
@@ -53,14 +81,15 @@ function Donations() {
         </>
       ),
     },
-    { name: "Confirmation Code", selector: (row) => row.confirmation_code },
+
     {
       name: "Date",
       selector: (row) => {
         return format(new Date(row.created_date), "PPPP");
       },
+      sortable: true,
     },
-    { name: "Merchant Number", selector: (row) => row.merchant_reference },
+
     {
       name: "Payment Method",
       selector: (row) => (
@@ -91,11 +120,22 @@ function Donations() {
         </>
       ),
     },
-    { name: "Payment Account", selector: (row) => row.payment_account },
-    { name: "Order Tracking ID", selector: (row) => row.order_tracking_id },
     {
       name: "Payment Status",
       selector: (row) => row.payment_status_description,
+      sortable: true,
+    },
+
+    {
+      name: "Details",
+      selector: (row) => (
+        <button
+          className="view-donation-details-btn"
+          onClick={() => viewDonation(row.order_tracking_id)}
+        >
+          View Details
+        </button>
+      ),
     },
   ];
 
@@ -107,18 +147,126 @@ function Donations() {
     setTotal(totalAmount); // Assuming `setTotal` is part of a state
     return totalAmount;
   };
-
+  const customStyles = {
+    headCells: {
+      style: {
+        fontSize: "16px",
+        fontWeight: "bold",
+        color: "#333333",
+        backgroundColor: "#f2f2f2",
+      },
+    },
+    cells: {
+      style: {
+        fontSize: "14px",
+        color: "#555555",
+      },
+    },
+    rows: {
+      style: {
+        "&:nth-of-type(odd)": {
+          backgroundColor: "#f9f9f9",
+        },
+        "&:nth-of-type(even)": {
+          backgroundColor: "#ffffff",
+        },
+      },
+    },
+  };
   return (
     <>
       {loading && <Loader />} <Navbar /> <MiniNavbar />
-      <div>
+      <div className="donations-container">
         <h1>Donations</h1>
-        <div>
-          <DataTable columns={columns} data={transactionsData} pagination />
+        <div className="donations-datatable-container">
+          <DataTable
+            title="Donations List"
+            columns={columns}
+            data={transactionsData}
+            pagination
+            highlightOnHover
+            customStyles={customStyles}
+          />
         </div>
+        {viewDonationDetails && (
+          <div
+            className="donation-details-modal-overlay"
+            onClick={closeDonationModal}
+          >
+            <div
+              className="donation-details-modal-content"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button className="close-modal-btn" onClick={closeDonationModal}>
+                &times;
+              </button>
+              <div className="donation-details-modal-header">
+                <h2>Donation Details</h2>
+              </div>
+              <div className="donation-details-modal-body">
+                <section>
+                  <h3>Transaction Details</h3>
+                  <p>
+                    <strong>Amount:</strong>{" "}
+                    {viewDonationDetails.payment_method === "MpesaKE"
+                      ? "KES."
+                      : "$"}
+                    {!isNaN(viewDonationDetails.amount)
+                      ? Number(viewDonationDetails.amount).toFixed(2)
+                      : "N/A"}
+                  </p>
 
-        <div style={{ backgroundColor: "red" }}>
-          <p>Total:</p> <Counter targetNumber={total} />
+                  <p>
+                    <strong>Description:</strong>{" "}
+                    {viewDonationDetails.description
+                      ? viewDonationDetails.description
+                      : "N/A"}
+                  </p>
+                  <p>
+                    <strong>Confirmation Code:</strong>{" "}
+                    {viewDonationDetails.confirmation_code}
+                  </p>
+                </section>
+                <section>
+                  <h3>Merchant Details</h3>
+                  <p>
+                    <strong>Merchant Reference:</strong>{" "}
+                    {viewDonationDetails.merchant_reference}
+                  </p>
+                  <p>
+                    <strong>Date of Transaction:</strong>{" "}
+                    {format(new Date(viewDonationDetails.created_date), "PPPP")}
+                  </p>
+                  <p>
+                    <strong>Order Tracking ID:</strong>{" "}
+                    {viewDonationDetails.order_tracking_id}
+                  </p>
+                </section>
+                <section>
+                  <h3>Payment Details</h3>
+                  <p>
+                    <strong>Payment Account:</strong>{" "}
+                    {viewDonationDetails.payment_account}
+                  </p>
+                  <p>
+                    <strong>Payment Method:</strong>{" "}
+                    {viewDonationDetails.payment_method}
+                  </p>
+                  <p>
+                    <strong>Payment Status:</strong>{" "}
+                    {viewDonationDetails.payment_status_description}
+                  </p>
+                </section>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div className="donations-total">
+          <h3>Total Donations:</h3>
+          <h3 className="h3-total">
+            <Counter targetNumber={total} />
+          </h3>
         </div>
       </div>
     </>

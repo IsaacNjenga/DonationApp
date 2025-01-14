@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 const corsOptions = {
   origin: [
     "http://localhost:3000",
+    "http://admin.localhost:3000",
     "https://donation-app-front.vercel.app",
     "https://www.upliftingkindnessfoundation.com",
     "https://admin.upliftingkindnessfoundation.com",
