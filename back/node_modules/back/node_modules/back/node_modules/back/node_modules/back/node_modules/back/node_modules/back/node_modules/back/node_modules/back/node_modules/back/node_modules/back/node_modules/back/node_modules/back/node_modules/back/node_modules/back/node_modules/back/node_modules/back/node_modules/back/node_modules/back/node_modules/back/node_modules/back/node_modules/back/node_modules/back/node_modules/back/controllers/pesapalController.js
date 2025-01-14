@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const submitOrder = async (req, res) => {
-  const { amount, email, phoneNumber } = req.body;
+  const { amount, email } = req.body;
   // console.log("body", req.body);
   try {
     const token = req.token;
@@ -19,7 +19,7 @@ const submitOrder = async (req, res) => {
 
     const orderDetails = {
       id: `order-${Date.now()}`, // Unique order ID
-      amount: formattedAmount, // Amount in KES or other supported currencies
+      amount: formattedAmount,
       currency: "USD",
       description: "Uplifting Kindness Foundation",
       callback_url: "https://www.upliftingkindnessfoundation.com/success",
@@ -27,7 +27,7 @@ const submitOrder = async (req, res) => {
       notification_id: process.env.PESAPAL_IPN_ID, // Optional for IPN
       billing_address: {
         email: email,
-        phone_number: phoneNumber,
+        phone_number: "",
         first_name: "",
         last_name: "",
       },

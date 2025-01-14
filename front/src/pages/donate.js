@@ -20,15 +20,14 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import mpesa from "../assets/icons/mpesa.png";
 import airtel from "../assets/icons/airtel.png";
+import Swal from "sweetalert2";
 
 function Donate() {
   const [loading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     amount: "",
-    phoneNumber: "",
   });
 
   const handleChange = (e) => {
@@ -37,13 +36,22 @@ function Donate() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (formData.amount > 10) {
+      Swal.fire({
+        icon: "error",
+        title: "Transaction Limit Exceeded",
+        text: "Sorry, we currently only accept donations up to $10. Please adjust the amount and try again.",
+        confirmButtonText: "OK",
+      });
+      return; // Prevent further execution
+    }
+
     setDisabled(true);
     setLoading(true);
     await axios
       .post("initiate-payment", {
         email: formData.email,
         amount: formData.amount,
-        phoneNumber: formData.phoneNumber,
       })
       .then((res) => {
         setDisabled(false);
@@ -61,7 +69,6 @@ function Donate() {
         toast.error("Donation failed, kindly refresh and try again");
       });
   };
-  // }; faCcVisa faCcAmex faCcMastercard
 
   return (
     <>
@@ -131,7 +138,7 @@ function Donate() {
                 border: "1px solid #ccc",
               }}
             />
-            <label>Phone Number</label>
+            {/* <label>Phone Number</label>
             <input
               type="tel"
               onChange={handleChange}
@@ -142,7 +149,7 @@ function Donate() {
                 borderRadius: "5px",
                 border: "1px solid #ccc",
               }}
-            />
+            />*/}
             <label>Amount (in $)</label>
             <input
               type="number"
@@ -160,7 +167,7 @@ function Donate() {
               className="donation-submit-button"
               disabled={disabled}
             >
-              Donate <FontAwesomeIcon icon={faHandHoldingHeart} />
+              Proceed <FontAwesomeIcon icon={faHandHoldingHeart} />
             </button>
           </form>
 
