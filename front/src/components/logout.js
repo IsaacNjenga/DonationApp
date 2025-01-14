@@ -16,7 +16,7 @@ function Logout() {
       showCancelButton: true,
       confirmButtonColor: "#f6b500",
       cancelButtonColor: "red",
-      confimrButtonText: "Yes",
+      confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
         localStorage.clear();

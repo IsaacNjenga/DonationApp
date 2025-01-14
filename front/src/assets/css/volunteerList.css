@@ -1,94 +1,81 @@
-/* Container for the volunteer cards */
 .volunteer-list-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
   padding: 20px;
-  margin: 20px auto;
-  max-width: 800px;
+  max-width: 1000px;
+  margin: auto;
 }
 
-/* Heading */
 .volunteer-list-container h2 {
-  font-size: 2rem;
-  color: #dee3e9;
   text-align: center;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #333;
 }
 
-/* Individual volunteer card */
-.volunteer-list-card {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 20px;
+.volunteer-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-/* Hover effect for the cards */
-.volunteer-list-card:hover {
-  transform: scale(1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Card header */
-.volunteer-list-header {
-  border-bottom: 2px solid #007bff;
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-}
-
-.volunteer-list-header h3 {
+.volunteer-modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
   font-size: 1.5rem;
   color: #333;
-  margin: 0;
+  cursor: pointer;
 }
 
-/* Details section */
-.volunteer-list-details {
+.volunteer-modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.volunteer-modal-content h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.volunteer-modal-sections {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 15px;
 }
 
-/* Individual detail item */
-.detail-item {
-  margin: 5px 0;
-  font-size: 0.95rem;
-}
-
-.detail-item strong {
-  color: #333;
-}
-
-.detail-item span {
+.volunteer-modal-sections h4 {
+  margin-bottom: 8px;
+  font-size: 1.2rem;
   color: #555;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .volunteer-list-details {
-    grid-template-columns: 1fr;
-  }
+.volunteer-action-buttons button {
+  margin: 5px 5px;
+  padding: 8px 12px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  justify-content: space-between;
 }
 
-@media (max-width: 480px) {
-  .volunteer-list-container h2 {
-    font-size: 1.5rem;
-  }
-
-  .volunteer-list-card {
-    padding: 15px;
-  }
-
-  .volunteer-list-header h3 {
-    font-size: 1.2rem;
-  }
-
-  .detail-item {
-    font-size: 0.9rem;
-  }
+.volunteer-action-buttons button:hover {
+  background: #0056b3;
 }

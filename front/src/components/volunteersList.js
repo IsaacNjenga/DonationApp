@@ -3,16 +3,19 @@ import axios from "axios";
 import { UserContext } from "../App";
 import Loader from "./loader";
 import "../assets/css/volunteerList.css";
+import DataTable from "react-data-table-component";
+import toast from "react-hot-toast";
 
 function VolunteersList() {
   const { user } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const [volunteers, setVolunteers] = useState([]);
+  const [volunteerDetails, setVolunteerDetails] = useState(null);
 
   const fetchVolunteers = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await axios.get("fetch-volunteer", {
+      const response = await axios.get("fetch-volunteers", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       const fetchedVolunteers = response.data.volunteers;
@@ -22,6 +25,7 @@ function VolunteersList() {
     } catch (error) {
       console.log(error);
       setLoading(false);
+      toast.error("There was an error, try refreshing");
     }
   });
 
@@ -31,88 +35,159 @@ function VolunteersList() {
     }
   }, [user]);
 
+  const viewVolunteer = async (id) => {
+    //console.log(id);
+    setLoading(true);
+    try {
+      const response = await axios.get(`fetch-volunteer?id=${id}`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
+      setVolunteerDetails(response.data.volunteer);
+      // console.log(response.data.volunteer);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      toast.error("Error fetching volunteer file. Try refreshing");
+      setLoading(false);
+    }
+  };
+
+  const closeVolunteerModal = () => {
+    setVolunteerDetails(null);
+  };
+
+  const columns = [
+    { name: "Name", selector: (row) => `${row.firstname} ${row.lastname}` },
+    { name: "Date of Birth", selector: (row) => row.dob },
+    { name: "Phone", selector: (row) => row.phone },
+    { name: "Email", selector: (row) => row.email },
+    {
+      name: "Details",
+      selector: (row) => (
+        <>
+          {" "}
+          <div className="volunteer-action-buttons">
+            <button
+              className="view-volunteers-details-btn"
+              onClick={() => viewVolunteer(row._id)}
+            >
+              More
+            </button>
+          </div>
+        </>
+      ),
+    },
+    {
+      name: "Approve",
+      selector: (row) => (
+        <>
+          <div className="volunteer-action-buttons">
+            <button className="approve-btn">Approve</button>
+            <button className="email-btn">Email</button>
+            <button className="email-btn">Reject</button>
+          </div>
+        </>
+      ),
+    },
+  ];
+  const customStyles = {
+    headCells: {
+      style: {
+        backgroundColor: "#007bff",
+        color: "#fff",
+        fontSize: "16px",
+        fontWeight: "bold",
+        padding: "10px",
+      },
+    },
+    cells: {
+      style: {
+        fontSize: "14px",
+        padding: "8px",
+      },
+    },
+    rows: {
+      style: {
+        "&:hover": {
+          backgroundColor: "#f1f1f1",
+          cursor: "pointer",
+        },
+      },
+    },
+  };
   return (
     <>
       {loading && <Loader />}
       <div className="volunteer-list-container">
         <h2>Volunteers</h2>
-        {volunteers.map((v, index) => (
-          <div key={v._id} className="volunteer-list-card">
-            <div className="volunteer-list-header">
-              <h3>Volunteer #{index + 1}</h3>
-            </div>
-            <div className="volunteer-list-details">
-              <div className="detail-item">
-                <strong>First Name:</strong> <span>{v.firstname}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Last Name:</strong> <span>{v.lastname}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Date of Birth:</strong> <span>{v.dob}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Address:</strong> <span>{v.address}</span>
-              </div>
-              <div className="detail-item">
-                <strong>City:</strong> <span>{v.city}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Phone Number:</strong> <span>{v.phone}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Email:</strong> <span>{v.email}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Days Available:</strong>
-                <span>{v.daysOfVolunteer.join(", ")}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Time Available:</strong>
-                <span>{v.timesOfVolunteer.join(", ")}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Hours per Week:</strong> <span>{v.hoursPerWeek}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Background:</strong> <span>{v.priorVoluntary}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Prior Experience:</strong>{" "}
-                <span>{v.priorExperience}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Skills & Certifications:</strong>{" "}
-                <span>{v.skillsOrCertification}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Motivation:</strong> <span>{v.why}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Expectations:</strong> <span>{v.expectations}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Reference Name:</strong> <span>{v.referenceName}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Reference Email:</strong>{" "}
-                <span>{v.referenceEmail}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Reference Relationship:</strong>{" "}
-                <span>{v.referenceRelationship}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Reference Phone Number:</strong>{" "}
-                <span>{v.referencePhoneNumber}</span>
-              </div>
-              <div className="detail-item">
-                <strong>Background Check:</strong>{" "}
-                <span>{v.backgroundCheck}</span>
+        <div className="volunteers-datatable-container">
+          {" "}
+          <DataTable
+            title="Signed up volunteers"
+            data={volunteers}
+            columns={columns}
+            highlightOnHover
+            pagination
+            customStyles={customStyles}
+          />
+        </div>
+
+        {volunteerDetails && (
+          <div
+            className="volunteer-modal-overlay"
+            onClick={closeVolunteerModal}
+          >
+            <div
+              className="volunteer-modal-content"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="volunteer-modal-close-btn"
+                onClick={closeVolunteerModal}
+              >
+                &times;
+              </button>
+              <h3>{`${volunteerDetails.firstname} ${volunteerDetails.lastname}`}</h3>
+              <div className="volunteer-modal-sections">
+                <div>
+                  <h4>Personal Info</h4>
+                  <p>
+                    <strong>Date of Birth:</strong> {volunteerDetails.dob}
+                  </p>
+                  <p>
+                    <strong>Email:</strong> {volunteerDetails.email}
+                  </p>
+                  <p>
+                    <strong>Phone:</strong> {volunteerDetails.phone}
+                  </p>
+                </div>
+                <div>
+                  <h4>Availability</h4>
+                  <p>
+                    <strong>Days Available:</strong>{" "}
+                    {volunteerDetails.daysOfVolunteer.join(", ")}
+                  </p>
+                  <p>
+                    <strong>Hours/Week:</strong> {volunteerDetails.hoursPerWeek}
+                  </p>
+                </div>
+                <div>
+                  <h4>References</h4>
+                  <p>
+                    <strong>Name:</strong> {volunteerDetails.referenceName}
+                  </p>
+                  <p>
+                    <strong>Email:</strong> {volunteerDetails.referenceEmail}
+                  </p>
+                  <p>
+                    <strong>Phone:</strong>{" "}
+                    {volunteerDetails.referencePhoneNumber}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        ))}
+        )}
       </div>
     </>
   );

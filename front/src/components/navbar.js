@@ -14,6 +14,7 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { user } = useContext(UserContext);
+  const hostname = window.location.hostname;
 
   const handleScroll = () => {
     if (window.scrollY > 0) {
@@ -59,6 +60,11 @@ function Navbar() {
       {/* Navigation Links */}
       <div className={`links ${menuOpen ? "active" : ""}`}>
         <ul className="navbar-links">
+          <li>
+            <Link to="/" className="navbar-link">
+              Home
+            </Link>
+          </li>
           {user ? (
             <li>
               <Link to="/dashboard" className="navbar-link">
@@ -66,11 +72,6 @@ function Navbar() {
               </Link>
             </li>
           ) : null}
-          <li>
-            <Link to="/" className="navbar-link">
-              Home
-            </Link>
-          </li>
           <li>
             <Link to="/about" className="navbar-link">
               About
@@ -93,7 +94,16 @@ function Navbar() {
                 Logout
               </Link>
             </li>
-          ) : null}
+          ) : (
+            (hostname === "admin.upliftingkindnessfoundation.com" ||
+              hostname === "admin.localhost") && (
+              <li>
+                <Link to="/login" className="navbar-link">
+                  Login
+                </Link>
+              </li>
+            )
+          )}
         </ul>
         <button className="donate-button">
           <Link to="/donate" className="donate-link">

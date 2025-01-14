@@ -46,7 +46,7 @@ function Donations() {
   }, [user]);
 
   const viewDonation = async (orderTrackingId) => {
-    console.log(orderTrackingId);
+    //console.log(orderTrackingId);
     setLoading(true);
     try {
       const response = await axios.get(
@@ -56,11 +56,11 @@ function Donations() {
         }
       );
       setViewDonationDetails(response.data.transactionData);
-      console.log(response.data.transactionData);
+      //console.log(response.data.transactionData);
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      toast.error("There seems to be an issue");
+      toast.error("There seems to be an issue. Try refreshing ");
       console.log("Error fetching data:", error);
     }
   };

@@ -7,7 +7,6 @@ import { generateToken } from "../middleware/generateToken.js";
 import { accessToken } from "../middleware/accessToken.js";
 
 import {
-  
   submitOrder,
   transactionStatus,
 } from "../controllers/pesapalController.js";
@@ -53,8 +52,8 @@ router.delete("/delete-feedback/:id", deleteFeedback);
 
 //volunteer endpoints
 router.post("/create-volunteer", createVolunteer);
-router.get("/fetch-volunteer", VerifyUser, fetchVolunteers);
-router.get("/fetch-volunteer/:id", VerifyUser, fetchVolunteer);
+router.get("/fetch-volunteers", VerifyUser, fetchVolunteers);
+router.get("/fetch-volunteer", VerifyUser, fetchVolunteer);
 router.put("/update-volunteer/:id", updateVolunteer);
 router.delete("/delete-volunteer/:id", VerifyUser, deleteVolunteer);
 
