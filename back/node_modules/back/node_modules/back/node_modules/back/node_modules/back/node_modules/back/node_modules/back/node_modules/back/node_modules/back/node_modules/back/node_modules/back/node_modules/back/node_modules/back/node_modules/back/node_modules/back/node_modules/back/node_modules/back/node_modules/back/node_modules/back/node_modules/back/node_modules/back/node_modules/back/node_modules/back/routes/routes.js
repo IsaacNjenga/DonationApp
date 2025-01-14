@@ -35,6 +35,10 @@ import {
   fetchTransactionData,
   fetchTransactionsData,
 } from "../controllers/transactionDataController.js";
+import {
+  createApprovedVolunteer,
+  fetchApprovedVolunteers,
+} from "../controllers/approvedApplicantsController.js";
 
 const router = express.Router();
 
@@ -55,7 +59,11 @@ router.post("/create-volunteer", createVolunteer);
 router.get("/fetch-volunteers", VerifyUser, fetchVolunteers);
 router.get("/fetch-volunteer", VerifyUser, fetchVolunteer);
 router.put("/update-volunteer/:id", updateVolunteer);
-router.delete("/delete-volunteer/:id", VerifyUser, deleteVolunteer);
+router.delete("/delete-volunteer", VerifyUser, deleteVolunteer);
+
+//approved volunteers endpoints
+router.post("/create-approved-volunteer", VerifyUser, createApprovedVolunteer);
+router.get("/fetch-approved-volunteers", VerifyUser, fetchApprovedVolunteers);
 
 //pesapal endpoints
 router.post("/initiate-payment", accessToken, submitOrder);

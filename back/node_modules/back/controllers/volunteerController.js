@@ -85,13 +85,13 @@ const fetchVolunteers = async (req, res) => {
 
 const fetchVolunteer = async (req, res) => {
   const { id } = req.query;
-//console.log(id);
+  //console.log(id);
   if (!id) {
     res.status(400).json("ID not specified");
   }
   try {
     const volunteer = await VolunteerModel.findOne({ _id: id });
-  //  console.log(volunteer);
+    //  console.log(volunteer);
     res.status(201).json({ success: true, volunteer });
   } catch (error) {
     console.log(error);
@@ -100,7 +100,7 @@ const fetchVolunteer = async (req, res) => {
 };
 
 const deleteVolunteer = async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.query;
   if (!id) {
     return res.status(400).json({ error: "No ID specified" });
   }
