@@ -4,27 +4,29 @@ import { useLocation, useNavigate } from "react-router-dom";
 const Redirector = () => {
   const navigate = useNavigate();
   const hostname = window.location.hostname;
-  const location = useLocation();
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    const excludeRoutes = ["/success", "/cancel"];
+    // const excludeRoutes = ["/success", "/cancel"];
 
-    if (excludeRoutes.includes(location.pathname)) {
-      return;
-    }
+    // if (excludeRoutes.includes(location.pathname)) {
+    //   return;
+    // }
 
     if (
-      hostname === "admin.upliftingkindnessfoundation.com" ||
-      hostname === "admin.localhost"
+      (hostname === "admin.upliftingkindnessfoundation.com" ||
+        hostname === "admin.localhost") &&
+      pathname === "/"
     ) {
       navigate("/dashboard"); // Redirect admin to dashboard
     } else if (
-      hostname === "www.upliftingkindnessfoundation.com" ||
-      hostname === "localhost"
+      (hostname === "www.upliftingkindnessfoundation.com" ||
+        hostname === "localhost") &&
+      pathname === "/dashboard"
     ) {
       navigate("/"); // Redirect regular users to homepage
     }
-  }, [location.pathname]);
+  }, [hostname, pathname, navigate]);
 
   return null;
 };
