@@ -142,11 +142,12 @@ function Donations() {
   const totalDonations = (amounts) => {
     let totalAmount = 0;
     amounts.forEach((item) => {
-      totalAmount += parseFloat(item.amount) || 0; // Parse the amount and handle invalid strings
+      totalAmount += parseFloat(item.amount) || 0;
     });
-    setTotal(totalAmount); // Assuming `setTotal` is part of a state
+    setTotal(totalAmount);
     return totalAmount;
   };
+
   const customStyles = {
     headCells: {
       style: {
