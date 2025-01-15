@@ -72,21 +72,35 @@ function Navbar() {
               </Link>
             </li>
           ) : null}
-          <li>
-            <Link to="/about" className="navbar-link">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact" className="navbar-link">
-              Contact
-            </Link>
-          </li>
-          <li>
-            <Link to="/volunteer" className="navbar-link">
-              Volunteer
-            </Link>
-          </li>
+          {!user ? (
+            <li>
+              <Link to="/about" className="navbar-link">
+                About
+              </Link>
+            </li>
+          ) : null}
+
+          {!user ? (
+            <li>
+              <Link to="/contact" className="navbar-link">
+                Contact
+              </Link>
+            </li>
+          ) : null}
+
+          {user ? (
+            <li>
+              <Link to="/volunteers" className="navbar-link">
+                Volunteers
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <Link to="/volunteer" className="navbar-link">
+                Volunteer
+              </Link>
+            </li>
+          )}
 
           {user ? (
             <li>

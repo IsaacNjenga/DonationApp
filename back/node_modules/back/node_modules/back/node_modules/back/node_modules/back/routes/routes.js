@@ -37,6 +37,7 @@ import {
 } from "../controllers/transactionDataController.js";
 import {
   createApprovedVolunteer,
+  fetchApprovedVolunteer,
   fetchApprovedVolunteers,
 } from "../controllers/approvedApplicantsController.js";
 
@@ -64,6 +65,7 @@ router.delete("/delete-volunteer", VerifyUser, deleteVolunteer);
 //approved volunteers endpoints
 router.post("/create-approved-volunteer", VerifyUser, createApprovedVolunteer);
 router.get("/fetch-approved-volunteers", VerifyUser, fetchApprovedVolunteers);
+router.get("/fetch-approved-volunteer", VerifyUser, fetchApprovedVolunteer);
 
 //pesapal endpoints
 router.post("/initiate-payment", accessToken, submitOrder);

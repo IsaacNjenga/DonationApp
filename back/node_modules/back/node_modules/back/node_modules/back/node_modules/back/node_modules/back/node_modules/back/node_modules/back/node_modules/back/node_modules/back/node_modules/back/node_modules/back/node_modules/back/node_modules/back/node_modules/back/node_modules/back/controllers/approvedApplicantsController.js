@@ -55,7 +55,7 @@ const createApprovedVolunteer = async (req, res) => {
   }
 };
 
-const fetchApprovedVolunteers = async (res) => {
+const fetchApprovedVolunteers = async (req, res) => {
   try {
     const volunteers = await ApprovedVolunteerModel.find({});
     res.status(200).json({ success: true, volunteers });
@@ -65,4 +65,24 @@ const fetchApprovedVolunteers = async (res) => {
   }
 };
 
-export { createApprovedVolunteer, fetchApprovedVolunteers };
+const fetchApprovedVolunteer = async (req, res) => {
+  const { id } = req.query;
+
+  if (!id) {
+    console.log("There is no id provided");
+  }
+
+  try {
+    const volunteer = await ApprovedVolunteerModel.findOne({ _id: id });
+    res.status(200).json({ success: true, volunteer });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export {
+  createApprovedVolunteer,
+  fetchApprovedVolunteers,
+  fetchApprovedVolunteer,
+};

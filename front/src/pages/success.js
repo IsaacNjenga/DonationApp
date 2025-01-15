@@ -13,6 +13,12 @@ function Success() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
+    if (!orderTrackingId) {
+      setMessage("Order tracking ID is missing. Please try again.");
+      console.error("OrderTrackingId is missing from the URL.");
+      return;
+    }
+
     const fetchTransactionStatus = async () => {
       setLoading(true);
       try {
@@ -20,8 +26,7 @@ function Success() {
           `transaction-status?orderTrackingId=${orderTrackingId}`
         );
         const transactionData = response.data;
-        console.log(transactionData);
-
+        
         // Save transaction details to the database
         if (transactionData) {
           const saveRes = await axios.post(

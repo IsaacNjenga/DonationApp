@@ -58,15 +58,21 @@ function Donate() {
         setLoading(false);
 
         const { redirectUrl } = res.data;
-
-        toast.success("Request Successful!");
+        //toast.success("Request Successful!");
+        Swal.fire({ icon: "success", title: "Request Successfull!" });
         window.location.href = redirectUrl;
       })
       .catch((err) => {
         setDisabled(false);
         setLoading(false);
         console.log(err);
-        toast.error("Donation failed, kindly refresh and try again");
+
+        Swal.fire({
+          icon: "error",
+          title: "Donation failed",
+          text: "Kindly refresh and try again. Contact us if the issue persists",
+          confirmButtonText: "OK",
+        });
       });
   };
 

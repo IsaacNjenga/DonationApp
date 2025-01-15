@@ -22,6 +22,7 @@ import Management from "./pages/management";
 import TransactionStatus from "./pages/transactionStatus";
 import Redirector from "./components/redirector";
 import ProtectedRoutes from "./components/protectedRoute";
+import Volunteers from "./pages/volunteers";
 
 export const UserContext = createContext(null);
 
@@ -115,6 +116,14 @@ function App() {
             element={
               <ProtectedRoutes>
                 <Management />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/volunteers"
+            element={
+              <ProtectedRoutes>
+                <Volunteers />
               </ProtectedRoutes>
             }
           />
