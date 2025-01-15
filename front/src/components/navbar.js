@@ -101,7 +101,7 @@ function Navbar() {
               </Link>
             </li>
           )}
-
+         
           {user ? (
             <li>
               <Link to="/logout" className="navbar-link">

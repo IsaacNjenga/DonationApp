@@ -9,6 +9,8 @@ import { toast } from "react-hot-toast";
 function Success() {
   const [searchParams] = useSearchParams();
   const orderTrackingId = searchParams.get("OrderTrackingId");
+  //const merchantReference = searchParams.get("OrderMerchantReference");
+  //const notificationType = searchParams.get("OrderNotificationType");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -26,7 +28,7 @@ function Success() {
           `transaction-status?orderTrackingId=${orderTrackingId}`
         );
         const transactionData = response.data;
-        
+
         // Save transaction details to the database
         if (transactionData) {
           const saveRes = await axios.post(
