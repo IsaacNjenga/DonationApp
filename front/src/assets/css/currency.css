@@ -63,7 +63,7 @@
   }
   .converter {
     display: flex;
-    gap: 1rem;
+    gap: 1.01rem;
     flex-direction: column;
   }
 }

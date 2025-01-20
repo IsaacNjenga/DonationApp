@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "../assets/css/currency.css";
 
 const api_key = process.env.REACT_APP_CURRENCY_API_KEY;
-//console.log(api_key);
 
 function Currency() {
   const [kesValue, setKesValue] = useState(""); // KES input
