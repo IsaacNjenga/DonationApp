@@ -21,6 +21,7 @@ import {
 import mpesa from "../assets/icons/mpesa.png";
 import airtel from "../assets/icons/airtel.png";
 import Swal from "sweetalert2";
+import Currency from "../components/currency";
 
 function Donate() {
   const [loading, setLoading] = useState(false);
@@ -126,6 +127,16 @@ function Donate() {
         </div>
 
         <div>
+          <div>
+            <p>
+              <i>
+                Thank you for supporting our cause - you can now use our
+                converter to make it easier.
+              </i>
+            </p>
+            <Currency />
+          </div>
+
           <h1 style={{ fontSize: "2rem", color: "#333" }}>Donate here</h1>
           <form
             onSubmit={handleSubmit}
