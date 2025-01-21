@@ -101,7 +101,7 @@ function Navbar() {
               </Link>
             </li>
           )}
-         
+
           {user ? (
             <li>
               <Link to="/logout" className="navbar-link">
@@ -119,11 +119,15 @@ function Navbar() {
             )
           )}
         </ul>
-        <button className="donate-button">
-          <Link to="/donate" className="donate-link">
-            Donate
-          </Link>
-        </button>
+        {hostname === "admin.upliftingkindnessfoundation.com" ||
+        hostname === "admin.localhost" ? null : (
+          <button className="donate-button">
+            <Link to="/donate" className="donate-link">
+              Donate
+            </Link>
+          </button>
+        )}
+
         {/* Social Icons */}
         <div className="icons-div">
           <FontAwesomeIcon icon={faFacebook} className="icon" />
