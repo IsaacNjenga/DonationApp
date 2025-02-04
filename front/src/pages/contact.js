@@ -1,10 +1,4 @@
-import {
-  faClock,
-  faEnvelope,
-  faLocationDot,
-  faPhone,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/contact.css";
@@ -13,6 +7,8 @@ import Footer from "../components/footer";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import Loader from "../components/loader";
+import { FloatButton } from "antd";
+import { contactInfo } from "../assets/data/data";
 
 function Contact() {
   const [loading, setLoading] = useState(false);
@@ -22,45 +18,6 @@ function Contact() {
     subject: "",
     message: "",
   });
-
-  const contactInfo = [
-    {
-      id: 1,
-      icon: <FontAwesomeIcon icon={faLocationDot} />,
-      title: "Physical Address",
-      info: "00100, Nairobi, Kenya.",
-      info2: "",
-    },
-    {
-      id: 2,
-
-      icon: <FontAwesomeIcon icon={faClock} />,
-      title: "Work Hours",
-      info: "Monday to Friday: 7am - 7pm",
-      info2: "Weekends: 10am - 5pm",
-    },
-    {
-      id: 3,
-      icon: <FontAwesomeIcon icon={faPhone} />,
-      title: "Phone",
-      info: "+254-743-854495",
-      info2: "+254-723-736651",
-    },
-    {
-      id: 4,
-      icon: <FontAwesomeIcon icon={faEnvelope} />,
-      title: "Email",
-      info: (
-        <a
-          href="mailto:janekimani630@gmail.com"
-          style={{ color: "#ffd700", textDecoration: "none" }}
-        >
-          janekimani630@gmail.com
-        </a>
-      ),
-      info2: "",
-    },
-  ];
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -95,6 +52,11 @@ function Contact() {
   };
   return (
     <>
+      <>
+        <FloatButton.Group shape="circle" style={{ insetInlineEnd: 24 }}>
+          <FloatButton.BackTop visibilityHeight={0} title="Back to top" />
+        </FloatButton.Group>
+      </>
       {loading && <Loader />}
       <div className="contact-container">
         <div className="contact-image">

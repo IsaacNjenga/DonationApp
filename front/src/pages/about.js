@@ -3,21 +3,13 @@ import Navbar from "../components/navbar";
 import Counter from "../components/counter";
 import Footer from "../components/footer";
 import "../assets/css/about.css";
-import peopleIcon from "../assets/icons/people.png";
-import projectIcon from "../assets/icons/project.png";
-import missionIcon from "../assets/icons/mission.png";
-import donationIcon from "../assets/icons/donation.png";
 import { Link, useNavigate } from "react-router-dom";
 import team from "../assets/icons/strong-team.png";
 import nonprofit from "../assets/icons/nonprofit.png";
+import { FloatButton } from "antd";
+import { topNumbers } from "../assets/data/data";
 function About() {
   const navigate = useNavigate();
-  const topNumbers = [
-    { id: 1, icon: peopleIcon, number: 580, name: "Volunteers" },
-    { id: 2, icon: donationIcon, number: 980, name: "Donations" },
-    { id: 3, icon: projectIcon, number: 987, name: "Projects" },
-    { id: 4, icon: missionIcon, number: 320, name: "Missions" },
-  ];
 
   const toVolunteer = () => {
     navigate("/volunteer");
@@ -25,6 +17,11 @@ function About() {
 
   return (
     <>
+      <>
+        <FloatButton.Group shape="circle" style={{ insetInlineEnd: 24 }}>
+          <FloatButton.BackTop visibilityHeight={0} title="Back to top" />
+        </FloatButton.Group>
+      </>
       <div className="about-container">
         <div className="navbar-element">
           <Navbar />
