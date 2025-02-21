@@ -11,7 +11,7 @@ const cancellation_url = process.env.CANCELLATION_URL;
 const submitOrder = async (req, res) => {
   const { amount, email } = req.body;
 
-  // console.log("body", req.body);
+   console.log("body", req.body);
   try {
     const token = req.token;
 
@@ -38,7 +38,7 @@ const submitOrder = async (req, res) => {
         last_name: "",
       },
     };
-    //console.log("Order Details:", orderDetails);
+   // console.log("Order Details:", orderDetails);
 
     const response = await axios.post(submission_url, orderDetails, {
       headers: {
