@@ -239,42 +239,6 @@ function Donate() {
             className="home-divider"
           >
             <h2 style={{ textAlign: "center" }}>
-              You can donate via our M-pesa Pay Bill
-            </h2>
-          </Divider>
-          <Card
-            style={{
-              margin: "10px 0px",
-              background: "#0a5745",
-            }}
-            title={
-              <img src={mpesa} alt="mpesa" className="payment-icon coop" />
-            }
-          >
-            <Flex gap="middle" align="flex-start" vertical>
-              <Title
-                level={3}
-                style={{ color: "white", textTransform: "uppercase" }}
-              >
-                Business Number
-              </Title>
-              <Input.OTP length={6} value="400200" />
-              <Title
-                level={3}
-                style={{ color: "white", textTransform: "uppercase" }}
-              >
-                Account Number
-              </Title>
-              <Input.OTP length={6} value="883206" />
-            </Flex>
-          </Card>
-          <br />
-          <Divider
-            variant="solid"
-            style={{ borderColor: "#ffcc07" }}
-            className="home-divider"
-          >
-            <h2 style={{ textAlign: "center" }}>
               You can also donate via Co-operative Bank of Kenya
             </h2>
           </Divider>
@@ -319,6 +283,42 @@ function Donate() {
                   letterSpacing: "4px",
                 }}
               />
+            </Flex>
+          </Card>
+          <br />
+          <Divider
+            variant="solid"
+            style={{ borderColor: "#ffcc07" }}
+            className="home-divider"
+          >
+            <h2 style={{ textAlign: "center" }}>
+              You can also donate via our M-pesa Pay Bill
+            </h2>
+          </Divider>
+          <Card
+            style={{
+              margin: "10px 0px",
+              background: "#0a5745",
+            }}
+            title={
+              <img src={mpesa} alt="mpesa" className="payment-icon coop" />
+            }
+          >
+            <Flex gap="middle" align="flex-start" vertical>
+              <Title
+                level={3}
+                style={{ color: "white", textTransform: "uppercase" }}
+              >
+                Business Number
+              </Title>
+              <Input.OTP length={6} value="400200" />
+              <Title
+                level={3}
+                style={{ color: "white", textTransform: "uppercase" }}
+              >
+                Account Number
+              </Title>
+              <Input.OTP length={6} value="883206" />
             </Flex>
           </Card>
 
