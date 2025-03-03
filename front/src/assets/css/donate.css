@@ -252,6 +252,26 @@
   transform: scale(1.2); /* Enlarge icon on hover */
 }
 
+.payment-icon.coop {
+  width: 120px;
+  height: 70px;
+  border-radius: 6px; /* Rounded corners for Mpesa icon */
+  padding: 1px;
+  margin: 5px;
+  flex-shrink: 0;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0
+  ); /* Ensure white background for PNG */
+  transition: transform 0.3s ease;
+}
+
+.payment-icon.coop:hover {
+  transform: scale(1.2); /* Enlarge icon on hover */
+}
+
 @keyframes scrollIcons {
   0% {
     transform: translateX(100%); /* Start icons off-screen to the right */

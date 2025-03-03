@@ -22,6 +22,11 @@ import mpesa from "../assets/icons/mpesa.png";
 import airtel from "../assets/icons/airtel.png";
 import Swal from "sweetalert2";
 import Currency from "../components/currency";
+import { Card, Divider, Flex, Input, Typography } from "antd";
+
+const { Title } = Typography;
+const coopLogo =
+  "data:image/png;base64,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";
 
 function Donate() {
   const [loading, setLoading] = useState(false);
@@ -227,6 +232,38 @@ function Donate() {
               />
             </div>
           </div>
+
+          <Divider
+            variant="solid"
+            style={{ borderColor: "#ffcc07", padding: "10px 20px" }}
+          >
+            You can also donate via Co-operative Bank of Kenya
+          </Divider>
+          <Card
+            style={{ margin: "10px 10px", background: "#0a5745" }}
+            title={
+              <img src={coopLogo} alt="co-op" className="payment-icon coop" />
+            }
+          >
+            <Flex gap="middle" align="flex-start" vertical>
+              <Title level={3} style={{ color: "white" }}>
+                Account Name
+              </Title>
+              <Input
+                value="Eunice/Jane"
+                style={{ width: "61%", fontSize: "25px" }}
+              />
+              <Title level={3} style={{ color: "white" }}>
+                Account Number
+              </Title>
+              <Input.OTP
+                length={14}
+                value="01107094110003"
+                style={{ fontSize: "25px" }}
+              />
+            </Flex>
+          </Card>
+
           {/* <button
             onClick={() => transStatus("709d5aa2-f1c7-4a80-9f60-dc4e683bd648")}
           >
