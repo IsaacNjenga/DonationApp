@@ -265,12 +265,7 @@ function Donate() {
               >
                 Account Number
               </Title>
-              <Input.OTP
-                variant="underlined"
-                length={6}
-                value="883206"
-                className="otp-number"
-              />
+              <Input.OTP length={6} value="883206" />
             </Flex>
           </Card>
           <br />
@@ -302,9 +297,10 @@ function Donate() {
               <Input
                 value="Eunice/Jane"
                 style={{
-                  width: "75%",
+                  width: "90%",
                   fontSize: "25px",
                   textTransform: "uppercase",
+                  letterSpacing: "2px",
                 }}
               />
               <Title
@@ -313,11 +309,15 @@ function Donate() {
               >
                 Account Number
               </Title>
-              <Input.OTP
-                variant="underlined"
+              <Input
                 length={14}
                 value="01107094110003"
-                className="otp-number"
+                style={{
+                  width: "90%",
+                  fontSize: "25px",
+                  textTransform: "uppercase",
+                  letterSpacing: "4px",
+                }}
               />
             </Flex>
           </Card>
