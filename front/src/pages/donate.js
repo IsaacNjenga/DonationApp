@@ -235,31 +235,48 @@ function Donate() {
 
           <Divider
             variant="solid"
-            style={{ borderColor: "#ffcc07", padding: "10px 20px" }}
+            style={{ borderColor: "#ffcc07" }}
+            className="home-divider"
           >
-            You can also donate via Co-operative Bank of Kenya
+            <h2 style={{ textAlign: "center" }}>
+              You can also donate via Co-operative Bank of Kenya
+            </h2>
           </Divider>
           <Card
-            style={{ margin: "10px 10px", background: "#0a5745" }}
+            style={{
+              margin: "10px 0px",
+              background: "#0a5745",
+            }}
             title={
               <img src={coopLogo} alt="co-op" className="payment-icon coop" />
             }
           >
             <Flex gap="middle" align="flex-start" vertical>
-              <Title level={3} style={{ color: "white" }}>
+              <Title
+                level={3}
+                style={{ color: "white", textTransform: "uppercase" }}
+              >
                 Account Name
               </Title>
               <Input
                 value="Eunice/Jane"
-                style={{ width: "61%", fontSize: "25px" }}
+                style={{
+                  width: "75%",
+                  fontSize: "25px",
+                  textTransform: "uppercase",
+                }}
               />
-              <Title level={3} style={{ color: "white" }}>
+              <Title
+                level={3}
+                style={{ color: "white", textTransform: "uppercase" }}
+              >
                 Account Number
               </Title>
               <Input.OTP
+                variant="underlined"
                 length={14}
                 value="01107094110003"
-                style={{ fontSize: "25px" }}
+                className="otp-number"
               />
             </Flex>
           </Card>
