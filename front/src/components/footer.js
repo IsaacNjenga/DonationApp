@@ -43,16 +43,25 @@ function Footer() {
               marginTop: "15px",
             }}
           >
-            <a href="#" style={{ color: "#ffd700", textDecoration: "none" }}>
+            <a
+              href="https://facebook.com"
+              style={{ color: "#ffd700", textDecoration: "none" }}
+            >
               <FontAwesomeIcon icon={faFacebook} className="social-icon" />
             </a>
-            <a href="#" style={{ color: "#ffd700", textDecoration: "none" }}>
+            <a
+              href="https://x.com"
+              style={{ color: "#ffd700", textDecoration: "none" }}
+            >
               <FontAwesomeIcon
                 icon={faSquareXTwitter}
                 className="social-icon"
               />
             </a>
-            <a href="#" style={{ color: "#ffd700", textDecoration: "none" }}>
+            <a
+              href="https://instagram.com"
+              style={{ color: "#ffd700", textDecoration: "none" }}
+            >
               <FontAwesomeIcon icon={faInstagram} className="social-icon" />
             </a>
           </div>
@@ -88,10 +97,10 @@ function Footer() {
                 <FontAwesomeIcon icon={faAt} />
               </span>
               <a
-                href="mailto:janekimani630@gmail.com"
+                href="mailto:admin@upliftingkindnessfoundation.com"
                 style={{ color: "white", textDecoration: "none" }}
               >
-                janekimani630@gmail.com
+                admin@upliftingkindnessfoundation.com
               </a>
             </div>
           </div>

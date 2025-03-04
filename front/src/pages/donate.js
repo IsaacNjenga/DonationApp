@@ -11,7 +11,6 @@ import {
   faPersonShelter,
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
-import { toast } from "react-hot-toast";
 import Loader from "../components/loader";
 import {
   faCcAmex,
@@ -321,32 +320,7 @@ function Donate() {
               <Input.OTP length={6} value="883206" />
             </Flex>
           </Card>
-
-          {/* <button
-            onClick={() => transStatus("709d5aa2-f1c7-4a80-9f60-dc4e683bd648")}
-          >
-            transStatus
-          </button> */}
         </div>
-        {/* 
-        <div className="testimonials">
-          <h2>Donor Stories</h2>
-          <div className="testimonials-grid">
-            <div className="testimonial-donate-card">
-              <img src="path-to-story1.jpg" alt="Donor Story 1" />
-              <p>
-                "Thanks to your support, we were able to build a new school for
-                the community!"
-              </p>
-            </div>
-            <div className="testimonial-donate-card">
-              <img src="path-to-story2.jpg" alt="Donor Story 2" />
-              <p>
-                "Your generosity provided hot meals to 500 families last month."
-              </p>
-            </div>
-          </div>
-        </div> */}
 
         <Footer />
       </div>

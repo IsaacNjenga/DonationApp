@@ -200,10 +200,10 @@ export const contactInfo = [
     title: "Email",
     info: (
       <a
-        href="mailto:janekimani630@gmail.com"
+        href="mailto:admin@upliftingkindnessfoundation.com"
         style={{ color: "#ffd700", textDecoration: "none" }}
       >
-        janekimani630@gmail.com
+        admin@upliftingkindnessfoundation.com
       </a>
     ),
     info2: "",
