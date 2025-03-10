@@ -131,7 +131,7 @@ function Donate() {
         </div>
 
         <div>
-          <div>
+          {/* <div>
             <p>
               <i>
                 Thank you for supporting our cause - you can now use our
@@ -139,10 +139,10 @@ function Donate() {
               </i>
             </p>
             <Currency />
-          </div>
+          </div> */}
 
           <h1 style={{ fontSize: "2rem", color: "#333" }}>Donate here</h1>
-          <form
+          {/* <form
             onSubmit={handleSubmit}
             style={{ display: "flex", flexDirection: "column", gap: "15px" }}
             className="donation-form"
@@ -159,18 +159,6 @@ function Donate() {
                 border: "1px solid #ccc",
               }}
             />
-            {/* <label>Phone Number</label>
-            <input
-              type="tel"
-              onChange={handleChange}
-              name="phoneNumber"
-              required
-              style={{
-                padding: "10px",
-                borderRadius: "5px",
-                border: "1px solid #ccc",
-              }}
-            />*/}
             <label>Amount (in $)</label>
             <input
               type="number"
@@ -190,9 +178,9 @@ function Donate() {
             >
               Proceed <FontAwesomeIcon icon={faHandHoldingHeart} />
             </button>
-          </form>
+          </form> */}
 
-          <div className="payment-container">
+          {/* <div className="payment-container">
             <p>Accepted methods for donation</p>
             <div className="payment-div">
               <img src={mpesa} alt="mpesa_" className="payment-icon mpesa" />{" "}
@@ -230,7 +218,7 @@ function Donate() {
                 style={{ color: "#e5001a" }}
               />
             </div>
-          </div>
+          </div> */}
 
           <Divider
             variant="solid"
@@ -238,7 +226,7 @@ function Donate() {
             className="home-divider"
           >
             <h2 style={{ textAlign: "center" }}>
-              You can also donate via Co-operative Bank of Kenya
+              You can donate via Co-operative Bank of Kenya
             </h2>
           </Divider>
           <Card
