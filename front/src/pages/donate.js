@@ -22,6 +22,7 @@ import airtel from "../assets/icons/airtel.png";
 import Swal from "sweetalert2";
 import Currency from "../components/currency";
 import { Card, Divider, Flex, Input, Typography } from "antd";
+import Motion from "../components/motion";
 
 const { Title } = Typography;
 const coopLogo =
@@ -83,55 +84,56 @@ function Donate() {
 
   return (
     <>
-      {loading && <Loader />}
-      <div className="donation-container">
-        <div className="donation-bg-image">
-          {" "}
-          <div className="navbar-element">
-            <Navbar />
-          </div>
-          <div className="donation-content">
-            <div className="donation-header">
-              <h1 style={{ color: "white", marginTop: "155px" }}>Donate</h1>
-              <h4 style={{ color: "white" }}>
-                <Link to="/" className="home-link">
-                  HOME
-                </Link>{" "}
-                &gt; DONATE
-              </h4>
+      <Motion>
+        {loading && <Loader />}
+        <div className="donation-container">
+          <div className="donation-bg-image">
+            {" "}
+            <div className="navbar-element">
+              <Navbar />
+            </div>
+            <div className="donation-content">
+              <div className="donation-header">
+                <h1 style={{ color: "white", marginTop: "155px" }}>Donate</h1>
+                <h4 style={{ color: "white" }}>
+                  <Link to="/" className="home-link">
+                    HOME
+                  </Link>{" "}
+                  &gt; DONATE
+                </h4>
+              </div>
             </div>
           </div>
-        </div>
-        <p className="donation-tagline" style={{ color: "grey" }}>
-          <i>Your generosity can change lives!</i>
-        </p>
-        <div className="donation-impact">
-          <h2>Where Your Donations Go</h2>
-          <p>
-            Every dollar you donate supports our mission to provide food,
-            shelter, and education to those in need.
+          <p className="donation-tagline" style={{ color: "grey" }}>
+            <i>Your generosity can change lives!</i>
           </p>
-          <div className="impact-icons">
-            <div className="icon-card">
-              <FontAwesomeIcon icon={faUtensils} className="donation-icon" />
-              <p>Food Assistance</p>
-            </div>
-            <div className="icon-card">
-              <FontAwesomeIcon
-                icon={faPersonShelter}
-                className="donation-icon"
-              />
-              <p>Shelter Support</p>
-            </div>
-            <div className="icon-card">
-              <FontAwesomeIcon icon={faBookOpen} className="donation-icon" />
-              <p>Education Programs</p>
+          <div className="donation-impact">
+            <h2>Where Your Donations Go</h2>
+            <p>
+              Every dollar you donate supports our mission to provide food,
+              shelter, and education to those in need.
+            </p>
+            <div className="impact-icons">
+              <div className="icon-card">
+                <FontAwesomeIcon icon={faUtensils} className="donation-icon" />
+                <p>Food Assistance</p>
+              </div>
+              <div className="icon-card">
+                <FontAwesomeIcon
+                  icon={faPersonShelter}
+                  className="donation-icon"
+                />
+                <p>Shelter Support</p>
+              </div>
+              <div className="icon-card">
+                <FontAwesomeIcon icon={faBookOpen} className="donation-icon" />
+                <p>Education Programs</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div>
-          {/* <div>
+          <div>
+            {/* <div>
             <p>
               <i>
                 Thank you for supporting our cause - you can now use our
@@ -141,8 +143,8 @@ function Donate() {
             <Currency />
           </div> */}
 
-          <h1 style={{ fontSize: "2rem", color: "#333" }}>Donate here</h1>
-          {/* <form
+            <h1 style={{ fontSize: "2rem", color: "#333" }}>Donate here</h1>
+            {/* <form
             onSubmit={handleSubmit}
             style={{ display: "flex", flexDirection: "column", gap: "15px" }}
             className="donation-form"
@@ -180,7 +182,7 @@ function Donate() {
             </button>
           </form> */}
 
-          {/* <div className="payment-container">
+            {/* <div className="payment-container">
             <p>Accepted methods for donation</p>
             <div className="payment-div">
               <img src={mpesa} alt="mpesa_" className="payment-icon mpesa" />{" "}
@@ -220,98 +222,99 @@ function Donate() {
             </div>
           </div> */}
 
-          <Divider
-            variant="solid"
-            style={{ borderColor: "#ffcc07" }}
-            className="home-divider"
-          >
-            <h2 style={{ textAlign: "center" }}>
-              You can donate via Co-operative Bank of Kenya
-            </h2>
-          </Divider>
-          <Card
-            style={{
-              margin: "10px 0px",
-              background: "#0a5745",
-            }}
-            title={
-              <img src={coopLogo} alt="co-op" className="payment-icon coop" />
-            }
-          >
-            <Flex gap="middle" align="flex-start" vertical>
-              <Title
-                level={3}
-                style={{ color: "white", textTransform: "uppercase" }}
-              >
-                Account Name
-              </Title>
-              <Input
-                value="Eunice/Jane"
-                style={{
-                  width: "90%",
-                  fontSize: "25px",
-                  textTransform: "uppercase",
-                  letterSpacing: "2px",
-                }}
-              />
-              <Title
-                level={3}
-                style={{ color: "white", textTransform: "uppercase" }}
-              >
-                Account Number
-              </Title>
-              <Input
-                length={14}
-                value="01107094110003"
-                style={{
-                  width: "90%",
-                  fontSize: "25px",
-                  textTransform: "uppercase",
-                  letterSpacing: "4px",
-                }}
-              />
-            </Flex>
-          </Card>
-          <br />
-          <Divider
-            variant="solid"
-            style={{ borderColor: "#ffcc07" }}
-            className="home-divider"
-          >
-            <h2 style={{ textAlign: "center" }}>
-              You can also donate via our M-pesa Pay Bill
-            </h2>
-          </Divider>
-          <Card
-            style={{
-              margin: "10px 0px",
-              background: "#0a5745",
-            }}
-            title={
-              <img src={mpesa} alt="mpesa" className="payment-icon coop" />
-            }
-          >
-            <Flex gap="middle" align="flex-start" vertical>
-              <Title
-                level={3}
-                style={{ color: "white", textTransform: "uppercase" }}
-              >
-                Business Number
-              </Title>
-              <Input.OTP length={6} value="400200" />
-              <Title
-                level={3}
-                style={{ color: "white", textTransform: "uppercase" }}
-              >
-                Account Number
-              </Title>
-              <Input.OTP length={6} value="883206" />
-            </Flex>
-          </Card>
-        </div>
+            <Divider
+              variant="solid"
+              style={{ borderColor: "#ffcc07" }}
+              className="home-divider"
+            >
+              <h2 style={{ textAlign: "center" }}>
+                You can donate via Co-operative Bank of Kenya
+              </h2>
+            </Divider>
+            <Card
+              style={{
+                margin: "10px 0px",
+                background: "#0a5745",
+              }}
+              title={
+                <img src={coopLogo} alt="co-op" className="payment-icon coop" />
+              }
+            >
+              <Flex gap="middle" align="flex-start" vertical>
+                <Title
+                  level={3}
+                  style={{ color: "white", textTransform: "uppercase" }}
+                >
+                  Account Name
+                </Title>
+                <Input
+                  value="Eunice/Jane"
+                  style={{
+                    width: "90%",
+                    fontSize: "25px",
+                    textTransform: "uppercase",
+                    letterSpacing: "2px",
+                  }}
+                />
+                <Title
+                  level={3}
+                  style={{ color: "white", textTransform: "uppercase" }}
+                >
+                  Account Number
+                </Title>
+                <Input
+                  length={14}
+                  value="01107094110003"
+                  style={{
+                    width: "90%",
+                    fontSize: "25px",
+                    textTransform: "uppercase",
+                    letterSpacing: "4px",
+                  }}
+                />
+              </Flex>
+            </Card>
+            <br />
+            <Divider
+              variant="solid"
+              style={{ borderColor: "#ffcc07" }}
+              className="home-divider"
+            >
+              <h2 style={{ textAlign: "center" }}>
+                You can also donate via our M-pesa Pay Bill
+              </h2>
+            </Divider>
+            <Card
+              style={{
+                margin: "10px 0px",
+                background: "#0a5745",
+              }}
+              title={
+                <img src={mpesa} alt="mpesa" className="payment-icon coop" />
+              }
+            >
+              <Flex gap="middle" align="flex-start" vertical>
+                <Title
+                  level={3}
+                  style={{ color: "white", textTransform: "uppercase" }}
+                >
+                  Business Number
+                </Title>
+                <Input.OTP length={6} value="400200" />
+                <Title
+                  level={3}
+                  style={{ color: "white", textTransform: "uppercase" }}
+                >
+                  Account Number
+                </Title>
+                <Input.OTP length={6} value="883206" />
+              </Flex>
+            </Card>
+          </div>
 
-        <Footer />
-      </div>
+          <Footer />
+        </div>
+      </Motion>
     </>
   );
 }

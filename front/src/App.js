@@ -23,6 +23,7 @@ import TransactionStatus from "./pages/transactionStatus";
 import Redirector from "./components/redirector";
 import ProtectedRoutes from "./components/protectedRoute";
 import Volunteers from "./pages/volunteers";
+import { AnimatePresence } from "framer-motion";
 
 export const UserContext = createContext(null);
 
@@ -65,7 +66,7 @@ function App() {
         setOrderTrackingId,
       }}
     >
-      <BrowserRouter>
+      <AnimatePresence mode="wait">
         <Redirector />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -134,7 +135,7 @@ function App() {
           <Route path="/logout" element={<Logout />} />
         </Routes>
         <Toaster position="top-right" toastOption={{ duration: 2200 }} />
-      </BrowserRouter>
+      </AnimatePresence>
     </UserContext.Provider>
   );
 }
