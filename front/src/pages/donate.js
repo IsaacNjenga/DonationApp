@@ -132,7 +132,7 @@ function Donate() {
             </div>
           </div>
 
-          <div>
+          <div style={{ padding: 12 }}>
             {/* <div>
             <p>
               <i>
@@ -264,7 +264,7 @@ function Donate() {
                 </Title>
                 <Input
                   length={14}
-                  value="01107094110003"
+                  value="01101947546001"
                   style={{
                     width: "90%",
                     fontSize: "25px",
