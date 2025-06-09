@@ -248,7 +248,7 @@ function Donate() {
                   Account Name
                 </Title>
                 <Input
-                  value="Eunice/Jane"
+                  value="UPLIFTING AND KINDNESS CBO"
                   style={{
                     width: "90%",
                     fontSize: "25px",
