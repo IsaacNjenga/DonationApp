@@ -4,14 +4,14 @@
 }
 
 .volunteer-bg-image {
-  background: url(../images/food.jpg) no-repeat center center/cover;
+  background: url('https://images.pexels.com/photos/3277188/pexels-photo-3277188.jpeg') no-repeat center center/cover;
   padding-top: 0;
   margin-top: 0;
-  padding-bottom: 80px;
+  padding-bottom: 100px;
 }
 .volunteer-content {
-  padding: 40px;
-  margin-bottom: 65px;
+  padding: 110px;
+  margin-bottom: 100px;
 }
 .volunteer-header {
   text-align: center;

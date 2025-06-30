@@ -16,6 +16,7 @@
     "dotenv": "^16.4.7",
     "framer-motion": "^12.10.5",
     "front": "file:",
+    "gsap": "^3.13.0",
     "moment": "^2.30.1",
     "react": "^18.3.1",
     "react-data-table-component": "^7.6.2",

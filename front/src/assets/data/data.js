@@ -5,19 +5,6 @@ import waterDropIcon from "../icons/mineral-water.png";
 import loveCareIcon from "../icons/hands.png";
 import shelterIcon from "../icons/shelter.png";
 
-import foodImage from "../images/food.jpg";
-import educationImage from "../images/childrenInClass.jpg";
-import inclass1 from "../images/inclass1.jpg";
-import inclass2 from "../images/inclass2.jpg";
-import inclass3 from "../images/inclass3.jpg";
-import food1 from "../images/food1.jpg";
-import food2 from "../images/food2.jpg";
-import food3 from "../images/food3.jpg";
-import water1 from "../images/water1.jpg";
-import water2 from "../images/water2.jpg";
-import water3 from "../images/water3.jpg";
-import waterImage from "../images/cleanwater.jpg";
-
 import jane from "../images/ceo.jpg";
 import eunice from "../images/manager.jpg";
 import michael from "../images/michael.jpg";
@@ -93,20 +80,35 @@ export const homeInformation = [
 export const featuredCases = [
   {
     id: 1,
-    image: [foodImage, food1, food2, food3],
+    image: [
+      "https://images.pexels.com/photos/30441517/pexels-photo-30441517.jpeg",
+      "https://images.unsplash.com/photo-1608500218861-01091cdc501e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFmcmljYW4lMjBmb29kfGVufDB8fDB8fHww",
+      "https://plus.unsplash.com/premium_photo-1663100451272-ab5bef759b7c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWZyaWNhbiUyMGNoaWxkJTIwZWF0aW5nfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1694286080490-aa5cba939c6a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWZyaWNhbiUyMGNoaWxkJTIwZWF0aW5nfGVufDB8fDB8fHww",
+    ],
     title: "Feed the Children",
     body: "Join us in providing nourishing meals to children in need. Your support ensures they have the energy and health to learn, grow, and thrive. Together, we can make a difference, one meal at a time.",
   },
   {
     id: 2,
     title: "Education",
-    image: [educationImage, inclass1, inclass2, inclass3],
+    image: [
+      "https://images.unsplash.com/photo-1668620589356-56ba14193005?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YWZyaWNhbiUyMGNoaWxkJTIwbGVhcm5pbmclMjBpbiUyMGNsYXNzfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1473649085228-583485e6e4d7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGFmcmljYW4lMjBjaGlsZCUyMGxlYXJuaW5nJTIwaW4lMjBjbGFzc3xlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1583951171188-48057a97073f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFmcmljYW4lMjBjaGlsZCUyMGxlYXJuaW5nJTIwaW4lMjBjbGFzc3xlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1620969910995-4bbe4eaa32c1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGFmcmljYW4lMjBjaGlsZCUyMGxlYXJuaW5nJTIwaW4lMjBjbGFzc3xlbnwwfHwwfHx8MA%3D%3D",
+    ],
     body: "Empower children with the gift of knowledge. Your support helps provide access to quality education, giving them the tools they need to build a brighter future. Together, we can create opportunities that transform lives and communities.",
   },
   {
     id: 3,
     title: "Clean Water",
-    image: [waterImage, water1, water2, water3],
+    image: [
+      "https://images.unsplash.com/photo-1740741705746-74e6f9b93b4f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGFmcmljYW4lMjBjaGlsZCUyMGRyaW5raW5nJTIwd2F0ZXJ8ZW58MHx8MHx8fDA%3D",
+      "https://images.unsplash.com/photo-1667549873806-28fd8b5957e3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGFmcmljYW4lMjBjaGlsZCUyMGRyaW5raW5nJTIwd2F0ZXJ8ZW58MHx8MHx8fDA%3D",
+      "https://images.unsplash.com/photo-1697649124175-8115463efde4?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGFmcmljYW4lMjBjaGlsZCUyMGRyaW5raW5nJTIwd2F0ZXJ8ZW58MHx8MHx8fDA%3D",
+      "https://images.unsplash.com/photo-1740741703651-2ab84a608a0b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGFmcmljYW4lMjBjaGlsZCUyMGRyaW5raW5nJTIwd2F0ZXJ8ZW58MHx8MHx8fDA%3D",
+    ],
     body: "Access to clean water is a basic necessity and a foundation for healthy living. Your support helps us provide safe, clean water to children and their communities, reducing illness and creating a better quality of life. Together, we can ensure every child has the water they need to thrive.",
   },
 ];

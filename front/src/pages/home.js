@@ -3,7 +3,6 @@ import Navbar from "../components/navbar";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/footer";
 import "../assets/css/home.css";
-import holdingChild from "../assets/images/holdingChild.jpg";
 import childrenInClass from "../assets/images/pic.jpg";
 import Counter from "../components/counter";
 import { Carousel, FloatButton } from "antd";
@@ -15,8 +14,9 @@ import {
   testimonials,
   volunteers,
 } from "../assets/data/data";
-import { motion } from "framer-motion";
 import Motion from "../components/motion";
+import ScrollReveal from "../components/scrollReveal";
+
 function Home() {
   const navigate = useNavigate();
 
@@ -47,11 +47,19 @@ function Home() {
 
           <div className="home-section">
             <p className="hero-subtitle">
-              Every child deserves love, care, and the chance to thrive.
-              Together, we can provide the support they need—nourishing meals, a
-              warm home, and the hope for a brighter future. Join us in bringing
-              joy and comfort to these children, creating memories that will
-              last a lifetime. Your contribution will make a world of difference
+              <ScrollReveal
+                baseOpacity={0}
+                enableBlur={true}
+                baseRotation={2}
+                blurStrength={2}
+              >
+                Every child deserves love, care, and the chance to thrive.
+                Together, we can provide the support they need—nourishing meals,
+                a warm home, and the hope for a brighter future. Join us in
+                bringing joy and comfort to these children, creating memories
+                that will last a lifetime. Your contribution will make a world
+                of difference
+              </ScrollReveal>
             </p>
             <div className="hero-buttons">
               <button className="cta-button" onClick={toDonate}>
@@ -67,7 +75,6 @@ function Home() {
               </button>
             </div>
           </div>
-
           <div className="information-section">
             {homeInformation.map((information) => (
               <div key={information.id} className="info-card">
@@ -118,7 +125,9 @@ function Home() {
           <div className="changing-section">
             <div className="changing-section-image">
               <img
-                src={holdingChild}
+                src={
+                  "https://images.pexels.com/photos/29676644/pexels-photo-29676644.jpeg"
+                }
                 alt="_"
                 className="holding-image"
                 loading="lazy"

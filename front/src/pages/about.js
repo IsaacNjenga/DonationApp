@@ -9,6 +9,7 @@ import nonprofit from "../assets/icons/nonprofit.png";
 import { FloatButton } from "antd";
 import { topNumbers } from "../assets/data/data";
 import Motion from "../components/motion";
+import ScrollReveal from "../components/scrollReveal";
 function About() {
   const navigate = useNavigate();
 
@@ -38,6 +39,7 @@ function About() {
           <div className="about-content">
             {/* <img src={Aboutbg} alt="_" className="about-bg-image" /> */}
             <div className="about-background"></div>
+            
             <div className="about-text">
               {" "}
               <h1 style={{ color: "black" }}>We Work Together</h1>

@@ -1,13 +1,14 @@
 .about-container {
   text-align: center;
   padding: 20px 0px;
-  background: url(../images/aboutbg1.jpg);
+  background: url('https://images.pexels.com/photos/29440636/pexels-photo-29440636.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   background-size: 100%;
 }
 .about-content {
   margin-top: 30%;
+  padding: 100px;
 }
 
 .h1-color {
